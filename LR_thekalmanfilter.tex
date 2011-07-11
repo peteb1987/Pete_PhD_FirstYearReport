@@ -1,0 +1,71 @@
+In a few simple cases the filtering set-up permits the derivation of closed form posterior distributions at each time instant. Most notably, the Kalman filter (KF) \cite{Kalman1960} is an analytic filter for models with continuous state and observation variables, in which both transition and observation models are linear transformations with Gaussian innovations.
+
+\begin{equation}
+x_t = A x_t + v_t
+\label{eq:LinearFilterEq1}
+\end{equation}
+\begin{equation}
+y_t = C x_t + w_t
+\label{eq:LinearFilterEq2}
+\end{equation}
+
+where $v_t$ and $w_t$ are now Gaussian random variables with zero mean and covariance matrices $Q$ and $R$. We use lower case variables here to emphasise that these are ``nice'', continuous vectors. (As we shall see, our state variable will later be sets or lists).
+
+Kalman's solution for the linear-Gaussian case is given by:
+
+\begin{equation}
+P(x_t|y_{1:t}) = \mathcal{N}(x_t|\mu_t, \Sigma_t )
+\label{eq:KF}
+\end{equation}
+\begin{equation}
+P(x_t|y_{1:t-1}) = \mathcal{N}(x_t|\hat{\mu}_t, \hat{\Sigma}_t )
+\label{eq:KFp}
+\end{equation}
+where $\mu_t$, $\Sigma_t$, etc. are given by the following recursions.
+
+Time Updates:
+\begin{equation}
+\hat{\mu}_t = A \mu_{t-1}
+\label{eq:KFTime1}
+\end{equation}
+\begin{equation}
+\hat{\Sigma}_t = A \Sigma_{t-1} A^{T} + Q
+\label{eq:KFTime2}
+\end{equation}
+
+Measurement Updates:
+\begin{equation}
+z_t = y_t - C \hat{\mu_t}
+\label{eq:KFMeas1}
+\end{equation}
+\begin{equation}
+S_t = C \hat{\Sigma}_t C^{T} + R
+\label{eq:KFMeas2}
+\end{equation}
+\begin{equation}
+K_t = \hat{\Sigma}_t C^{T} S_t^{-1}
+\label{eq:KFMeas3}
+\end{equation}
+\begin{equation}
+\mu_t = \hat{\mu}_t + K_t z_t
+\label{eq:KFMeas4}
+\end{equation}
+\begin{equation}
+\Sigma_t = (I - K_t C) \hat{\Sigma}_t
+\label{eq:KFMeas5}
+\end{equation}
+
+The KF is delightful because it not only provides us with a closed-form analytic solution, but the complexity of that solution does not increase as we receive additional measurements. This is a consequence of the fact that the Gaussian distribution is its own conjugate prior. Unfortunately, no other such convenient cases have been discovered \cite{Daum2005}. Analytic solutions to non-linear, non-Gaussian filtering problems generally require unacceptable conditions, such as zero process noise $Q=0$ \cite{Daum2005}.
+
+Given the loveliness of the KF, the instinct when faced by an intractable non-linear filtering problem is to linearise it. This produces the Extended Kalman Filter (EKF), and is achieved by replacing the $A$ and $C$ matrices in equations~\ref{eq:KFTime1} through~\ref{eq:KFMeas5} above with Jacobians:
+
+\begin{equation}
+A_t = \left . \frac{\partial f}{\partial x_t} \right \vert _{\mu_{t-1}}
+\label{eq:EKF1}
+\end{equation}
+\begin{equation}
+C_t = \left . \frac{\partial g}{\partial x_t} \right \vert _{\hat{\mu}_t}
+\label{eq:EKF2}
+\end{equation}
+
+ADD SOMETHING ABOUT SMOOTHING.

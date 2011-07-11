@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{Laplace1774}
+Pierre~Simon Laplace.
+\newblock Memoir on the probability of the causes of events.
+\newblock {\em Statistical Science}, 1(3):pp. 364--378, 1774.
+
+\bibitem{Kalman1960}
+R~E Kalman.
+\newblock A new approach to linear filtering and prediction problems.
+\newblock {\em Journal Of Basic Engineering}, 82(Series D):35--45, 1960.
+
+\bibitem{Daum2005}
+F.~Daum.
+\newblock Nonlinear filters: beyond the kalman filter.
+\newblock {\em Aerospace and Electronic Systems Magazine, IEEE}, 20(8):57 --69,
+  aug. 2005.
+
+\bibitem{Doucet2006}
+Arnaud Doucet, Mark Briers, and St\'{e}phane S\'{e}n\'{e}cal.
+\newblock Efficient block sampling strategies for sequential monte carlo.
+\newblock {\em Journal of Computational and Graphical Statistics},
+  15(3):693--711, 2006.
+
+\end{thebibliography}

@@ -1,0 +1,45 @@
+Many tasks in signal processing, science in general, and indeed life, require us to make some estimate of an unknown quantity from indirect, incomplete, or inaccurate observations. By constructing a model to explain how these observations depend on the underlying state, we can infer something about that state. We will express this observation model in terms of a likelihood function:
+
+\begin{equation}
+P(Y|X)
+\label{eq:LH}
+\end{equation}
+
+where $X$ is the state and $Y$ the observations. This is not the whole story - in many cases we are not estimating our unknown state ``from scratch''. Previous experience, prejudice, and prior knowledge can also contribute to our estimates. The likelihood and prior terms can be combined through our friend, Bayes rule \cite{Laplace1774}, to calculate the posterior probability of the state, i.e. the probability of the state given the observations:
+
+\begin{equation}
+P(X|Y) = \frac{P(Y|X)P(X)}{P(Y)}
+\label{eq:BayesRule}
+\end{equation}
+
+We may not be able to pinpoint an exact value with certainty, but the probability of different candidates may now be compared. Mathematically, we can assign a probability distribution to the state space of $X$.
+
+Often the quantity in which we are interested, $X$, is changing over time, and we would like to estimate its value at each point in time given only the observations received so far. In this case we will generally assume that the state is Markovian, i.e. that $X_t|X_{t-1}$ is independent of $X_{1:t-2}$. This is the traditional filtering problem. By constucting a model for the evolution of the unknown state, we can now derive our prior information from our estimate at the previous time step. In discrete time, we now write:
+
+\begin{equation}
+P(X_t|Y_{1:t}) = \frac{\int P(Y_t|X_t)P(X_t|X_{t-1})P(X_{t-1}|Y_{1:t-1}) dX_{t-1}}{P(Y_t|Y_{1:t-1})}
+\label{eq:SeqBayesRule}
+\end{equation}
+
+where the subscript indicates the time and ranges are notated by $:$ in the MATLAB style.
+
+Instead of marginalising the previous state, we may sometimes want to consider the joint state distribution over all time instances. This may similarly be expanded as:
+
+\begin{equation}
+P(X_{1:t}|Y_{1:t}) = \frac{P(Y_t|X_t)P(X_t|X_{t-1})P(X_{1:t-1}|Y_{1:t-1})}{P(Y_t|Y_{1:t-1})}
+\label{eq:JointSeqBayesRule}
+\end{equation}
+
+Note that in this expression we are estimating the distribution over previous time instances given the latest observations.
+
+So far, we have expressed the problem in terms of distributions, but sometimes we will need to consider recursive random variable equations. In the most general form:
+\begin{equation}
+X_t = f_t(X_{t-1}, V_t)
+\label{eq:FilterEq1}
+\end{equation}
+\begin{equation}
+Y_t = g_t(X_t, W_t)
+\label{eq:FilterEq2}
+\end{equation}
+
+where $f_t$ and $g_t$ are known deterministic functions and $V_t$ and $W_t$ and random variables. Again, we assume $X_t$ is Markovian.

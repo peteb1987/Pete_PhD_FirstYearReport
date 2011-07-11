@@ -1,0 +1,11 @@
+In general we will not be so lucky as to have a problem with linear-Gaussian dynamics. In this case, a particle filter (PF) may be the best alternative. With a PF, we approximate a probability distribution with a set of (weighted) samples drawn from that distribution.
+
+\begin{equation}
+P(X) \approx \frac{1}{N} \sum_m{W^{(m)} \delta_{X} (x^{(m)})}
+\label{eq:ParticleApprox}
+\end{equation}
+
+where $\delta (x)$ represents a unit probability point mass at a point $x$, and $\sum_m{W^{(m)}}=1$.
+
+Consider the posterior joint state distribution of equation~\ref{eq:JointSeqBayesRule}. 
+

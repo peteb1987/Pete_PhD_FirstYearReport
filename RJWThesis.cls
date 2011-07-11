@@ -1,0 +1,429 @@
+\newcommand{\docdate}{}
+\newcommand{\filedate}{}
+\newcommand{\fileversion}{}
+\renewcommand{\docdate}{2003/04/04}
+\renewcommand{\filedate}{2003/04/04}
+\renewcommand{\fileversion}{0.1}
+
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesClass{RJWThesis}%
+[\filedate\space v\fileversion\space RJW Thesis Class class]
+
+\LoadClassWithOptions{book}
+
+\RequirePackage{geometry}
+\RequirePackage{fancyhdr}
+\RequirePackage{ifthen}
+\RequirePackage{xcolor}
+\RequirePackage{amssymb}
+\RequirePackage{sectsty}
+\RequirePackage[autolanguage]{numprint}
+\RequirePackage{eso-pic}
+
+\newcommand{\chapnum@fontname}{ptm}
+\DeclareOption{sabonnumbers}{\renewcommand{\chapnum@fontname}{psb}}
+\DeclareOption{bookpaper}{%
+  \setlength{\paperwidth}{6in}
+  \setlength{\paperheight}{9in}
+}
+
+\ProcessOptions
+
+%% Lengths
+
+% Width of the page decoration bars.
+\newlength{\pagedecorationwidth}
+\setlength{\pagedecorationwidth}{0cm}
+\newlength{\chapnumoffset}
+\setlength{\chapnumoffset}{0.1\paperwidth}
+\def\rulewidth{1pt}
+
+% Margin to offset decoration by
+\newlength{\decorationoffset}
+\setlength{\decorationoffset}{0pt}
+
+% Standard lengths
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+%% Colours
+\definecolor{CambridgeLightBlue}{rgb}{0.6,0.8,1.0}
+\definecolor{CambridgeDeepBlue}{rgb}{0,0.2,0.4}
+\definecolor{CambridgeGreen}{rgb}{0,0.2,0}
+\definecolor{CambridgeBurgandy}{rgb}{0.2,0,0}
+\definecolor{CambridgeRed}{rgb}{0.8,0.0,0}
+\definecolor{CambridgeYellow}{rgb}{1,0.8,0}
+\definecolor{White}{rgb}{1,1,1}
+\definecolor{Black}{rgb}{0,0,0}
+
+\definecolor{CambridgePastelRed}{rgb}{1.0,0.5,0.5}
+
+\def\title@colour{Black}
+\def\subtitle@colour{Black}
+\def\thanks@colour{Black}
+\def\date@colour{Black}
+\def\author@colour{Black}
+\def\quote@colour{CambridgeDeepBlue}
+\def\dedication@colour{CambridgeDeepBlue}
+\def\chaphead@colour{Black}
+\def\chaprule@colour{CambridgeDeepBlue}
+\def\chapbackground@colour{White}
+\def\chapnum@colour{CambridgeDeepBlue}
+\def\pagenumber@colour{CambridgeDeepBlue}
+\def\pagefooter@colour{CambridgeDeepBlue}
+\def\section@colour{CambridgeDeepBlue}
+\def\subsection@colour{CambridgeDeepBlue}
+\def\subsubsection@colour{CambridgeDeepBlue}
+\def\cph@colour{CambridgeDeepBlue}
+\def\cpb@colour{CambridgeDeepBlue}
+
+%% Custom title page fields
+\def\sub@title{} \def\subtitle#1{\def\sub@title{#1}}
+\def\@group{\ } \def\group#1{\def\@group{#1}}
+\def\@department{\ } \def\department#1{\def\@department{#1}}
+
+%% Text
+\newcommand*{\fnumbersep}{,}
+
+%% Fonts
+\def\title@font{\LARGE\sc\bfseries}
+\def\subtitle@font{\normalsize}
+\def\thanks@font{\large\em}
+\def\date@font{\large}
+\def\author@font{\Large}
+\def\quote@font{\small\sf\em}
+\def\dedication@font{\Large\em}
+\def\chaphead@font{\itshape\bfseries\fontsize{24}{30}\selectfont}
+\def\pagenumber@font{\small}
+\def\pagefooter@font{\itshape}
+
+\def\section@font{\fontfamily{jkposn}\selectfont\large}
+\def\subsection@font{\fontfamily{jkposn}\selectfont\em\normalsize}
+\def\subsubsection@font{\normalfont\em\normalsize}
+
+\def\chapnum@font{\usefont{T1}{\chapnum@fontname}{b}{n}\fontsize{100}{130}\selectfont}
+\def\cph@font{\sf\bfseries\small}
+\def\cpb@font{\sf\small}
+
+%% Set the geometry.
+\geometry{inner=0.2\paperwidth,outer=0.125\paperwidth}
+\geometry{top=0.15\paperheight,bottom=0.15\paperheight}
+\geometry{head=3em,foot=3em}
+
+\def\dedication#1{%
+  {\centering%
+    \vspace*{0.2\textheight}\par%
+    \hskip -1in \hskip -\oddsidemargin%
+    \parbox{\paperwidth}{%
+      \centering%
+      \dedication@font\textcolor{\dedication@colour}{#1}%
+    }%
+  }%
+}
+
+% Set page header, footer
+\pagestyle{fancy}\fancyhead{}\fancyfoot{}%
+\fancyfoot[C]{\pagenumber@font\textcolor{\pagenumber@colour}{-~\thepage~-}}%
+
+%% Section headings etc.
+
+% We have to do it this way because pdflatex sometimes screws up
+% the colour of text if we do it the sensible way.
+\newcommand{\sect@format}[1]{%
+  \noindent\protect{%
+    \@tempdima=\hsize
+    \parbox{0.99\@tempdima}{%
+      \smallskip\section@font%
+      \textcolor{\section@colour}{#1}\smallskip
+    }%
+  }%
+}%
+\sectionfont{\sect@format}
+
+\newcommand{\subsect@format}[1]{%
+  \noindent\protect{%
+    \@tempdima=\hsize
+    \parbox{0.99\@tempdima}{%
+      \smallskip\subsection@font%
+      \textcolor{\subsection@colour}{#1}\smallskip
+    }%
+  }%
+}%
+\subsectionfont{\subsect@format}
+
+\newcommand{\subsubsect@format}[1]{%
+  \noindent\protect{%
+    \@tempdima=\hsize
+    \parbox{0.99\@tempdima}{%
+      \smallskip\subsubsection@font%
+      \textcolor{\subsubsection@colour}{#1}\smallskip
+    }%
+  }%
+}%
+\subsubsectionfont{\subsubsect@format}
+
+% Make section numbers appear in margin
+\def\@seccntformat#1{\protect\makebox[0pt][r]{{\csname the#1\endcsname}\quad}}
+
+%% Background picture
+\AtBeginDocument{
+\newlength{\flashheight}
+\setlength{\flashheight}{0.67\paperheight}
+\setlength\unitlength{1mm}%
+}
+
+\def\pagedec@skip{}
+%\AddToShipoutPicture{%
+%  \def\pagedec@skip{\hskip \paperwidth \hskip -\pagedecorationwidth \hskip -\decorationoffset}
+%  \def\flash@width{\pagedecorationwidth}
+%  \if@twoside
+%    \ifodd\c@page
+%      % nothing
+%    \else
+%      \def\pagedec@skip{\hskip \decorationoffset}
+%      \def\flash@width{-\pagedecorationwidth}
+%    \fi
+%  \fi        
+%  \AtPageLowerLeft{\pagedec@skip\includegraphics[width=\flash@width,height=\flashheight]{thesis_graphics/page_flash}}
+%}
+
+%% Quotes for fancy chapter headings.
+\newsavebox{\@quotebox}
+\newcommand{\i@printquote}{%
+  \usebox{\@quotebox}
+%  \vbox to\z@{\copy\@quotebox\vss}
+  \global\let\@printquote\relax
+}
+\global\let\@printquote\relax
+\newenvironment{savequote}[1][0.33\paperwidth]{%
+  \begin{lrbox}{\@quotebox}%
+    \def\baselinestretch {1.1}%
+    \begin{minipage}[t]{#1}%
+      \raggedright\color{\quote@colour}\quote@font
+}{%
+      \unskip%
+      \end{minipage}%
+    \end{lrbox}%
+    \global\setbox\@quotebox\copy\@quotebox
+    \global\let\@printquote\i@printquote
+}%
+\newcommand{\qauthor}[1]{%
+  \par\smallskip
+  {\raggedleft\upshape #1\qquad\hbox{}\par}\bigskip}
+
+\newcommand{\quoteperson}[2]{%
+  {\@hangfrom{``}{#1''}\par\nobreak}{\raggedleft --- \emph{#2}\par\nobreak}%
+}
+
+%% Chapter headings
+\newsavebox{\chap@savetitle}
+\newlength{\chapheadwidth}
+\newlength{\chapnumheight}
+\newlength{\chapflash@width}
+
+\AtBeginDocument{
+\setlength{\chapheadwidth}{\paperwidth}
+\addtolength{\chapheadwidth}{-1cm}
+\addtolength{\chapheadwidth}{-\oddsidemargin}
+\addtolength{\chapheadwidth}{-\evensidemargin}
+\addtolength{\chapheadwidth}{-\chapnumoffset}
+\addtolength{\chapheadwidth}{-2cm}
+
+\setlength{\chapflash@width}{\paperwidth}
+\addtolength{\chapflash@width}{-2\decorationoffset}
+}
+
+\if@twoside
+  \fancyhead[RE]{\pagefooter@font\textcolor{\pagefooter@colour}{%
+    \leftmark
+    % \parbox[t]{0.8\textwidth}{\raggedright\leftmark}\\\vskip0.25em \hrule%
+  }}%
+  \fancyhead[LO]{\pagefooter@font\textcolor{\pagefooter@colour}{%
+    \rightmark
+    % \parbox[t]{0.8\textwidth}{\raggedleft\rightmark}\\\vskip0.25em \hrule%
+  }}%
+\else
+  \fancyhead[LO]{\pagefooter@font\textcolor{\pagefooter@colour}{%
+    \leftmark
+    % \parbox[t]{0.8\textwidth}{\raggedright\rightmark}\\\vskip0.25em \hrule%
+  }}%
+\fi
+
+\renewcommand\sectionmark[1]{%
+  \if@twoside
+    \markright{\thesection\ #1}
+  \fi
+}
+
+\renewcommand{\@makechapterhead}[1]{%
+  \markboth{#1}
+  \relax\rule{0pt}{0pt}\par%
+  \vskip -\topmargin \vskip -\headsep \vskip -\headheight %
+  \vskip -1in %
+  \vskip 0.4\paperheight %
+  \vskip -0.5\baselineskip %
+  \AddToShipoutPicture*{%
+    \setlength\unitlength{\paperheight}%
+    \AtPageUpperLeft{%
+      % Background splash
+      \put(0,-0.33){%
+        \color{\chapbackground@colour}%
+        \rule{\paperwidth}{0.33\paperheight}%
+      }%
+      % Flash
+      %\put(0,-0.33){%
+      %  \hskip \decorationoffset %
+      %  \includegraphics[width=\chapflash@width,height=0.33\paperheight]{thesis_graphics/chapter_flash}
+      %}%
+      % Quote
+      \put(-0.03,-0.05){%
+        \hspace{0.05\paperwidth}\hspace{\oddsidemargin}%
+        \@printquote%
+      }%
+      % Title
+      \put(0,-0.3){%
+        \hspace{1in}\hspace{\oddsidemargin}%
+        \def\baselinestretch{1.0}%
+        \parbox[b]{\chapheadwidth}{%
+          \raggedright%
+          \chaphead@font\textcolor{\chaphead@colour}{#1}%
+        }%
+      }%
+      % Rule
+      \put(0,-0.33){%
+        \color{\chaprule@colour}\rule{\paperwidth}{\rulewidth}%
+      }%
+    }%
+  }%
+  % Only draw number if necessary
+  \ifnum \c@secnumdepth >\m@ne%
+    \if@mainmatter%
+      \AddToShipoutPicture*{%
+        \setlength\unitlength{\paperheight}%
+        \AtPageUpperLeft{
+          \put(0,-0.05){%
+            \parbox{\paperwidth}{%
+              \settoheight{\chapnumheight}{%
+                \chapnum@font\thechapter%
+              }\vskip \chapnumheight%
+              \raggedleft\chapnum@font\textcolor{\chapnum@colour}\thechapter%
+              \hspace*{\chapnumoffset}%
+              \hspace*{\decorationoffset}%
+            }
+          }
+        }
+      }
+    \fi%
+  \fi%
+  \thispagestyle{empty}%
+}
+
+\renewcommand{\@makeschapterhead}[1]{%
+  {\let\c@secnumdepth\m@ne\@makechapterhead{#1}}}
+
+%% Title page
+
+\def\thanks#1{\\{\thanks@font\textcolor{\thanks@colour}{#1}}}
+\def\today{\ifcase\month\or
+  January\or February\or March\or April\or May\or June\or
+  July\or August\or September\or October\or November\or December\fi\space%
+  \number\year}
+
+\newlength{\title@height}
+\newlength{\title@offset}
+\def\maketitle{%
+  \begin{titlepage}
+    \AddToShipoutPicture*{%
+      \setlength\unitlength{\paperheight}%
+      \AtPageLowerLeft{%
+        \color{White}\rule{\paperwidth}{\paperheight}%
+      }%
+      %\AtPageLowerLeft{%
+      %  \put(0,0.6){%
+      %    \hskip \decorationoffset%
+      %    \includegraphics[width=\chapflash@width,height=0.17\paperheight]{thesis_graphics/chapter_flash}%
+      %  }%
+      %}%
+      \AtPageLowerLeft{%
+        \put(0,0.6){\color{CambridgeLightBlue}\rule{\paperwidth}{0.17\paperheight}}%
+      }%
+      \AtPageLowerLeft{
+        \put(0,0.05){%
+          \hspace*{0.05\paperwidth}%
+          \parbox{0.55\paperwidth}{%
+            \def\baselinestretch{1.5}\selectfont
+            {\sc\small\bfseries \@group\newline\@department}
+          }
+        }%
+        \put(0,0.05){%
+          \parbox{\paperwidth}{%
+            \raggedleft%
+            \includegraphics[height=0.045\paperheight]{thesis_graphics/CUnibig.pdf}%
+            \hspace*{0.05\paperwidth}%
+          }%
+        }%
+        \put(0,0.10){%
+          \textcolor{CambridgeDeepBlue}{\rule{\paperwidth}{\rulewidth}}%
+        }%
+        \put(0,0.6){%
+          \hspace*{0.15\paperwidth}%
+          \def\baselinestretch{1.3}%
+          \settoheight{\title@height}{%
+            \parbox[b]{0.7\paperwidth}{\centering\title@font\@title}%
+          }%
+          \setlength{\title@offset}{0.085\paperheight}%
+          \addtolength{\title@offset}{-0.5\title@height}%
+          \parbox[b]{0.7\paperwidth}{%
+            \centering\title@font\textcolor{\title@colour}{\@title}%
+            \vspace*{\title@offset}%
+          }%
+        }%
+        \put(0,0.565){%
+          \parbox[t]{\paperwidth}{%
+            \def\baselinestretch{1.0}%
+            \centering%
+            {\author@font\textcolor{\author@colour}{%
+            \begin{tabular}[t]{c}%
+            \@author\end{tabular}
+            }}
+            \par\vspace*{1.0\baselineskip}%
+            {\date@font\textcolor{\date@colour}{\@date}}%
+            \par%
+            \textcolor{CambridgeDeepBlue}{\rule{\paperwidth}{\rulewidth}}
+            \par\vspace*{0.5\baselineskip}%
+            \def\baselinestretch{1.3}%
+            {\subtitle@font\textcolor{\subtitle@colour}{\sub@title}\par}%
+          }%
+        }%
+        \put(0,0.6){%
+          \textcolor{CambridgeDeepBlue}{\rule{\paperwidth}{\rulewidth}}%
+        }%
+        \put(0,0.77){%
+          \textcolor{CambridgeDeepBlue}{\rule{\paperwidth}{\rulewidth}}%
+        }%
+      }%
+    }
+    \vfil\null
+  \end{titlepage}%
+}
+
+
+%% Fancy captions
+\long\def\@makecaption#1#2{%
+ \renewcommand{\baselinestretch}{1.1}\selectfont
+ \vskip\abovecaptionskip\hrule\vskip\abovecaptionskip%
+ \setbox\@tempboxa\hbox{{\cph@font\textcolor{\cph@colour}{#1: }}%
+   {\cpb@font\textcolor{\cpb@colour}{#2}}}%
+ \ifdim \wd\@tempboxa >\hsize
+    \@hangfrom{{\cph@font%
+      \textcolor{\cph@colour}{#1: }}}%
+    {{\cpb@font%
+      \textcolor{\cpb@colour}{#2}}\par}%
+ \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+ \fi
+ \vskip\abovecaptionskip\hrule%
+ \vskip\belowcaptionskip%
+}
+
+
