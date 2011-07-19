@@ -6,8 +6,10 @@
 \usepackage{graphicx}
 \usepackage{harvard}
 
-\title{First Year Report: \\ Fixed Lag Particle Filtering for Target Tracking}
+\title{Fixed Lag Particle Filtering for Target Tracking}
+\subtitle{A report on the first year's progress}
 \author{Pete Bunch}
+\date{August 2011}
 
 
 
@@ -17,8 +19,12 @@
 \maketitle
 \tableofcontents
 
+
 \chapter{Introduction}
 Everyone loves to track things. Yay! 
+
+
+
 
 \chapter{Particle Methods} \label{chap:basics}
 \section{Bayes of our lives - what is filtering?}
@@ -27,18 +33,34 @@ Everyone loves to track things. Yay!
 \section{Keep Kalman carry on - the Kalman filter and its extensions}
 \input{LR_thekalmanfilter}
 
-\section{Tough as old bootstraps - the traditional approach}
+\section{Tough as old bootstraps - a review of particle filter}
+\input{particlefilterreview}
+
+\section{Particular details - mathematical basics of the particle filter}
 \input{LR_thebasicparticlefilter}
 
 \section{MCMC in da house - series vs. parallel}
 S-MCMC (Godsill) approach
 
 
+
+
 \chapter{Approaches to Tracking}
-A brief overview
+
+\section{Why do we track?}
+\input{trackingintro}
+
+\section{Models for tracking}
+\input{trackingmodels}
+
+\section{Algorithms for tracking}
 JPDAF
 MHT
-Brief mention of PFs
+MCMCDA
+Particle filters. Especially Vermaak
+RBPF
+
+
 
 
 \chapter{Fixed Lag Estimation for Tracking}
@@ -48,8 +70,11 @@ Brief mention of PFs
 \section{A mathematical framework for fixed lag estimation}
 \input{fixedlagmaths}
 
-\section{Fixed lag estimation for tracking}
+\section{Applying the fixed lag method to the tracking model}
 \input{fixedlagfortracking}
+
+
+
 
 \chapter{Fixed Lag Particle Filters}
 \section{Sequential Importance Sampling and Resampling}
@@ -57,10 +82,16 @@ Brief mention of PFs
 \section{Markov Chain Monte Carlo}
 \section{Marginalised Particle Filters}
 
+
+
+
 \chapter{Plan Of Future Research}
 radar, insects, crowds, cells, jump-diffusions, cursor tracking...
 
-\bibliographystyle{unsrt}
+
+
+
+\bibliographystyle{dcu_noURLs}
 \bibliography{D:/pb404/Bibtex/OTbib}
 
 \end{document}

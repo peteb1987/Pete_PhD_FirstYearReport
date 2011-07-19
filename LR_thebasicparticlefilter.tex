@@ -1,7 +1,7 @@
-In general we will not be so lucky as to have a problem with linear-Gaussian dynamics. In this case, a particle filter (PF) may be the best alternative. With a PF, we approximate a probability distribution with a set of (weighted) samples drawn from that distribution.
+With a PF, we approximate a probability distribution with a set of (weighted) samples drawn from that distribution.
 
 \begin{equation}
-P(X) \approx \frac{1}{N} \sum_m{W^{(m)} \delta_{X} (x^{(m)})}
+P(X) \approx \frac{1}{N} \sum_m{W^{(m)} \delta_{X^{(m)}} (X)}
 \label{eq:ParticleApprox}
 \end{equation}
 
@@ -12,7 +12,7 @@ We still face the problem of how to generate these samples. The conventional met
 Suppose we have a particle approximation to the joint posterior distribution from the previous frame, $\hat{P}(X_{1:t-1}|Y_{1:t-1})$. Each particle represents a path through time, $X_{1:t-1}^{(m)}$, and has an associated weight, $W_{t-1}^{(m)}$. Let us imagine also that the unweighted particles are samples from another distribution:
 
 \begin{equation}
-\mu(X_{1:t-1}|Y_{1:t-1}) \approx \frac{1}{N} \sum_m{W^{(m)} \delta_{X} (x_{1:t}^{(m)})}
+\mu(X_{1:t-1}|Y_{1:t-1}) \approx \frac{1}{N} \sum_m{W^{(m)} \delta_{X_{1:t}^{(m)}} (X_{1:t})}
 \label{eq:UnweightParticleDistn}
 \end{equation}
 
@@ -85,3 +85,6 @@ Resampling strategies - systematic, multinomial, etc.
 It remains to choose the the importance distribution for the current state, $q(X_{t}|X_{t-1}, Y_{t})$. In the original ``bootstrap filter'' of \cite{Gordon1993}, this was set equal to the transition density, $P(X_t|X_{t-1})$, which leads to cancellation in the expression for importance weights. This is simple but not necessarily optimal. For example if the process noise is high, the samples of $X_t$ will be widely spread. If, however, the observation noise is comparitively low, many or most of the samples will be far from the observation and will have a low weight. This is undesirable, as discussed in section~\ref{sec:degeneracy}.
 
 An improved choice of  - Optimal importance dist
+
+
+Add a discussion of the problem of dimensionality.

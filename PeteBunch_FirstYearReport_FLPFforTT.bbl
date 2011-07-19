@@ -1,55 +1,72 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{xx}
 
-\bibitem{Laplace1774}
-Pierre~Simon Laplace.
-\newblock Memoir on the probability of the causes of events.
-\newblock {\em Statistical Science}, 1(3):pp. 364--378, 1774.
+\harvarditem{Bayes \harvardand\ Price}{1763}{Bayes1763}
+Bayes, M. \harvardand\ Price, M.  \harvardyearleft 1763\harvardyearright .
+\newblock An essay towards solving a problem in the doctrine of chances. by the
+  late rev. mr. bayes, frs communicated by mr. price, in a letter to john
+  canton, amfrs, {\em Philosophical Transactions} {\bf 53}:~370.
 
-\bibitem{Kalman1960}
-R~E Kalman.
-\newblock A new approach to linear filtering and prediction problems.
-\newblock {\em Journal Of Basic Engineering}, 82(Series D):35--45, 1960.
-
-\bibitem{Daum2005}
-F.~Daum.
-\newblock Nonlinear filters: beyond the kalman filter.
-\newblock {\em Aerospace and Electronic Systems Magazine, IEEE}, 20(8):57 --69,
-  aug. 2005.
-
-\bibitem{Cappe2007}
-O.~Capp{\'e}, S.J. Godsill, and E.~Moulines.
-\newblock An overview of existing methods and recent advances in sequential
-  monte carlo.
-\newblock {\em Proceedings of the IEEE}, 95(5):899--924, 2007.
-
-\bibitem{Doucet2009}
-A.~Doucet and A.~M. Johansen.
-\newblock A tutorial on particle filtering and smoothing: Fifteen years later.
-\newblock In D~Crisan and B~Rozovsky, editors, {\em The Oxford Handbook of
-  Nonlinear Filtering}. Oxford University Press, 2009.
-
-\bibitem{Pitt1999}
-Michael~K. Pitt and Neil Shephard.
-\newblock Filtering via simulation: Auxiliary particle filters.
-\newblock {\em Journal of the American Statistical Association}, 94(446):pp.
-  590--599, 1999.
-
-\bibitem{Gordon1993}
-N.J. Gordon, D.J. Salmond, and A.F.M. Smith.
-\newblock Novel approach to nonlinear/non-gaussian bayesian state estimation.
-\newblock {\em Radar and Signal Processing, IEE Proceedings F}, 140(2):107
-  --113, apr 1993.
-
-\bibitem{Doucet2006}
-Arnaud Doucet, Mark Briers, and St\'{e}phane S\'{e}n\'{e}cal.
-\newblock Efficient block sampling strategies for sequential monte carlo.
-\newblock {\em Journal of Computational and Graphical Statistics},
-  15(3):693--711, 2006.
-
-\bibitem{Briers2006}
-M.~Briers, A.~Doucet, S.R. Maskell, and P.R. Horridge.
-\newblock Fixed-lag sequential monte carlo data association.
-\newblock In {\em Proceedings of SPIE}, volume 6236, page 62360S, 2006.
+\harvarditem[Briers et~al.]{Briers, Doucet, Maskell \harvardand\
+  Horridge}{2006}{Briers2006}
+Briers, M., Doucet, A., Maskell, S. \harvardand\ Horridge, P.  \harvardyearleft
+  2006\harvardyearright .
+\newblock Fixed-lag sequential monte carlo data association, {\em Proceedings
+  of SPIE}, Vol. 6236, p.~62360S.
 \newblock Paper copy from British Library.
+
+\harvarditem[Capp{\'e} et~al.]{Capp{\'e}, Godsill \harvardand\
+  Moulines}{2007}{Cappe2007}
+Capp{\'e}, O., Godsill, S. \harvardand\ Moulines, E.  \harvardyearleft
+  2007\harvardyearright .
+\newblock An overview of existing methods and recent advances in sequential
+  monte carlo, {\em Proceedings of the IEEE} {\bf 95}(5):~899--924.
+
+\harvarditem{Chib}{1996}{Chib1996}
+Chib, S.  \harvardyearleft 1996\harvardyearright .
+\newblock Calculating posterior distributions and modal estimates in markov
+  mixture models, {\em Journal of Econometrics} {\bf 75}(1):~79 -- 97.
+\newblock Details forward-filtering-backward-sampling algorithm.
+
+\harvarditem{Daum}{2005}{Daum2005}
+Daum, F.  \harvardyearleft 2005\harvardyearright .
+\newblock Nonlinear filters: beyond the kalman filter, {\em Aerospace and
+  Electronic Systems Magazine, IEEE} {\bf 20}(8):~57 --69.
+
+\harvarditem[Doucet et~al.]{Doucet, Briers \harvardand\
+  S\'{e}n\'{e}cal}{2006}{Doucet2006}
+Doucet, A., Briers, M. \harvardand\ S\'{e}n\'{e}cal, S.  \harvardyearleft
+  2006\harvardyearright .
+\newblock Efficient block sampling strategies for sequential monte carlo, {\em
+  Journal of Computational and Graphical Statistics} {\bf 15}(3):~693--711.
+
+\harvarditem{Doucet \harvardand\ Johansen}{2009}{Doucet2009}
+Doucet, A. \harvardand\ Johansen, A.~M.  \harvardyearleft 2009\harvardyearright
+  .
+\newblock A tutorial on particle filtering and smoothing: Fifteen years later,
+  {\em in} D.~Crisan \harvardand\ B.~Rozovsky (eds), {\em The Oxford Handbook
+  of Nonlinear Filtering}, Oxford University Press.
+
+\harvarditem[Gordon et~al.]{Gordon, Salmond \harvardand\
+  Smith}{1993}{Gordon1993}
+Gordon, N., Salmond, D. \harvardand\ Smith, A.  \harvardyearleft
+  1993\harvardyearright .
+\newblock Novel approach to nonlinear/non-gaussian bayesian state estimation,
+  {\em Radar and Signal Processing, IEE Proceedings F} {\bf 140}(2):~107 --113.
+
+\harvarditem{Kalman}{1960}{Kalman1960}
+Kalman, R.~E.  \harvardyearleft 1960\harvardyearright .
+\newblock A new approach to linear filtering and prediction problems, {\em
+  Journal Of Basic Engineering} {\bf 82}(Series D):~35--45.
+
+\harvarditem{Pitt \harvardand\ Shephard}{1999}{Pitt1999}
+Pitt, M.~K. \harvardand\ Shephard, N.  \harvardyearleft 1999\harvardyearright .
+\newblock Filtering via simulation: Auxiliary particle filters, {\em Journal of
+  the American Statistical Association} {\bf 94}(446):~pp. 590--599.
+
+\harvarditem[Rauch et~al.]{Rauch, Tung \harvardand\ Striebel}{1965}{Rauch1965}
+Rauch, H., Tung, F. \harvardand\ Striebel, C.  \harvardyearleft
+  1965\harvardyearright .
+\newblock Maximum likelihood estimates of linear dynamic systems, {\em AIAA
+  journal} {\bf 3}(8):~1445--1450.
 
 \end{thebibliography}

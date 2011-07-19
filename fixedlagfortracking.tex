@@ -37,23 +37,35 @@ The proposal for the association variables is a discrete distribution over the p
 \begin{IEEEeqnarray}{rCl}
 q(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) & & \nonumber \\
  & \propto & P(Y_{t-L+1:t}|\lambda_{t-L+1:t},x_{t-L}) P(\lambda_{t-L+1:t}|x_{t-L}) \nonumber \\
+ & = & \prod_{\substack{k=1:L\\tt=t-L+k}} P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) P(\lambda_{tt}) \nonumber \\
  & = & \prod_{\substack{k=1:L\\tt=t-L+k}} \int P(Y_{tt}|x_{tt}, \lambda_k) P(x_{tt}|Y_{tt+1:t}, \lambda_{tt+1:t}, x_{t-L}) dx_{tt} P(\lambda_{tt})
 \label{eq:GeneralAssocProp}
 \end{IEEEeqnarray}
 
-This can be calculated analytically for the linear-Gaussian case. For other cases, the EKF approximations may be used. The only problematic term in the expression above is the state distribution over $x_{tt}$, which will require $k$ integrals to calculate. Although this is will be analytic with Gaussian dynamics, its complexity may become unmanageable. This term represents the probability of states given the set of observations associated with this target at later times. We can render this calculation more manageable by replacing the whole set of future observations with just one.
+This suggests a convenient sequential sampling procedure, starting with $\lambda_t$ and working backwards in time. The nomalisation constant is not known, but as this is discrete distribution we can enforce normalisation by dividing by the sum.
+
+First we consider a factor from this expression with $\lambda_tt=1$, i.e. a proposal that in a particular frame the target is not detected. In this case, the observation density is independent of the state of the target, and we have:
+
+\begin{equation}
+P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) P(\lambda_{tt}) = V^{-1} P(\lambda_t=0)
+\label{eq:}
+\end{equation}
+
+When the target is detected, the factors of the proposal ditribution of equation~\ref{eq:GeneralAssocProp} may calculated analytically for the linear-Gaussian case. For other cases, the EKF approximations may be used. As this is only a proposal distribution, such an approximation will not affect the distribution of the particle distribution generated. The state distribution term over $x_{tt}$ is problematic, requiring $k$ integrals to calculate. Although this is will be analytic with Gaussian dynamics, its complexity may become unmanageable. This term represents the probability of the state given the set of observations associated with this target at later times. We can render this calculation more manageable by replacing the whole set of future observations with just one.
 
 \begin{equation}
 P(x_k|Y_{k+1:t}, \lambda_{k+1:t}, x_{t-L}) \approx P(x_k|Y_{k+d}, \lambda_{k+d}, x_{t-L})
 \label{eq:}
 \end{equation}
 
+For cases with low observation noise, where an observation gives us significant information about the state of the target, this substitution will have little effect. Later observations cannot add much additional information. Again, as this is a proposal distribution, such a substitution will not affect the validity of the resulting particle distribution.
+
 In general we will use $d=1$, as the closest observation in time will give us the most information about $x_{tt}$. However, if the target is not detected at time $tt+1$, then we can increase $d$ to find the next detection of the target.
 
 Using this approximation, for $\lambda_{t-L+k} \ne 0$, we have
 
 \begin{equation}
-q(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) \propto \prod_{\substack{k=1:L\\tt=t-L+k}} \mathcal{N}(y_{tt}^{(\lambda_{tt})}|m_{tt}, S_{tt})
+P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) P(\lambda_{tt}) \propto \mathcal{N}(y_{tt}^{(\lambda_{tt})}|m_{tt}, S_{tt})
 \end{equation}
 
 where usually
@@ -71,18 +83,44 @@ We will need a different expression for the case when $tt=t$, because no future 
 
 For full derivations, see Appendix.
 
-So we now have a full mechanism for association proposals.
-
-Put in some pseudo-code here.
-
-Add a bit about adapting the MD proposal when there is clearly no valid observation.
-
-
-\subsubsection{Forward filtering backward sampling}
-
-When the state space model is linear and both transition and observation densities are Gaussian, we can propose directly from the ``optimal'' importance distribution for the states. This is the forward-filtering-backward-sampling algorithm of \cite{Chib1999}. Starting with $x_t$:
+Finally, substituting for the association prior terms, we have:
 
 \begin{equation}
-q(x_t|x_{t-L}, \lambda_{t-L+1:t}, Y_{t-L+1:t}) = 
+q(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) \propto \prod_{\substack{k=1:L\\tt=t-L+k}} \begin{cases}
+P_D \mathcal{N}(y_{tt}^{(\lambda_{tt})}|m_{tt}, S_{tt}) & \lambda_{tt}=0 \\
+(1-P_D) \mu_C V^{-1} & \lambda_{tt} \ne 0 \end{cases}
 \label{eq:}
 \end{equation}
+
+This gives us a complete sequential mechanism for proposing the asociations.
+
+
+
+\subsubsection{State proposals}
+
+Once the associations are fixed, the states can be proposed. When the state space model is linear-Gaussian, we can propose directly from the ``optimal'' importance distribution for the states using the forward-filtering-backward-sampling algorithm of \cite{Chib1996}, as suggested in \cite{Doucet2006}. For nonlinear models, we can use EKF approximations, as for the associations. Once again, we factorise the proposal:
+
+\begin{multline}
+q(x_{t-L+1:t}|x_{t-L}, \lambda_{t-L+1:t}, Y_{t-L+1:t}) \\
+= P(x_{t-L+1:t}|x_{t-L}, \lambda_{t-L+1:t}, Y_{t-L+1:t}) \\
+= P(x_t|\lambda_{t-L+1:t}, Y_{t-L+1:t}, x_{t-L}) \prod_{k=t-L+1}^{t-1} P(x_k|\lambda_{t-L+1:k}, Y_{t-L+1:k}, x_{t-L}, x_{k+1})
+\label{eq:}
+\end{multline}
+
+where
+
+\begin{equation}
+P(x_k|\lambda_{t-L+1:k}, Y_{t-L+1:k}, x_{t-L}, x_{k+1}) \propto P(x_{k+1}|x_k) P(x_k|\lambda_{t-L+1:k}, Y_{t-L+1:k}, x_{t-L})
+\label{eq:}
+\end{equation}
+
+The distributions $P(x_k|\lambda_{t-L+1:k}, Y_{t-L+1:k}, x_{t-L})$ are given by a Kalman filter, and are Gaussian with mean $\mu_k$ and covariance $\Sigma_k$. Thus the complete state proposal is given by:
+
+\begin{equation}
+q(x_{t-L+1:t}|x_{t-L}, \lambda_{t-L+1:t}, Y_{t-L+1:t}) = \mathcal{N}(x_t|\mu_t, \Sigma_t) \prod_{k=t-L+1}^{t-1} \mathcal{N}(x_k|m_k, S_k)
+\label{eq:}
+\end{equation}
+
+where
+\begin{equation}S_k = [ A^T Q^{-1} A + \Sigma^{-1} ]^{-1}\label{eq:}\end{equation}
+\begin{equation}m_k = S_k [ A^T Q^{-1} x_{k+1} + \Sigma^{-1} \mu_k ]\label{eq:}\end{equation}
