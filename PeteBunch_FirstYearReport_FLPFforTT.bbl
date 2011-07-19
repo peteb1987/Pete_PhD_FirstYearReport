@@ -16,10 +16,40 @@ F.~Daum.
 \newblock {\em Aerospace and Electronic Systems Magazine, IEEE}, 20(8):57 --69,
   aug. 2005.
 
+\bibitem{Cappe2007}
+O.~Capp{\'e}, S.J. Godsill, and E.~Moulines.
+\newblock An overview of existing methods and recent advances in sequential
+  monte carlo.
+\newblock {\em Proceedings of the IEEE}, 95(5):899--924, 2007.
+
+\bibitem{Doucet2009}
+A.~Doucet and A.~M. Johansen.
+\newblock A tutorial on particle filtering and smoothing: Fifteen years later.
+\newblock In D~Crisan and B~Rozovsky, editors, {\em The Oxford Handbook of
+  Nonlinear Filtering}. Oxford University Press, 2009.
+
+\bibitem{Pitt1999}
+Michael~K. Pitt and Neil Shephard.
+\newblock Filtering via simulation: Auxiliary particle filters.
+\newblock {\em Journal of the American Statistical Association}, 94(446):pp.
+  590--599, 1999.
+
+\bibitem{Gordon1993}
+N.J. Gordon, D.J. Salmond, and A.F.M. Smith.
+\newblock Novel approach to nonlinear/non-gaussian bayesian state estimation.
+\newblock {\em Radar and Signal Processing, IEE Proceedings F}, 140(2):107
+  --113, apr 1993.
+
 \bibitem{Doucet2006}
 Arnaud Doucet, Mark Briers, and St\'{e}phane S\'{e}n\'{e}cal.
 \newblock Efficient block sampling strategies for sequential monte carlo.
 \newblock {\em Journal of Computational and Graphical Statistics},
   15(3):693--711, 2006.
+
+\bibitem{Briers2006}
+M.~Briers, A.~Doucet, S.R. Maskell, and P.R. Horridge.
+\newblock Fixed-lag sequential monte carlo data association.
+\newblock In {\em Proceedings of SPIE}, volume 6236, page 62360S, 2006.
+\newblock Paper copy from British Library.
 
 \end{thebibliography}

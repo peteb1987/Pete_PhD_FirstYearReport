@@ -1,5 +1,8 @@
 \documentclass{RJWThesis}
 
+\usepackage{amsmath}
+\usepackage{IEEEtrantools}
+
 \usepackage{graphicx}
 \usepackage{harvard}
 
@@ -17,37 +20,36 @@
 \chapter{Introduction}
 Everyone loves to track things. Yay! 
 
-\chapter{Literature Review}
-\section{Particle Filtering}
-\subsection{Bayes of our lives - what is filtering?}
+\chapter{Particle Methods} \label{chap:basics}
+\section{Bayes of our lives - what is filtering?}
 \input{LR_whatisfiltering}
 
-\subsection{Keep Kalman carry on - the Kalman filter and its extensions}
+\section{Keep Kalman carry on - the Kalman filter and its extensions}
 \input{LR_thekalmanfilter}
 
-\subsection{Tough as old bootstraps - the traditional approach}
+\section{Tough as old bootstraps - the traditional approach}
 \input{LR_thebasicparticlefilter}
 
-\subsection{MCMC in da house - series vs. parallel}
+\section{MCMC in da house - series vs. parallel}
 S-MCMC (Godsill) approach
 
-\section{Approaches to Tracking}
+
+\chapter{Approaches to Tracking}
 A brief overview
 JPDAF
 MHT
 Brief mention of PFs
 
+
 \chapter{Fixed Lag Estimation for Tracking}
 \section{Why do now what we can do later?}
-
-
+\input{fixedlag}
 
 \section{A mathematical framework for fixed lag estimation}
-Description of the BDS method \cite{Doucet2006}
-\section{Fixed lag estimation for tracking}
-Application to tracking
-\subsection{Proposal Distributions}
+\input{fixedlagmaths}
 
+\section{Fixed lag estimation for tracking}
+\input{fixedlagfortracking}
 
 \chapter{Fixed Lag Particle Filters}
 \section{Sequential Importance Sampling and Resampling}

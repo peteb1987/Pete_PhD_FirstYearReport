@@ -30,7 +30,7 @@ P(X_{1:t}|Y_{1:t}) = \frac{P(Y_t|X_t)P(X_t|X_{t-1})P(X_{1:t-1}|Y_{1:t-1})}{P(Y_t
 \label{eq:JointSeqBayesRule}
 \end{equation}
 
-Note that in this expression we are estimating the distribution over previous time instances given the latest observations.
+The filtering distribution may then be obtained by marginalising out the previous states.
 
 So far, we have expressed the problem in terms of distributions, but sometimes we will need to consider recursive random variable equations. In the most general form:
 \begin{equation}
@@ -42,4 +42,4 @@ Y_t = g_t(X_t, W_t)
 \label{eq:FilterEq2}
 \end{equation}
 
-where $f_t$ and $g_t$ are known deterministic functions and $V_t$ and $W_t$ and random variables. Again, we assume $X_t$ is Markovian.
+where $f_t$ and $g_t$ are known deterministic functions and $V_t$ and $W_t$ and random variables, known as the process and observation noise respectively. Again, we assume $X_t$ is Markovian.

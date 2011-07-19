@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2010.11.3)  11 JUL 2011 18:12
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2010.11.3)  18 JUL 2011 19:45
 entering extended mode
 **D:/pb404/FirstYearReport/PeteBunch_FirstYearReport_FLPFforTT.tex
 (D:/pb404/FirstYearReport/PeteBunch_FirstYearReport_FLPFforTT.tex
@@ -169,7 +169,89 @@ Package: ltxcmds 2010/04/26 v1.7 LaTeX kernel commands for general use (HO)
 \title@height=\skip64
 \title@offset=\skip65
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
+Package: amsmath 2000/07/18 v2.13 AMS math features
+\@mathmargin=\skip66
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks21
+\ex@=\dimen113
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen114
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count102
+LaTeX Info: Redefining \frac on input line 211.
+\uproot@=\count103
+\leftroot@=\count104
+LaTeX Info: Redefining \overline on input line 307.
+\classnum@=\count105
+\DOTSCASE@=\count106
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
+\Mathstrutbox@=\box28
+\strutbox@=\box29
+\big@size=\dimen115
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+\macc@depth=\count107
+\c@MaxMatrixCols=\count108
+\dotsspace@=\muskip10
+\c@parentequation=\count109
+\dspbrk@lvl=\count110
+\tag@help=\toks22
+\row@=\count111
+\column@=\count112
+\maxfields@=\count113
+\andhelp@=\toks23
+\eqnshift@=\dimen116
+\alignsep@=\dimen117
+\tagshift@=\dimen118
+\tagwidth@=\dimen119
+\totwidth@=\dimen120
+\lineht@=\dimen121
+\@envbody=\toks24
+\multlinegap=\skip67
+\multlinetaggap=\skip68
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
+)
+(D:\pb404\FirstYearReport\IEEEtrantools.sty
+Package: IEEEtrantools 2007/01/11 V1.2 by Michael Shell
+
+-- See the "IEEEtrantools_doc.txt" manual for usage information.
+-- http://www.michaelshell.org/tex/ieeetran/tools/
+\@IEEEtrantmpdimenA=\dimen122
+\@IEEEtrantmpdimenB=\dimen123
+\@IEEEtrantmpcountA=\count114
+\@IEEEtrantmpcountB=\count115
+\@IEEEtrantmptoksA=\toks26
+\IEEEnormaljot=\dimen124
+\IEEEilabelindentA=\dimen125
+\IEEEilabelindentB=\dimen126
+\IEEEilabelindent=\dimen127
+\IEEEelabelindent=\dimen128
+\IEEEdlabelindent=\dimen129
+\IEEElabelindent=\dimen130
+\IEEEiednormlabelsep=\dimen131
+\IEEEiedmathlabelsep=\dimen132
+\IEEEiedtopsep=\skip69
+\c@IEEEsubequation=\count116
+\@IEEEeqnnumcols=\count117
+\@IEEEeqncolcnt=\count118
+\IEEEPARstartletwidth=\dimen133
+) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
@@ -183,36 +265,79 @@ File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 )
-\Gin@req@height=\dimen113
-\Gin@req@width=\dimen114
+\Gin@req@height=\dimen134
+\Gin@req@width=\dimen135
 )
 (D:\pb404\FirstYearReport\harvard.sty
 Package: harvard 
  (D:\pb404\FirstYearReport\html.sty
 Package: html 1996/02/01 v1.0 hypertext commands for latex2html (nd, hs)
-\c@lpart=\count102
-\c@lchapter=\count103
-\c@lsection=\count104
-\c@lsubsection=\count105
-\c@lsubsubsection=\count106
-\c@lparagraph=\count107
-\c@lsubparagraph=\count108
-\c@lsubsubparagraph=\count109
-\c@lequation=\count110
+\c@lpart=\count119
+\c@lchapter=\count120
+\c@lsection=\count121
+\c@lsubsection=\count122
+\c@lsubsubsection=\count123
+\c@lparagraph=\count124
+\c@lsubparagraph=\count125
+\c@lsubsubparagraph=\count126
+\c@lequation=\count127
 ))
-(D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+(D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.aux
+
+LaTeX Warning: Label `eq:NoResampIW' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:NoResampIW' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -250,34 +375,34 @@ LaTeX Font Info:    ... okay on input line 12.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count111
-\scratchdimen=\dimen115
-\scratchbox=\box28
-\nofMPsegments=\count112
-\nofMParguments=\count113
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count114
-\MPscratchDim=\dimen116
-\MPnumerator=\count115
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count128
+\scratchdimen=\dimen136
+\scratchbox=\box30
+\nofMPsegments=\count129
+\nofMParguments=\count130
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count131
+\MPscratchDim=\dimen137
+\MPnumerator=\count132
+\everyMPtoPDFconversion=\toks28
 )
-\AtBeginShipoutBox=\box29
-\flashheight=\skip66
+\AtBeginShipoutBox=\box31
+\flashheight=\skip70
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 14.
+(Font)              using `OT1/cmr/bx/n' instead on input line 17.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 14.
+LaTeX Font Info:    Try loading font information for U+msa on input line 17.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 14.
+LaTeX Font Info:    Try loading font information for U+msb on input line 17.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -297,13 +422,13 @@ ftex.map}
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/it' in size <24> not available
-(Font)              size <24.88> substituted on input line 17.
+(Font)              size <24.88> substituted on input line 20.
 
 [3] [4
 
 ]
 Chapter 1.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 20.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 23.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) [5] [6
@@ -311,7 +436,7 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ]
 Chapter 2.
 LaTeX Font Info:    Try loading font information for OT1+jkposn on input line 2
-1.
+4.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\kpfonts\ot1jkposn.fd"
 File: ot1jkposn.fd 2008/02/18 Fontinst v1.928 font definitions for OT1/jkposn.
 )
@@ -323,32 +448,80 @@ LaTeX Warning: Citation 'Laplace1774' on page 7 undefined on input line 8.
 
 LaTeX Warning: Citation 'Kalman1960' on page 8 undefined on input line 1.
 
-[8]
 
-LaTeX Warning: Citation 'Daum2005' on page 9 undefined on input line 58.
+LaTeX Warning: Citation 'Daum2005' on page 8 undefined on input line 58.
 
 
-LaTeX Warning: Citation 'Daum2005' on page 9 undefined on input line 58.
+LaTeX Warning: Citation 'Daum2005' on page 8 undefined on input line 58.
 
-) (D:\pb404\FirstYearReport\LR_thebasicparticlefilter.tex) [9] [10
+[8]) (D:\pb404\FirstYearReport\LR_thebasicparticlefilter.tex
+
+LaTeX Warning: Citation 'Cappe2007' on page 9 undefined on input line 10.
+
+
+LaTeX Warning: Citation 'Doucet2009' on page 9 undefined on input line 10.
+
+
+LaTeX Warning: Citation 'Pitt1999' on page 9 undefined on input line 10.
+
+[9]
+Overfull \hbox (9.41025pt too wide) detected at line 68
+\OML/cmm/m/it/10 W[] \OT1/cmr/m/n/10 = [] = [] \OMS/cmsy/m/n/10  []  []
+ []
+
+[10]
+
+LaTeX Warning: Citation 'Gordon1993' on page 11 undefined on input line 85.
+
+
+LaTeX Warning: Reference `sec:degeneracy' on page 11 undefined on input line 85
+.
+
+) [11] [12
 
 ]
 Chapter 3.
-
-LaTeX Warning: Citation 'Doucet2006' on page 11 undefined on input line 46.
-
-[11] [12
-
-]
-Chapter 4.
 [13] [14
 
 ]
+Chapter 4.
+(D:\pb404\FirstYearReport\fixedlag.tex)
+(D:\pb404\FirstYearReport\fixedlagmaths.tex
+
+LaTeX Warning: Citation 'Doucet2006' on page 15 undefined on input line 1.
+
+
+LaTeX Warning: Citation 'Briers2006' on page 15 undefined on input line 1.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+Overfull \hbox (12.51286pt too wide) in paragraph at lines 3--4
+[]\OT1/cmr/m/n/10 As be-fore, the tar-get pos-te-rior dis-tri-bu-tion in which 
+we are in-ter-ested is the fa-mil-iar $\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/
+cmm/m/it/10 X[]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 Y[]\OT1/cmr/m/n/10 )$.
+ []
+
+
+LaTeX Warning: Citation 'Doucet2006' on page 16 undefined on input line 40.
+
+[16]) (D:\pb404\FirstYearReport\fixedlagfortracking.tex [17]
+
+LaTeX Warning: Citation 'Chib1999' on page 18 undefined on input line 83.
+
+) [18]
 Chapter 5.
-(D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.bbl [15] [16
+[19
+
+] [20
+
+]
+Chapter 6.
+(D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.bbl [21] [22
 
 ])
-[17] (D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.aux)
+[23] (D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.88pt have occurred.
@@ -356,15 +529,21 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 3559 strings out of 494019
- 48304 string characters out of 3143930
- 123703 words of memory out of 3000000
- 6772 multiletter control sequences out of 15000+200000
+ 4493 strings out of 494019
+ 61844 string characters out of 3143930
+ 145269 words of memory out of 3000000
+ 7678 multiletter control sequences out of 15000+200000
  26368 words of font info for 72 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 42i,17n,45p,629b,279s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,17n,45p,1246b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
@@ -386,10 +565,10 @@ c/kpfonts/jkpbit8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/kp
 fonts/jkpbitc.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/kpfonts
 /jkpbn8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpb
 nc.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
-Output written on PeteBunch_FirstYearReport_FLPFforTT.pdf (17 pages, 302260 byt
+Output written on PeteBunch_FirstYearReport_FLPFforTT.pdf (23 pages, 333388 byt
 es).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
+ 172 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
