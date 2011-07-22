@@ -1,8 +1,9 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.aux
-White space in argument---line 5 of file D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.aux
- : \citation{Bayes1763,
- :                      Laplace1774}
-I'm skipping whatever remains of this command
-The style file: dcu_noURLs.bst
+The style file: dcu.bst
 Database file #1: D:/pb404/Bibtex/OTbib.bib
+Warning--string name "dec." is undefined
+--line 154 of file D:/pb404/Bibtex/OTbib.bib
+A bad cross reference---entry "Pang2011"
+refers to entry "Barber2011", which doesn't exist
+Warning--I didn't find a database entry for "Barber2011"
 (There was 1 error message)

@@ -2,9 +2,12 @@
 
 \usepackage{amsmath}
 \usepackage{IEEEtrantools}
-
 \usepackage{graphicx}
 \usepackage{harvard}
+\usepackage{url}
+\usepackage{hyperref}
+
+\renewcommand{\harvardurl}{URL: \url}
 
 \title{Fixed Lag Particle Filtering for Target Tracking}
 \subtitle{A report on the first year's progress}
@@ -26,18 +29,26 @@ Everyone loves to track things. Yay!
 
 
 
-\chapter{Particle Methods} \label{chap:basics}
+\chapter{Literature Review}
+\input{LitRev1}
+\section{Tracking}
+\input{LitRev2}
+
+
+
+
+\chapter{Mathematical foundations} \label{chap:basics}
 \section{Bayes of our lives - what is filtering?}
-\input{LR_whatisfiltering}
+\input{whatisfiltering}
 
 \section{Keep Kalman carry on - the Kalman filter and its extensions}
-\input{LR_thekalmanfilter}
+\input{thekalmanfilter}
 
 \section{Tough as old bootstraps - a review of particle filter}
 \input{particlefilterreview}
 
 \section{Particular details - mathematical basics of the particle filter}
-\input{LR_thebasicparticlefilter}
+\input{thebasicparticlefilter}
 
 \section{MCMC in da house - series vs. parallel}
 S-MCMC (Godsill) approach
@@ -45,7 +56,7 @@ S-MCMC (Godsill) approach
 
 
 
-\chapter{Approaches to Tracking}
+\chapter{Models for Tracking}
 
 \section{Why do we track?}
 \input{trackingintro}
@@ -91,7 +102,7 @@ radar, insects, crowds, cells, jump-diffusions, cursor tracking...
 
 
 
-\bibliographystyle{dcu_noURLs}
+\bibliographystyle{dcu}%_noURLs}
 \bibliography{D:/pb404/Bibtex/OTbib}
 
 \end{document}

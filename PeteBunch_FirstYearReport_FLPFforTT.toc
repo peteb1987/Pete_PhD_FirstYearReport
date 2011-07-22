@@ -1,33 +1,53 @@
-\contentsline {chapter}{\numberline {1}Introduction}{5}
-\contentsline {chapter}{\numberline {2}Particle Methods}{7}
-\contentsline {section}{\numberline {2.1}Bayes of our lives - what is filtering?}{7}
-\contentsline {section}{\numberline {2.2}Keep Kalman carry on - the Kalman filter and its extensions}{8}
-\contentsline {subsection}{\numberline {2.2.1}The basic filter}{8}
-\contentsline {subsection}{\numberline {2.2.2}The extended filter}{9}
-\contentsline {subsection}{\numberline {2.2.3}The Kalman smoother}{9}
-\contentsline {section}{\numberline {2.3}Tough as old bootstraps - a review of particle filter}{10}
-\contentsline {section}{\numberline {2.4}Particular details - mathematical basics of the particle filter}{10}
-\contentsline {subsection}{\numberline {2.4.1}Auxiliary sampling}{11}
-\contentsline {subsection}{\numberline {2.4.2}Degeneracy and resampling}{11}
-\contentsline {subsection}{\numberline {2.4.3}Importance distributions}{12}
-\contentsline {section}{\numberline {2.5}MCMC in da house - series vs. parallel}{12}
-\contentsline {chapter}{\numberline {3}Approaches to Tracking}{13}
-\contentsline {section}{\numberline {3.1}Why do we track?}{13}
-\contentsline {section}{\numberline {3.2}Models for tracking}{13}
-\contentsline {subsection}{\numberline {3.2.1}Data association}{14}
-\contentsline {section}{\numberline {3.3}Algorithms for tracking}{14}
-\contentsline {chapter}{\numberline {4}Fixed Lag Estimation for Tracking}{15}
-\contentsline {section}{\numberline {4.1}Why do now what we can do later?}{15}
-\contentsline {section}{\numberline {4.2}A mathematical framework for fixed lag estimation}{16}
-\contentsline {subsection}{\numberline {4.2.1}Artificial conditionals}{17}
-\contentsline {subsection}{\numberline {4.2.2}History Proposals}{17}
-\contentsline {section}{\numberline {4.3}Applying the fixed lag method to the tracking model}{17}
-\contentsline {subsection}{\numberline {4.3.1}Importance distributions}{17}
-\contentsline {subsubsection}{Association proposals}{17}
-\contentsline {subsubsection}{State proposals}{19}
-\contentsline {chapter}{\numberline {5}Fixed Lag Particle Filters}{21}
-\contentsline {section}{\numberline {5.1}Sequential Importance Sampling and Resampling}{21}
-\contentsline {subsection}{\numberline {5.1.1}Coping with dimensionality}{21}
-\contentsline {section}{\numberline {5.2}Markov Chain Monte Carlo}{21}
-\contentsline {section}{\numberline {5.3}Marginalised Particle Filters}{21}
-\contentsline {chapter}{\numberline {6}Plan Of Future Research}{23}
+\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
+\contentsline {chapter}{\numberline {2}Literature Review}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1}Particle filters}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Sequential importance sampling}{8}{subsection.2.1.1}
+\contentsline {subsubsection}{Importance sampling}{8}{section*.2}
+\contentsline {subsubsection}{Resampling}{8}{section*.3}
+\contentsline {subsubsection}{Importance distributions}{8}{section*.4}
+\contentsline {subsubsection}{Auxiliary particle filtering}{8}{section*.5}
+\contentsline {subsubsection}{Resample-move}{9}{section*.6}
+\contentsline {subsection}{\numberline {2.1.2}Markov chain Monte Carlo}{9}{subsection.2.1.2}
+\contentsline {subsubsection}{Metropolis-Hastings}{9}{section*.7}
+\contentsline {subsubsection}{Block sampling}{10}{section*.8}
+\contentsline {subsubsection}{Reversible jump Markov chain Monte Carlo}{10}{section*.9}
+\contentsline {subsubsection}{Sequential Markov chain Monte Carlo}{10}{section*.10}
+\contentsline {subsection}{\numberline {2.1.3}Coping with dimensionality}{11}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Marginalised particle filters}{11}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Tracking}{12}{section.2.2}
+\contentsline {section}{\numberline {2.3}Probabilistic data association}{12}{section.2.3}
+\contentsline {section}{\numberline {2.4}Multi-hypothesis tracking}{14}{section.2.4}
+\contentsline {section}{\numberline {2.5}MCMC data association}{14}{section.2.5}
+\contentsline {section}{\numberline {2.6}Probability hypothesis density methods}{14}{section.2.6}
+\contentsline {chapter}{\numberline {3}Mathematical foundations}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Bayes of our lives - what is filtering?}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Keep Kalman carry on - the Kalman filter and its extensions}{16}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}The basic filter}{16}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}The extended filter}{17}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}The Kalman smoother}{17}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Tough as old bootstraps - a review of particle filter}{18}{section.3.3}
+\contentsline {section}{\numberline {3.4}Particular details - mathematical basics of the particle filter}{18}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Auxiliary sampling}{19}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Degeneracy and resampling}{19}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Importance distributions}{20}{subsection.3.4.3}
+\contentsline {section}{\numberline {3.5}MCMC in da house - series vs. parallel}{20}{section.3.5}
+\contentsline {chapter}{\numberline {4}Models for Tracking}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Why do we track?}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}Models for tracking}{21}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Data association}{22}{subsection.4.2.1}
+\contentsline {section}{\numberline {4.3}Algorithms for tracking}{22}{section.4.3}
+\contentsline {chapter}{\numberline {5}Fixed Lag Estimation for Tracking}{23}{chapter.5}
+\contentsline {section}{\numberline {5.1}Why do now what we can do later?}{23}{section.5.1}
+\contentsline {section}{\numberline {5.2}A mathematical framework for fixed lag estimation}{24}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Artificial conditionals}{25}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}History Proposals}{25}{subsection.5.2.2}
+\contentsline {section}{\numberline {5.3}Applying the fixed lag method to the tracking model}{25}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Importance distributions}{25}{subsection.5.3.1}
+\contentsline {subsubsection}{Association proposals}{25}{section*.11}
+\contentsline {subsubsection}{State proposals}{27}{section*.12}
+\contentsline {chapter}{\numberline {6}Fixed Lag Particle Filters}{29}{chapter.6}
+\contentsline {section}{\numberline {6.1}Sequential Importance Sampling and Resampling}{29}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Coping with dimensionality}{29}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}Markov Chain Monte Carlo}{29}{section.6.2}
+\contentsline {section}{\numberline {6.3}Marginalised Particle Filters}{29}{section.6.3}
+\contentsline {chapter}{\numberline {7}Plan Of Future Research}{31}{chapter.7}

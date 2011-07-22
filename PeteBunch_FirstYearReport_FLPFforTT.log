@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2010.11.3)  19 JUL 2011 17:50
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2010.11.3)  22 JUL 2011 17:04
 entering extended mode
 **D:/pb404/FirstYearReport/PeteBunch_FirstYearReport_FLPFforTT.tex
 (D:/pb404/FirstYearReport/PeteBunch_FirstYearReport_FLPFforTT.tex
@@ -282,7 +282,130 @@ Package: html 1996/02/01 v1.0 hypertext commands for latex2html (nd, hs)
 \c@lsubsubparagraph=\count126
 \c@lequation=\count127
 ))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2010/10/30 v6.81t Hypertext links for LaTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+Package: kvsetkeys 2010/03/01 v1.9 Key value parser (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+Package: etexcmds 2010/01/28 v1.3 Prefix for e-TeX command names (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdfescape.sty"
+Package: pdfescape 2010/03/01 v1.9 Provides hex, PDF name and string conversion
+s (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
+Package: pdftexcmds 2010/04/01 v0.9 Utility functions of pdfTeX for LuaTeX (HO)
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\hycolor.sty"
+Package: hycolor 2009/12/12 v1.6 Color options of hyperref/bookmark (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\xcolor-patch.sty"
+Package: xcolor-patch 2009/12/12 xcolor patch
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\letltxmacro.sty"
+Package: letltxmacro 2008/06/24 v1.3 Let assignment for LaTeX macros (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2010/02/22 v3.7 Keyval support for LaTeX options (HO)
+)
+\@linkdim=\dimen136
+\Hy@linkcounter=\count128
+\Hy@pagecounter=\count129
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2010/10/30 v6.81t Hyperref: PDFDocEncoding definition (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\intcalc.sty"
+Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
+)
+\Hy@SavedSpaceFactor=\count130
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 3976.
+Package hyperref Info: Link nesting OFF on input line 3981.
+Package hyperref Info: Hyper index ON on input line 3984.
+Package hyperref Info: Plain pages OFF on input line 3991.
+Package hyperref Info: Backreferencing OFF on input line 3996.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4211.
+\c@Hy@tempcnt=\count131
+LaTeX Info: Redefining \url on input line 4566.
+LaTeX Info: Redefining \hyperref on input line 4577.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\bitset.sty"
+Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\bigintcalc.sty"
+Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
+))
+\Fld@menulength=\count132
+\Field@Width=\dimen137
+\Fld@charsize=\dimen138
+Package hyperref Info: Hyper figures OFF on input line 5626.
+Package hyperref Info: Link nesting OFF on input line 5631.
+Package hyperref Info: Hyper index ON on input line 5634.
+Package hyperref Info: backreferencing OFF on input line 5641.
+Package hyperref Info: Link coloring OFF on input line 5646.
+Package hyperref Info: Link coloring with OCG OFF on input line 5651.
+Package hyperref Info: PDF/A mode OFF on input line 5656.
+LaTeX Info: Redefining \ref on input line 5696.
+LaTeX Info: Redefining \pageref on input line 5700.
+\Hy@abspage=\count133
+\c@Item=\count134
+\c@Hfootnote=\count135
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2010/10/30 v6.81t Hyperref driver for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\atveryend.sty"
+Package: atveryend 2010/03/24 v1.5 Hooks at very end of document (HO)
+Package atveryend Info: \enddocument detected (standard).
+)
+\Fld@listcount=\count136
+\c@bookmark@seq@number=\count137
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2010/03/16 v1.6 Rerun checks for auxiliary files (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\uniquecounter.sty"
+Package: uniquecounter 2009/12/18 v1.1 Provides unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+71.
+)
+\Hy@SectionHShift=\skip70
+)
 (D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.aux
+
+LaTeX Warning: Label `eq:' multiply defined.
+
+
+LaTeX Warning: Label `eq:' multiply defined.
+
 
 LaTeX Warning: Label `eq:' multiply defined.
 
@@ -359,18 +482,20 @@ LaTeX Warning: Label `eq:' multiply defined.
 LaTeX Warning: Label `eq:' multiply defined.
 
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -408,39 +533,59 @@ LaTeX Font Info:    ... okay on input line 17.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count128
-\scratchdimen=\dimen136
+\scratchcounter=\count138
+\scratchdimen=\dimen139
 \scratchbox=\box30
-\nofMPsegments=\count129
-\nofMParguments=\count130
+\nofMPsegments=\count139
+\nofMParguments=\count140
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count131
-\MPscratchDim=\dimen137
-\MPnumerator=\count132
+\MPscratchCnt=\count141
+\MPscratchDim=\dimen140
+\MPnumerator=\count142
 \everyMPtoPDFconversion=\toks28
 )
 \AtBeginShipoutBox=\box31
-\flashheight=\skip70
+\flashheight=\skip71
+Package hyperref Info: Link coloring OFF on input line 20.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\refcount.sty"
+Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2009/12/18 v1.3 Cleanup title references (HO)
+)
+\c@section@level=\count143
+)
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Info: Redefining \nameref on input line 20.
+
+(D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.out)
+(D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.out)
+\@outlinefile=\write3
+Package hyperref Info: *** compatibility with harvard ****  on input line 20.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 19.
+(Font)              using `OT1/cmr/bx/n' instead on input line 23.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
 
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 19.
+LaTeX Font Info:    Try loading font information for U+msa on input line 23.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 19.
+LaTeX Font Info:    Try loading font information for U+msb on input line 23.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-<thesis_graphics/CUnibig.pdf, id=1, 329.23pt x 68.255pt>
+<thesis_graphics/CUnibig.pdf, id=171, 329.23pt x 68.255pt>
 File: thesis_graphics/CUnibig.pdf Graphic file (type pdf)
 
 <use thesis_graphics/CUnibig.pdf> [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pd
@@ -453,13 +598,13 @@ ftex.map}
 (D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.toc
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/it' in size <24> not available
-(Font)              size <24.88> substituted on input line 28.
+(Font)              size <24.88> substituted on input line 37.
 
 [3])
-\tf@toc=\write3
+\tf@toc=\write4
  [4]
 Chapter 1.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 29.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 32.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) [5
@@ -468,39 +613,60 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 
 ]
 Chapter 2.
+(D:\pb404\FirstYearReport\LitRev1.tex
 LaTeX Font Info:    Try loading font information for OT1+jkposn on input line 3
-0.
+.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\kpfonts\ot1jkposn.fd"
 File: ot1jkposn.fd 2008/02/18 Fontinst v1.928 font definitions for OT1/jkposn.
 )
-(D:\pb404\FirstYearReport\LR_whatisfiltering.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Citation ' Laplace1774' on page 7 undefined on input line 8.
+ [7]
+[8] [9] [10]) (D:\pb404\FirstYearReport\LitRev2.tex
+Underfull \vbox (badness 3503) has occurred while \output is active []
 
-[7]) (D:\pb404\FirstYearReport\LR_thekalmanfilter.tex [8])
-(D:\pb404\FirstYearReport\particlefilterreview.tex [9])
-(D:\pb404\FirstYearReport\LR_thebasicparticlefilter.tex [10]
+ [11]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 4.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 4.
+ [12])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+[14]
+Chapter 3.
+(D:\pb404\FirstYearReport\whatisfiltering.tex [15
+
+])
+(D:\pb404\FirstYearReport\thekalmanfilter.tex [16])
+(D:\pb404\FirstYearReport\particlefilterreview.tex [17])
+(D:\pb404\FirstYearReport\thebasicparticlefilter.tex [18]
 Overfull \hbox (9.41025pt too wide) detected at line 68
-\OML/cmm/m/it/10 W[] \OT1/cmr/m/n/10 = [] = [] \OMS/cmsy/m/n/10  []  []
+[]\OML/cmm/m/it/10 W[] \OT1/cmr/m/n/10 = [] = [] \OMS/cmsy/m/n/10  []  []
  []
 
-[11]
+[19]
 
-LaTeX Warning: Reference `sec:degeneracy' on page 12 undefined on input line 85
+LaTeX Warning: Reference `sec:degeneracy' on page 20 undefined on input line 85
 .
 
-) [12]
-Chapter 3.
-(D:\pb404\FirstYearReport\trackingintro.tex)
-(D:\pb404\FirstYearReport\trackingmodels.tex [13
-
-]) [14]
+) [20]
 Chapter 4.
+(D:\pb404\FirstYearReport\trackingintro.tex)
+(D:\pb404\FirstYearReport\trackingmodels.tex [21
+
+]) [22]
+Chapter 5.
 (D:\pb404\FirstYearReport\fixedlag.tex)
 (D:\pb404\FirstYearReport\fixedlagmaths.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [15
+ [23
 
 ]
 Overfull \hbox (12.51286pt too wide) in paragraph at lines 3--4
@@ -509,19 +675,52 @@ we are in-ter-ested is the fa-mil-iar $\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 (\OML/
 cmm/m/it/10 X[]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 Y[]\OT1/cmr/m/n/10 )$.
  []
 
-[16]) (D:\pb404\FirstYearReport\fixedlagfortracking.tex [17] [18]) [19]
-[20
-
-]
-Chapter 5.
-[21] [22
+[24]) (D:\pb404\FirstYearReport\fixedlagfortracking.tex [25] [26]) [27]
+[28
 
 ]
 Chapter 6.
-(D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.bbl [23] [24
+[29] [30
 
 ]
-[25]) [26] (D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.aux)
+Chapter 7.
+(D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.bbl [31] [32
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 10--10
+\OT1/cmr/m/n/10 URL: []$\OT1/cmtt/m/n/10 http : / / www . sciencedirect . com /
+ science / article / B6V1D-[]4CT4DWS-[]2 / 2 /
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+\OT1/cmr/m/n/10 URL: []$\OT1/cmtt/m/n/10 http : / / www . sciencedirect . com /
+ science / article / B6VC0-[]3VWT1TW-[]7 / 2 /
+ []
+
+
+Underfull \hbox (badness 1454) in paragraph at lines 121--121
+\OT1/cmr/m/n/10 URL: []$\OT1/cmtt/m/n/10 http : / / citeseerx . ist . psu . edu
+ / viewdoc / download ? doi = 10 . 1 . 1 . 157 . 772&rep =
+ []
+
+Missing character: There is no — in font cmr10!
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 207--207
+\OT1/cmr/m/n/10 URL: []$\OT1/cmtt/m/n/10 http : / / citeseerx . ist . psu . edu
+ / viewdoc / download ? doi = 10 . 1 . 1 . 129 .
+ []
+
+[35])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
+ [36]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
+ (D:\pb404\FirstYearReport\PeteBunch_FirstYearReport_FLPFforTT.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
+Package rerunfilecheck Info: File `PeteBunch_FirstYearReport_FLPFforTT.out' has
+ not changed.
+(rerunfilecheck)             Checksum: 5FDF09AB77C33CA4CA608B53DA4D63B0;3203.
+
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.88pt have occurred.
@@ -537,13 +736,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4528 strings out of 494019
- 62622 string characters out of 3143930
- 145923 words of memory out of 3000000
- 7704 multiletter control sequences out of 15000+200000
- 26368 words of font info for 72 fonts, out of 3000000 for 9000
+ 8357 strings out of 494019
+ 122563 string characters out of 3143930
+ 227594 words of memory out of 3000000
+ 11253 multiletter control sequences out of 15000+200000
+ 26536 words of font info for 73 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 42i,17n,45p,1246b,286s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,17n,45p,1249b,420s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
 m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program 
 Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
@@ -561,14 +760,15 @@ ype1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/
 public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
 lic/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/kpfonts/jkpbit8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/kp
-fonts/jkpbitc.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/kpfonts
-/jkpbn8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpb
-nc.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
-Output written on PeteBunch_FirstYearReport_FLPFforTT.pdf (26 pages, 350739 byt
+c/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
+kpfonts/jkpbit8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/kpfo
+nts/jkpbitc.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/kpfonts/j
+kpbn8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/kpfonts/jkpbnc
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
+Output written on PeteBunch_FirstYearReport_FLPFforTT.pdf (36 pages, 458408 byt
 es).
 PDF statistics:
- 182 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 649 PDF objects out of 1000 (max. 8388607)
+ 197 named destinations out of 1000 (max. 500000)
+ 342 words of extra memory for PDF output out of 10000 (max. 10000000)
 

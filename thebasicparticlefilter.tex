@@ -1,0 +1,90 @@
+With a PF, we approximate a probability distribution with a set of (weighted) samples drawn from that distribution.
+
+\begin{equation}
+P(X) \approx \frac{1}{N} \sum_m{W^{(m)} \delta_{X^{(m)}} (X)}
+\label{eq:ParticleApprox}
+\end{equation}
+
+where $\delta (x)$ represents a unit probability point mass at a point $x$, and $\sum_m{W^{(m)}}=1$. Such a method allows us to represent any probability distribution of arbitrary complexity, including multidimensional, multimodal, mixed distributions. As the number of particles increases, the accuracy of the approximation improves at the expense of computational complexity. Thus we have the required tool for estimation in non-linear, non-Gaussian scenarios.
+
+We still face the problem of how to generate these samples. The conventional method for this is Sequential Importance Sampling with Resampling (SISR). For a more complete and traditional introduction to this method, see \cite{Cappe2007} or \cite{Doucet2009}. Here we follow an outline similar to that used for the derivation of the auxiliary particle filter of \cite{Pitt1999}.
+
+Suppose we have a particle approximation to the joint posterior distribution from the previous frame, $\hat{P}(X_{1:t-1}|Y_{1:t-1})$. Each particle represents a path through time, $X_{1:t-1}^{(m)}$, and has an associated weight, $W_{t-1}^{(m)}$. Let us imagine also that the unweighted particles are samples from another distribution:
+
+\begin{equation}
+\mu(X_{1:t-1}|Y_{1:t-1}) \approx \frac{1}{N} \sum_m{W^{(m)} \delta_{X_{1:t}^{(m)}} (X_{1:t})}
+\label{eq:UnweightParticleDistn}
+\end{equation}
+
+Thus for a given particle,
+
+\begin{equation}
+\hat{P}(X_{1:t-1}^{(m)}|Y_{1:t-1}) = W_t^{(m)} \mu(X_{1:t-1}^{(m)}|Y_{1:t-1})
+\label{eq:}
+\end{equation}
+
+We would like to generate a new particle set which includes the current time instance. We propose a new set of extended tracks from a factored proposal distribution $X_{1:t} \sim q(X_{1:t}|Y_{1:t}) = q(X_{t}|Y_{t}, X_{1:t-1}) q(X_{1:t-1}|Y_{1:t})$. The two factors are the proposal probabilities for the new state value, $X_t$ and the history, $X_{1:t-1}$, respectively. Particles are then weighted to take account of the difference between the targeted posterior distribution and the importance distribution:
+
+\begin{equation}
+W_t^{(m)} = \frac{P(X_{1:t}^{(m)}|Y_{1:t})}{q(X_{1:t}^{(m)}|Y_{1:t})}
+\label{eq:ImportanceWeights}
+\end{equation}
+
+The simplest choice for the history proposal is $q(X_{1:t-1}|Y_{1:t}) = \mu(X_{1:t-1}|Y_{1:t-1})$, which can be implemented by simply keeping the same set of paths as the previous particle set. This is equivalent to an ordinary IS step with no resampling, and importance weights are given by:
+
+\begin{equation}
+W_t^{(m)} = \frac{P(X_{1:t}^{(m)}|Y_{1:t})}{q(X_{1:t}^{(m)}|Y_{1:t})} = \frac{P(X_{1:t}^{(m)}|Y_{1:t})}{\mu(X_{1:t-1}^{(m)}|Y_{1:t-1}) q(X_{t}^{(m)}|X_{t-1}^{(m)}, Y_{t})} \approx \frac{W_{t-1}^{(m)} P(Y_t|X_t^{(m)})P(X_t^{(m)}|X_{t-1}^{(m)})}{q(X_t^{(m)}|X_{t-1}^{(m)}, Y_t)}
+\label{eq:NoResampIW}
+\end{equation}
+
+Alternatively, we could use $q(X_{1:t-1}|Y_{1:t}) = \hat{P}(X_{1:t-1}|Y_{1:t-1})$ as the history proposal, i.e. sample from the weighted particle distribution which approximates the previous posterior. This is equivalent to an IS step preceeded by resampling. Importance weights are now given by:
+
+\begin{equation}
+W_t^{(m)} = \frac{P(X_{1:t}^{(m)}|Y_{1:t})}{q(X_{1:t}^{(m)}|Y_{1:t})} \approx \frac{P(X_{1:t}^{(m)}|Y_{1:t})}{P(X_{1:t-1}^{(m)}|Y_{1:t-1}) q(X_{t}^{(m)}|X_{t-1}^{(m)}, Y_{t})} \approx \frac{ P(Y_t|X_t^{(m)})P(X_t^{(m)}|X_{t-1}^{(m)})}{q(X_t^{(m)}|X_{t-1}^{(m)}, Y_t)}
+\label{eq:NoResampIW}
+\end{equation}
+
+\subsection{Auxiliary sampling}
+
+We can generalise the form of our history proposal distribution by weighting the particles from the previous posterior distribution with any arbitrary set of weights.
+
+\begin{equation}
+q(X_{1:t-1}|Y_{1:t}) = \frac{1}{N} \sum_m {V_t^{(m)} \delta_{X} (x_{1:t}^{(m)})}
+\label{eq:AuxiliarySamplingProposal}
+\end{equation}
+
+Now we have
+
+\begin{equation}
+\hat{P}(X_{1:t-1}^{(m)}|Y_{1:t-1}) = \frac{W_{t-1}^{(m)}}{V_t^{(m)}} q(X_{1:t-1}^{(m)}|Y_{1:t})
+\label{eq:}
+\end{equation}
+
+giving a general form for the importance weights
+
+\begin{equation}
+W_t^{(m)} = \frac{P(X_{1:t}^{(m)}|Y_{1:t})}{q(X_{1:t}^{(m)}|Y_{1:t})} = \frac{P(X_{1:t}^{(m)}|Y_{1:t})}{\mu(X_{1:t-1}^{(m)}|Y_{1:t-1}) q(X_{t}^{(m)}|X_{t-1}^{(m)}, Y_{t})} \approx \frac{W_{t-1}^{(m)}}{V_{t}^{(m)}} \times \frac{ P(Y_t|X_t^{(m)})P(X_t^{(m)}|X_{t-1}^{(m)})}{q(X_t^{(m)}|X_{t-1}^{(m)}, Y_t)}
+\label{eq:NoResampIW}
+\end{equation}
+
+
+\subsection{Degeneracy and resampling}
+
+REWRITE THIS ENTIRELY
+
+Which of the two choices of history proposal should we use? The first, $\mu(X_{1:t-1}|Y_{1:t-1})$, is the simplest to implement, because we can simply keep the same set of paths for $1:t-1$. However, the recursive form of the importance weights means that the variance of these weights will increase over time. The result is the well-documented particle degeneracy effect, whereby all the weight coallesces in one or a few particles, and the weights of the rest tend to zero. Intuitively, this is a poor representation of the distribution - we may as well not have the zero-weight particles! The solution is to use resampling, or in the formulation posed above to use the second form of history proposal, $\hat{P}(X_{1:t-1}|Y_{1:t-1})$. This biases the sampling of histories towards those with high weights, encouraging those with low weights to be discarded. Because the importance weights for this type of proposal are not calculated recursively, the variance is reduced.
+
+Particle degeneracy can be quantified     ESS
+
+Resampling strategies - systematic, multinomial, etc.
+
+
+
+\subsection{Importance distributions}
+
+It remains to choose the the importance distribution for the current state, $q(X_{t}|X_{t-1}, Y_{t})$. In the original ``bootstrap filter'' of \cite{Gordon1993}, this was set equal to the transition density, $P(X_t|X_{t-1})$, which leads to cancellation in the expression for importance weights. This is simple but not necessarily optimal. For example if the process noise is high, the samples of $X_t$ will be widely spread. If, however, the observation noise is comparitively low, many or most of the samples will be far from the observation and will have a low weight. This is undesirable, as discussed in section~\ref{sec:degeneracy}.
+
+An improved choice of  - Optimal importance dist
+
+
+Add a discussion of the problem of dimensionality.
