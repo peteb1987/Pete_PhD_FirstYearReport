@@ -2,16 +2,13 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: D:\pb404\FirstYearRep
 The style file: dcu.bst
 Database file #1: D:/pb404/Bibtex/OTbib.bib
 Warning--string name "dec." is undefined
---line 154 of file D:/pb404/Bibtex/OTbib.bib
+--line 140 of file D:/pb404/Bibtex/OTbib.bib
 Warning--string name "march" is undefined
---line 1820 of file D:/pb404/Bibtex/OTbib.bib
+--line 1806 of file D:/pb404/Bibtex/OTbib.bib
 Warning--string name "dec." is undefined
---line 1854 of file D:/pb404/Bibtex/OTbib.bib
+--line 1840 of file D:/pb404/Bibtex/OTbib.bib
 Warning--string name "jan." is undefined
---line 2248 of file D:/pb404/Bibtex/OTbib.bib
+--line 2247 of file D:/pb404/Bibtex/OTbib.bib
 Warning--string name "july" is undefined
---line 2364 of file D:/pb404/Bibtex/OTbib.bib
-A bad cross reference---entry "Pang2011"
-refers to entry "Barber2011", which doesn't exist
-Warning--I didn't find a database entry for "Barber2011"
-(There was 1 error message)
+--line 2363 of file D:/pb404/Bibtex/OTbib.bib
+(There were 5 warnings)

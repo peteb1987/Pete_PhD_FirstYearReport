@@ -24,17 +24,19 @@
 \BOOKMARK [2][-]{subsection.3.3.4}{Importance distributions}{section.3.3}% 24
 \BOOKMARK [1][-]{section.3.4}{MCMC in da house - Markov chains for particle filtering}{chapter.3}% 25
 \BOOKMARK [0][-]{chapter.4}{The tracking model}{}% 26
-\BOOKMARK [1][-]{subsection.4.0.1}{Data association}{chapter.4}% 27
-\BOOKMARK [0][-]{chapter.5}{Fixed Lag Estimation for Tracking}{}% 28
-\BOOKMARK [1][-]{section.5.1}{Why do now what we can do later?}{chapter.5}% 29
-\BOOKMARK [1][-]{section.5.2}{A mathematical framework for fixed lag estimation}{chapter.5}% 30
-\BOOKMARK [2][-]{subsection.5.2.1}{Artificial conditionals}{section.5.2}% 31
-\BOOKMARK [2][-]{subsection.5.2.2}{History Proposals}{section.5.2}% 32
-\BOOKMARK [1][-]{section.5.3}{Applying the fixed lag method to the tracking model}{chapter.5}% 33
-\BOOKMARK [2][-]{subsection.5.3.1}{Importance distributions}{section.5.3}% 34
-\BOOKMARK [0][-]{chapter.6}{Fixed Lag Particle Filters}{}% 35
-\BOOKMARK [1][-]{section.6.1}{Sequential Importance Sampling and Resampling}{chapter.6}% 36
-\BOOKMARK [2][-]{subsection.6.1.1}{Coping with dimensionality}{section.6.1}% 37
-\BOOKMARK [1][-]{section.6.2}{Markov Chain Monte Carlo}{chapter.6}% 38
-\BOOKMARK [1][-]{section.6.3}{Marginalised Particle Filters}{chapter.6}% 39
-\BOOKMARK [0][-]{chapter.7}{Plan Of Future Research}{}% 40
+\BOOKMARK [1][-]{section.4.1}{Observation Likelihood}{chapter.4}% 27
+\BOOKMARK [1][-]{section.4.2}{Transition Dynamics}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.3}{Association Likelihood}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.4}{Assumptions}{chapter.4}% 30
+\BOOKMARK [0][-]{chapter.5}{Fixed Lag Estimation for Tracking}{}% 31
+\BOOKMARK [1][-]{section.5.1}{The benefits of delaying}{chapter.5}% 32
+\BOOKMARK [1][-]{section.5.2}{A mathematical framework for fixed lag estimation}{chapter.5}% 33
+\BOOKMARK [2][-]{subsection.5.2.1}{Proposing older histories}{section.5.2}% 34
+\BOOKMARK [1][-]{section.5.3}{Application to tracking}{chapter.5}% 35
+\BOOKMARK [2][-]{subsection.5.3.1}{Importance distributions}{section.5.3}% 36
+\BOOKMARK [0][-]{chapter.6}{Fixed Lag Particle Filters}{}% 37
+\BOOKMARK [1][-]{section.6.1}{Sequential Importance Sampling and Resampling}{chapter.6}% 38
+\BOOKMARK [2][-]{subsection.6.1.1}{Coping with dimensionality}{section.6.1}% 39
+\BOOKMARK [1][-]{section.6.2}{Markov Chain Monte Carlo}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.3}{Marginalised Particle Filters}{chapter.6}% 41
+\BOOKMARK [0][-]{chapter.7}{Plan Of Future Research}{}% 42

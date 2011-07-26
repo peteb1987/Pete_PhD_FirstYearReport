@@ -317,6 +317,16 @@ Salmond, D.  \harvardyearleft 1990\harvardyearright .
 \newblock Mixture reduction algorithms for target tracking in clutter, {\em
   Proceedings of SPIE}, Vol. 1305, p.~434.
 
+\harvarditem[S\"{a}rkk\"{a} et~al.]{S\"{a}rkk\"{a}, Vehtari \harvardand\
+  Lampinen}{2007}{Sarkka2007}
+S\"{a}rkk\"{a}, S., Vehtari, A. \harvardand\ Lampinen, J.  \harvardyearleft
+  2007\harvardyearright .
+\newblock Rao-blackwellized particle filter for multiple target tracking, {\em
+  Information Fusion} {\bf 8}(1):~2 -- 15.
+\newblock Special Issue on the Seventh International Conference on Information
+  Fusion-Part II, Seventh International Conference on Information Fusion.
+\newline\harvardurl{http://www.sciencedirect.com/science/article/B6W76-4HJRRX5-1/2/c4d5356937753f21dc812b7943ffd6cd}
+
 \harvarditem{Sea}{1971}{Sea1971}
 Sea, R.~G.  \harvardyearleft 1971\harvardyearright .
 \newblock An efficient suboptimal decision procedure for associating sensor
@@ -338,16 +348,6 @@ Singer, R., Sea, R. \harvardand\ Housewright, K.  \harvardyearleft
 \newblock Derivation and evaluation of improved tracking filter for use in
   dense multitarget environments, {\em Information Theory, IEEE Transactions
   on} {\bf 20}(4):~423 -- 432.
-
-\harvarditem[Särkkä et~al.]{Särkkä, Vehtari \harvardand\
-  Lampinen}{2007}{Sarkka2007}
-Särkkä, S., Vehtari, A. \harvardand\ Lampinen, J.  \harvardyearleft
-  2007\harvardyearright .
-\newblock Rao-blackwellized particle filter for multiple target tracking, {\em
-  Information Fusion} {\bf 8}(1):~2 -- 15.
-\newblock Special Issue on the Seventh International Conference on Information
-  Fusion-Part II, Seventh International Conference on Information Fusion.
-\newline\harvardurl{http://www.sciencedirect.com/science/article/B6W76-4HJRRX5-1/2/c4d5356937753f21dc812b7943ffd6cd}
 
 \harvarditem{Streit \harvardand\ Luginbuhl}{1994}{Streit1994}
 Streit, R. \harvardand\ Luginbuhl, T.  \harvardyearleft 1994\harvardyearright .

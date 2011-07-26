@@ -1,0 +1,62 @@
+We now consider a mathematical framework for fixed lag estimation. This method was devised in \cite{Doucet2006} and \cite{Briers2006}.
+
+As before, the target posterior distribution in which we are interested is the familiar $P(X_{1:t}|Y_{1:t})$. However, the proposal mechanism now becomes more complex, because we will be replacing states in an existing particle. We first propose a particle from which to take the state ``history'', that is $X_{1:t-L}$. This may be chosen from the particle approximation from any of the previous $L$ processing steps. However, we get more of the path than we need, because each particle at lag $s$ is a set of states $X_{1:t-s}$. The final $L-s$ states will be replaced when by a new ``tip'', $X'_{t-L+1:t}$, drawn from an importance distribution. The complete proposal is thus
+
+\begin{equation}
+\{X_{1:t-L}, X'_{t-L+1:t}\} \sim q(s) \int q(X_{1:t-s}|Y_{1:t-s}) q(X'_{t-L+1}|X_{1:t-s}, Y_{t-L+1:t}) dX_{t-L+1:t-s}
+\label{eq:DumbFLProposal1}
+\end{equation}
+
+where $q(X_{1:t-s}|Y_{1:t-s})$ is a proposal distribution using the arbitrarily-weighted particles from $\hat{P}(X_{1:t-s}|Y_{1:t-s})$. We cannot evaluate this. In general, the integral will be intractable. If we restrict our proposals to depend only on the history, i.e. use $q(X_{t-L+1}|X_{1:t-L}, Y_{t-L+1:t})$, then the proposal becomes
+
+\begin{equation}
+\{X_{1:t-L}, X'_{t-L+1:t}\} \sim q(s) \hat{P}(X_{1:t-L}|Y_{1:t-s}) q(X'_{t-L+1}|X_{1:t-s}, Y_{t-L+1:t})
+\label{eq:DumbFLProposal2}
+\end{equation}
+
+% equation~\ref{eq:DumbFLProposal} simplifies to $q(s) \hat{P}(X_{1:t-L}|Y_{1:t-s}) q(X_{t-L+1}|X_{1:t-L}, Y_{t-L+1:t})$. The importance weight is then given by (corresponding MCMC acceptance probabilities will be given by a ratio of two such terms):
+
+%\begin{equation}
+%W_t^{(m)} = \frac{P(Y_{t-L+1:t}|X'^{(m)}_{t-L+1:t}) P(X'^{(m)}_{t-L+1:t}|X^{(m)}_{t-L})}{P(Y_{t-s+1:t}|Y_{1:t-s}) P(Y_{t-L+1:t}|X^{(m)}_{t-L}) q(s) q(X'^{(m)}_{t-L+1:t}|X^{(m)}_{1:t-L}, Y_{t-L+1:t})}
+%\label{eq:}
+%\end{equation}
+
+However, with this proposal, in order to evaluate importance weights or acceptance probabilities we still need to calculate
+
+\begin{equation}
+P(X_{1:t-L}|Y_{1:t-s}) = \frac{P(Y_{t-L+1:t-s}|X_{t-L}^{(m)}) P(X_{1:t-L}|Y_{1:t-L} }{P(Y_{t-L+1:t-s}|Y_{1:t-L})}
+\label{eq:}
+\end{equation}
+
+The problematic term is:
+
+\begin{equation}
+P(Y_{t-L+1:t}|X^{(m)}_{t-L}) = \int P(Y_{t-L+1:t}|X^{(m)}_{t-L}, X_{t-L+1:t}) P(X_{t-L+1:t}|X^{(m)}_{t-L}) dX_{t-L+1:t-s}
+\label{eq:}
+\end{equation}
+
+In general, this will be intractable. The exception is the case where $s=L$, but this will in general not work well - such a requirement implies ignoring all the estimation we have done since the start of the window!
+
+The solution to this tractability problem proposed in \cite{Doucet2006} is to augment the dimension of the target distribution to include the discarded tracks. The new target is:
+
+\begin{equation}
+P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-s}|X_{1:t-L}, X'_{t-L+1:t})
+\label{eq:}
+\end{equation}
+
+Once a particle approximation has been generated for this target the required posterior distribution may be obtained by marginalisation. As we are simply going to discard the old track sections $X_{t-L+1:t-s}$, the choice of $\rho(.)$ does not alter the distribution of the posterior. However, the variance of weights/acceptance probabilities may be affected.
+
+With an expanded space for the target distribution there is no need to marginalise the previous states. The proposal distribution now becomes:
+
+\begin{equation}
+\{X_{1:t-s}, X'_{t-L+1:t}\} \sim q(s) q(X_{1:t-s}|Y_{1:t-s}) q(X'_{t-L+1}|X_{1:t-s}, Y_{t-L+1:t})
+\label{eq:ExtendedFLProposal}
+\end{equation}
+
+\subsection{Artificial conditionals}
+
+We use $\rho(.)=q(.)$. Why?
+
+\subsection{History Proposals}
+
+``Conservative'' resampling as a history proposal.
