@@ -72,7 +72,7 @@
 \citation{Bar-Shalom2009}
 \citation{Sea1971}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Tracking}{12}{section.2.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Probabilistic data association}{12}{section.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Probabilistic data association}{12}{subsection.2.2.1}}
 \citation{Fitzgerald1985}
 \citation{Fitzgerald1986}
 \citation{Svensson2009a}
@@ -80,121 +80,143 @@
 \citation{Musicki1994,Musicki2004}
 \citation{Singer1974,Salmond1990}
 \citation{Blackman2004}
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Multi-hypothesis tracking}{14}{section.2.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}MCMC data association}{14}{section.2.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}Probability hypothesis density methods}{14}{section.2.6}}
+\citation{Vermaak2005}
+\citation{Reid1979}
+\citation{Blackman2004}
+\citation{Streit1994}
+\citation{Willett2002}
+\citation{Oh2004}
+\citation{Oh2004,Oh2009}
+\citation{Vermaak2005}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Data association hypothesis methods}{14}{subsection.2.2.2}}
+\citation{Vermaak2005}
+\citation{Sarkka2007}
+\citation{Mahler1994}
+\citation{Mahler2003}
+\citation{Vo2006}
+\citation{Vo2005,Whiteley2010}
+\citation{Mahler2004,Wood2010}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Full particle filters}{15}{subsection.2.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Probability hypothesis density methods}{15}{subsection.2.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Bringing it all together}{15}{subsection.2.2.5}}
+\@writefile{lot}{\contentsline {table}{\numberline {2.1}{\ignorespaces Loose grouping of target tracking algorithms by the treatment of associations and state approximations}}{16}{table.2.1}}
+\newlabel{}{{2.1}{16}{Loose grouping of target tracking algorithms by the treatment of associations and state approximations\relax }{table.2.1}{}}
 \citation{Bayes1763,Laplace1774}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Mathematical foundations}{15}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Mathematical foundations}{17}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:basics}{{3}{15}{Mathematical foundations\relax }{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Bayes of our lives - what is filtering?}{15}{section.3.1}}
-\newlabel{eq:LH}{{3.1}{15}{Bayes of our lives - what is filtering?\relax }{equation.3.1.1}{}}
-\newlabel{eq:BayesRule}{{3.2}{15}{Bayes of our lives - what is filtering?\relax }{equation.3.1.2}{}}
-\newlabel{eq:SeqBayesRule}{{3.3}{15}{Bayes of our lives - what is filtering?\relax }{equation.3.1.3}{}}
+\newlabel{chap:basics}{{3}{17}{Mathematical foundations\relax }{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Bayes of our lives - A short introduction to filtering}{17}{section.3.1}}
+\newlabel{eq:LH}{{3.1}{17}{Bayes of our lives - A short introduction to filtering\relax }{equation.3.1.1}{}}
+\newlabel{eq:BayesRule}{{3.2}{17}{Bayes of our lives - A short introduction to filtering\relax }{equation.3.1.2}{}}
 \citation{Kalman1960}
-\newlabel{eq:JointSeqBayesRule}{{3.4}{16}{Bayes of our lives - what is filtering?\relax }{equation.3.1.4}{}}
-\newlabel{eq:FilterEq1}{{3.5}{16}{Bayes of our lives - what is filtering?\relax }{equation.3.1.5}{}}
-\newlabel{eq:FilterEq2}{{3.6}{16}{Bayes of our lives - what is filtering?\relax }{equation.3.1.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Keep Kalman carry on - the Kalman filter and its extensions}{16}{section.3.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}The basic filter}{16}{subsection.3.2.1}}
-\newlabel{eq:LinearFilterEq1}{{3.7}{16}{The basic filter\relax }{equation.3.2.7}{}}
-\newlabel{eq:LinearFilterEq2}{{3.8}{16}{The basic filter\relax }{equation.3.2.8}{}}
-\newlabel{eq:KF}{{3.9}{16}{The basic filter\relax }{equation.3.2.9}{}}
-\newlabel{eq:KFp}{{3.10}{16}{The basic filter\relax }{equation.3.2.10}{}}
-\newlabel{eq:KFTime1}{{3.11}{16}{The basic filter\relax }{equation.3.2.11}{}}
-\newlabel{eq:KFTime2}{{3.12}{16}{The basic filter\relax }{equation.3.2.12}{}}
-\newlabel{eq:KFMeas1}{{3.13}{16}{The basic filter\relax }{equation.3.2.13}{}}
-\newlabel{eq:KFMeas2}{{3.14}{16}{The basic filter\relax }{equation.3.2.14}{}}
 \citation{Daum2005}
 \citation{Daum2005}
+\newlabel{eq:SeqBayesRule}{{3.3}{18}{Bayes of our lives - A short introduction to filtering\relax }{equation.3.1.3}{}}
+\newlabel{eq:FilterEq1}{{3.4}{18}{Bayes of our lives - A short introduction to filtering\relax }{equation.3.1.4}{}}
+\newlabel{eq:FilterEq2}{{3.5}{18}{Bayes of our lives - A short introduction to filtering\relax }{equation.3.1.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Keep Kalman carry on - the Kalman filter and its extensions}{18}{section.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}The basic filter}{18}{subsection.3.2.1}}
+\newlabel{eq:LinearFilterEq1}{{3.6}{18}{The basic filter\relax }{equation.3.2.6}{}}
+\newlabel{eq:LinearFilterEq2}{{3.7}{18}{The basic filter\relax }{equation.3.2.7}{}}
+\newlabel{eq:KF}{{3.8}{18}{The basic filter\relax }{equation.3.2.8}{}}
+\newlabel{eq:KFp}{{3.9}{18}{The basic filter\relax }{equation.3.2.9}{}}
+\newlabel{eq:KFTime1}{{3.10}{18}{The basic filter\relax }{equation.3.2.10}{}}
+\newlabel{eq:KFTime2}{{3.11}{18}{The basic filter\relax }{equation.3.2.11}{}}
+\newlabel{eq:KFMeas1}{{3.12}{18}{The basic filter\relax }{equation.3.2.12}{}}
+\newlabel{eq:KFMeas2}{{3.13}{18}{The basic filter\relax }{equation.3.2.13}{}}
+\newlabel{eq:KFMeas3}{{3.14}{18}{The basic filter\relax }{equation.3.2.14}{}}
+\newlabel{eq:KFMeas4}{{3.15}{18}{The basic filter\relax }{equation.3.2.15}{}}
 \citation{Rauch1965}
 \citation{Rauch1965}
-\newlabel{eq:KFMeas3}{{3.15}{17}{The basic filter\relax }{equation.3.2.15}{}}
-\newlabel{eq:KFMeas4}{{3.16}{17}{The basic filter\relax }{equation.3.2.16}{}}
-\newlabel{eq:KFMeas5}{{3.17}{17}{The basic filter\relax }{equation.3.2.17}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}The extended filter}{17}{subsection.3.2.2}}
-\newlabel{eq:EKF1}{{3.18}{17}{The extended filter\relax }{equation.3.2.18}{}}
-\newlabel{eq:EKF2}{{3.19}{17}{The extended filter\relax }{equation.3.2.19}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}The Kalman smoother}{17}{subsection.3.2.3}}
-\newlabel{eq:}{{3.20}{17}{The Kalman smoother\relax }{equation.3.2.20}{}}
-\newlabel{eq:}{{3.21}{17}{The Kalman smoother\relax }{equation.3.2.21}{}}
-\newlabel{eq:}{{3.22}{17}{The Kalman smoother\relax }{equation.3.2.22}{}}
+\newlabel{eq:KFMeas5}{{3.16}{19}{The basic filter\relax }{equation.3.2.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}The extended filter}{19}{subsection.3.2.2}}
+\newlabel{eq:EKF1}{{3.17}{19}{The extended filter\relax }{equation.3.2.17}{}}
+\newlabel{eq:EKF2}{{3.18}{19}{The extended filter\relax }{equation.3.2.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}The Kalman smoother}{19}{subsection.3.2.3}}
+\newlabel{eq:}{{3.19}{19}{The Kalman smoother\relax }{equation.3.2.19}{}}
+\newlabel{eq:}{{3.20}{19}{The Kalman smoother\relax }{equation.3.2.20}{}}
+\newlabel{eq:}{{3.21}{19}{The Kalman smoother\relax }{equation.3.2.21}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Tough as old bootstraps - the basic particle filter}{19}{section.3.3}}
 \citation{Cappe2007}
 \citation{Doucet2009}
 \citation{Pitt1999}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Tough as old bootstraps - a review of particle filter}{18}{section.3.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Particular details - mathematical basics of the particle filter}{18}{section.3.4}}
-\newlabel{eq:ParticleApprox}{{3.23}{18}{Particular details - mathematical basics of the particle filter\relax }{equation.3.4.23}{}}
-\newlabel{eq:UnweightParticleDistn}{{3.24}{18}{Particular details - mathematical basics of the particle filter\relax }{equation.3.4.24}{}}
-\newlabel{eq:}{{3.25}{18}{Particular details - mathematical basics of the particle filter\relax }{equation.3.4.25}{}}
-\newlabel{eq:ImportanceWeights}{{3.26}{19}{Particular details - mathematical basics of the particle filter\relax }{equation.3.4.26}{}}
-\newlabel{eq:NoResampIW}{{3.27}{19}{Particular details - mathematical basics of the particle filter\relax }{equation.3.4.27}{}}
-\newlabel{eq:NoResampIW}{{3.28}{19}{Particular details - mathematical basics of the particle filter\relax }{equation.3.4.28}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Auxiliary sampling}{19}{subsection.3.4.1}}
-\newlabel{eq:AuxiliarySamplingProposal}{{3.29}{19}{Auxiliary sampling\relax }{equation.3.4.29}{}}
-\newlabel{eq:}{{3.30}{19}{Auxiliary sampling\relax }{equation.3.4.30}{}}
-\newlabel{eq:NoResampIW}{{3.31}{19}{Auxiliary sampling\relax }{equation.3.4.31}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Degeneracy and resampling}{19}{subsection.3.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}The basics}{20}{subsection.3.3.1}}
+\newlabel{eq:ParticleApprox}{{3.22}{20}{The basics\relax }{equation.3.3.22}{}}
+\newlabel{eq:UnweightParticleDistn}{{3.23}{20}{The basics\relax }{equation.3.3.23}{}}
+\newlabel{eq:}{{3.24}{20}{The basics\relax }{equation.3.3.24}{}}
+\newlabel{eq:ImportanceWeights}{{3.25}{20}{The basics\relax }{equation.3.3.25}{}}
+\newlabel{eq:NoResampIW}{{3.26}{21}{The basics\relax }{equation.3.3.26}{}}
+\newlabel{eq:WithResampIW}{{3.27}{21}{The basics\relax }{equation.3.3.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Auxiliary sampling}{21}{subsection.3.3.2}}
+\newlabel{eq:AuxiliarySamplingProposal}{{3.28}{21}{Auxiliary sampling\relax }{equation.3.3.28}{}}
+\newlabel{eq:}{{3.29}{21}{Auxiliary sampling\relax }{equation.3.3.29}{}}
+\newlabel{eq:AuxiliaryIW}{{3.30}{21}{Auxiliary sampling\relax }{equation.3.3.30}{}}
+\newlabel{eq:}{{3.31}{21}{Auxiliary sampling\relax }{equation.3.3.31}{}}
+\citation{Liu1995}
 \citation{Gordon1993}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Importance distributions}{20}{subsection.3.4.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}MCMC in da house - series vs. parallel}{20}{section.3.5}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Models for Tracking}{21}{chapter.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Degeneracy and resampling}{22}{subsection.3.3.3}}
+\newlabel{eq:ESS}{{3.32}{22}{Degeneracy and resampling\relax }{equation.3.3.32}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Importance distributions}{22}{subsection.3.3.4}}
+\newlabel{eq:OptimalImportanceDist}{{3.33}{22}{Importance distributions\relax }{equation.3.3.33}{}}
+\newlabel{eq:OptimalImportanceWeights}{{3.34}{22}{Importance distributions\relax }{equation.3.3.34}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}MCMC in da house - Markov chains for particle filtering}{23}{section.3.4}}
+\newlabel{eq:MHAcceptance}{{3.35}{23}{MCMC in da house - Markov chains for particle filtering\relax }{equation.3.4.35}{}}
+\newlabel{eq:MCMCPFTarget}{{3.36}{23}{MCMC in da house - Markov chains for particle filtering\relax }{equation.3.4.36}{}}
+\newlabel{eq:MCMCPFAcceptance}{{3.37}{23}{MCMC in da house - Markov chains for particle filtering\relax }{equation.3.4.37}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}The tracking model}{25}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Why do we track?}{21}{section.4.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Models for tracking}{21}{section.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Data association}{22}{subsection.4.2.1}}
-\newlabel{eq:}{{4.3}{22}{Data association\relax }{equation.4.2.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Algorithms for tracking}{22}{section.4.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.1}Data association}{25}{subsection.4.0.1}}
+\newlabel{eq:}{{4.3}{26}{Data association\relax }{equation.4.0.3}{}}
 \citation{Doucet2006}
 \citation{Briers2006}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fixed Lag Estimation for Tracking}{23}{chapter.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Fixed Lag Estimation for Tracking}{27}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Why do now what we can do later?}{23}{section.5.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Why do now what we can do later?}{27}{section.5.1}}
 \citation{Doucet2006}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}A mathematical framework for fixed lag estimation}{24}{section.5.2}}
-\newlabel{eq:DumbFLProposal1}{{5.1}{24}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.1}{}}
-\newlabel{eq:DumbFLProposal2}{{5.2}{24}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.2}{}}
-\newlabel{eq:}{{5.3}{24}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.3}{}}
-\newlabel{eq:}{{5.4}{24}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.4}{}}
-\newlabel{eq:}{{5.5}{24}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.5}{}}
-\newlabel{eq:ExtendedFLProposal}{{5.6}{24}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Artificial conditionals}{25}{subsection.5.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}History Proposals}{25}{subsection.5.2.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Applying the fixed lag method to the tracking model}{25}{section.5.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Importance distributions}{25}{subsection.5.3.1}}
-\newlabel{eq:}{{5.7}{25}{Importance distributions\relax }{subsection.5.3.1}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Association proposals}{25}{section*.11}}
-\newlabel{eq:GeneralAssocProp}{{5.8}{25}{Association proposals\relax }{section*.11}{}}
-\newlabel{eq:}{{5.9}{26}{Association proposals\relax }{equation.5.3.9}{}}
-\newlabel{eq:}{{5.10}{26}{Association proposals\relax }{equation.5.3.10}{}}
-\newlabel{eq:}{{5.12}{26}{Association proposals\relax }{equation.5.3.12}{}}
-\newlabel{eq:}{{5.13}{26}{Association proposals\relax }{equation.5.3.13}{}}
-\newlabel{eq:}{{5.14}{26}{Association proposals\relax }{equation.5.3.14}{}}
-\newlabel{eq:}{{5.15}{26}{Association proposals\relax }{equation.5.3.15}{}}
-\newlabel{eq:}{{5.16}{26}{Association proposals\relax }{equation.5.3.16}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}A mathematical framework for fixed lag estimation}{28}{section.5.2}}
+\newlabel{eq:DumbFLProposal1}{{5.1}{28}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.1}{}}
+\newlabel{eq:DumbFLProposal2}{{5.2}{28}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.2}{}}
+\newlabel{eq:}{{5.3}{28}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.3}{}}
+\newlabel{eq:}{{5.4}{28}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.4}{}}
+\newlabel{eq:}{{5.5}{28}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.5}{}}
+\newlabel{eq:ExtendedFLProposal}{{5.6}{28}{A mathematical framework for fixed lag estimation\relax }{equation.5.2.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Artificial conditionals}{29}{subsection.5.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}History Proposals}{29}{subsection.5.2.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Applying the fixed lag method to the tracking model}{29}{section.5.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Importance distributions}{29}{subsection.5.3.1}}
+\newlabel{eq:}{{5.7}{29}{Importance distributions\relax }{subsection.5.3.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Association proposals}{29}{section*.11}}
+\newlabel{eq:GeneralAssocProp}{{5.8}{29}{Association proposals\relax }{section*.11}{}}
+\newlabel{eq:}{{5.9}{30}{Association proposals\relax }{equation.5.3.9}{}}
+\newlabel{eq:}{{5.10}{30}{Association proposals\relax }{equation.5.3.10}{}}
+\newlabel{eq:}{{5.12}{30}{Association proposals\relax }{equation.5.3.12}{}}
+\newlabel{eq:}{{5.13}{30}{Association proposals\relax }{equation.5.3.13}{}}
+\newlabel{eq:}{{5.14}{30}{Association proposals\relax }{equation.5.3.14}{}}
+\newlabel{eq:}{{5.15}{30}{Association proposals\relax }{equation.5.3.15}{}}
+\newlabel{eq:}{{5.16}{30}{Association proposals\relax }{equation.5.3.16}{}}
 \citation{Chib1996}
 \citation{Doucet2006}
-\newlabel{eq:}{{5.18}{27}{Association proposals\relax }{equation.5.3.18}{}}
-\newlabel{eq:}{{5.19}{27}{Association proposals\relax }{equation.5.3.19}{}}
-\@writefile{toc}{\contentsline {subsubsection}{State proposals}{27}{section*.12}}
-\newlabel{eq:}{{5.20}{27}{State proposals\relax }{equation.5.3.20}{}}
-\newlabel{eq:}{{5.21}{27}{State proposals\relax }{equation.5.3.21}{}}
-\newlabel{eq:}{{5.22}{27}{State proposals\relax }{equation.5.3.22}{}}
-\newlabel{eq:}{{5.23}{27}{State proposals\relax }{equation.5.3.23}{}}
-\newlabel{eq:}{{5.24}{27}{State proposals\relax }{equation.5.3.24}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Fixed Lag Particle Filters}{29}{chapter.6}}
+\newlabel{eq:}{{5.18}{31}{Association proposals\relax }{equation.5.3.18}{}}
+\newlabel{eq:}{{5.19}{31}{Association proposals\relax }{equation.5.3.19}{}}
+\@writefile{toc}{\contentsline {subsubsection}{State proposals}{31}{section*.12}}
+\newlabel{eq:}{{5.20}{31}{State proposals\relax }{equation.5.3.20}{}}
+\newlabel{eq:}{{5.21}{31}{State proposals\relax }{equation.5.3.21}{}}
+\newlabel{eq:}{{5.22}{31}{State proposals\relax }{equation.5.3.22}{}}
+\newlabel{eq:}{{5.23}{31}{State proposals\relax }{equation.5.3.23}{}}
+\newlabel{eq:}{{5.24}{31}{State proposals\relax }{equation.5.3.24}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Fixed Lag Particle Filters}{33}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Sequential Importance Sampling and Resampling}{29}{section.6.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Coping with dimensionality}{29}{subsection.6.1.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Markov Chain Monte Carlo}{29}{section.6.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Marginalised Particle Filters}{29}{section.6.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Sequential Importance Sampling and Resampling}{33}{section.6.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Coping with dimensionality}{33}{subsection.6.1.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Markov Chain Monte Carlo}{33}{section.6.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Marginalised Particle Filters}{33}{section.6.3}}
 \bibstyle{dcu}
 \bibdata{D:/pb404/Bibtex/OTbib}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Plan Of Future Research}{31}{chapter.7}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Plan Of Future Research}{35}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \harvardcite{Al-Awadhi2004}{Al-Awadhi, Hurn \harvardand \Jennison}{Al-Awadhi et~al.}{2004}
@@ -232,15 +254,29 @@
 \harvardcite{Kitagawa1996}{Kitagawa}{Kitagawa}{1996}
 \harvardcite{Laplace1774}{Laplace}{Laplace}{1774}
 \harvardcite{Liu1995}{Liu \harvardand \ Chen}{Liu \harvardand \ Chen}{1995}
+\harvardcite{Mahler1994}{Mahler}{Mahler}{1994}
+\harvardcite{Mahler2003}{Mahler}{Mahler}{2003}
+\harvardcite{Mahler2004}{Mahler}{Mahler}{2004}
 \harvardcite{Metropolis1953}{Metropolis, Rosenbluth, Rosenbluth, Teller, Teller et~al.}{Metropolis et~al.}{1953}
 \harvardcite{Musicki2004}{Musicki \harvardand \ Evans}{Musicki \harvardand \ Evans}{2004}
 \harvardcite{Musicki1994}{Musicki, Evans \harvardand \Stankovic}{Musicki et~al.}{1994}
+\harvardcite{Oh2004}{Oh, Russell \harvardand \ Sastry}{Oh et~al.}{2004}
+\harvardcite{Oh2009}{Oh, Russell \harvardand \ Sastry}{Oh et~al.}{2009}
 \harvardcite{Pang2011}{Pang, Godsill, Li \harvardand \Septier}{Pang et~al.}{2011}
 \harvardcite{Pang2008}{Pang, Li \harvardand \ Godsill}{Pang et~al.}{2008}
 \harvardcite{Pitt1999}{Pitt \harvardand \ Shephard}{Pitt \harvardand \ Shephard}{1999}
 \harvardcite{Rauch1965}{Rauch, Tung \harvardand \ Striebel}{Rauch et~al.}{1965}
+\harvardcite{Reid1979}{Reid}{Reid}{1979}
 \harvardcite{Salmond1990}{Salmond}{Salmond}{1990}
 \harvardcite{Sea1971}{Sea}{Sea}{1971}
 \harvardcite{Septier2009}{Septier, Pang, Carmi \harvardand \Godsill}{Septier et~al.}{2009}
 \harvardcite{Singer1974}{Singer, Sea \harvardand \Housewright}{Singer et~al.}{1974}
+\harvardcite{Sarkka2007}{Särkkä, Vehtari \harvardand \Lampinen}{Särkkä et~al.}{2007}
+\harvardcite{Streit1994}{Streit \harvardand \ Luginbuhl}{Streit \harvardand \ Luginbuhl}{1994}
 \harvardcite{Svensson2009a}{Svensson, Svensson \harvardand \Willett}{Svensson et~al.}{2009}
+\harvardcite{Vermaak2005}{Vermaak, Godsill \harvardand \Perez}{Vermaak et~al.}{2005}
+\harvardcite{Vo2006}{Vo \harvardand \ Ma}{Vo \harvardand \ Ma}{2006}
+\harvardcite{Vo2005}{Vo, Singh \harvardand \ Doucet}{Vo et~al.}{2005}
+\harvardcite{Whiteley2010}{Whiteley, Singh \harvardand \Godsill}{Whiteley et~al.}{2010}
+\harvardcite{Willett2002}{Willett, Ruan \harvardand \Streit}{Willett et~al.}{2002}
+\harvardcite{Wood2010}{Wood}{Wood}{2010}

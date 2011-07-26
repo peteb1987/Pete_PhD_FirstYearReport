@@ -24,68 +24,35 @@
 
 
 \chapter{Introduction}
-Everyone loves to track things. Yay! 
-
-
-
+\input{Introduction}
 
 \chapter{Literature Review}
+Two spheres of literature will be of interest here: the developments of models and algorithms for tracking, and the studies of the numerical inference schemes which underly our method. We begin with the latter.
+\section{Particle filters}
 \input{LitRev1}
 \section{Tracking}
 \input{LitRev2}
 
-
-
-
 \chapter{Mathematical foundations} \label{chap:basics}
-\section{Bayes of our lives - what is filtering?}
-\input{whatisfiltering}
-
+\section{Bayes of our lives - A short introduction to filtering}
+\input{MathsFoundations1}
 \section{Keep Kalman carry on - the Kalman filter and its extensions}
-\input{thekalmanfilter}
+\input{MathsFoundations2}
+\section{Tough as old bootstraps - the basic particle filter}
+\input{MathsFoundations3}
+\section{MCMC in da house - Markov chains for particle filtering}
+\input{MathsFoundations4}
 
-\section{Tough as old bootstraps - a review of particle filter}
-\input{particlefilterreview}
-
-\section{Particular details - mathematical basics of the particle filter}
-\input{thebasicparticlefilter}
-
-\section{MCMC in da house - series vs. parallel}
-S-MCMC (Godsill) approach
-
-
-
-
-\chapter{Models for Tracking}
-
-\section{Why do we track?}
-\input{trackingintro}
-
-\section{Models for tracking}
-\input{trackingmodels}
-
-\section{Algorithms for tracking}
-JPDAF
-MHT
-MCMCDA
-Particle filters. Especially Vermaak
-RBPF
-
-
-
+\chapter{The tracking model}
+\input{TrackingModel1}
 
 \chapter{Fixed Lag Estimation for Tracking}
 \section{Why do now what we can do later?}
 \input{fixedlag}
-
 \section{A mathematical framework for fixed lag estimation}
 \input{fixedlagmaths}
-
 \section{Applying the fixed lag method to the tracking model}
 \input{fixedlagfortracking}
-
-
-
 
 \chapter{Fixed Lag Particle Filters}
 \section{Sequential Importance Sampling and Resampling}
@@ -93,13 +60,8 @@ RBPF
 \section{Markov Chain Monte Carlo}
 \section{Marginalised Particle Filters}
 
-
-
-
 \chapter{Plan Of Future Research}
 radar, insects, crowds, cells, jump-diffusions, cursor tracking...
-
-
 
 
 \bibliographystyle{dcu}%_noURLs}

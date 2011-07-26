@@ -6,9 +6,9 @@ In a target tracking situation we aim is to trace the trajectory of an object ov
 	\item Estimate the state of each target
 \end{itemize}
 
-In this chapter, we review a number of strategies for tackling such a target tracking problem. Note that although we divide up the algorithms into sections, there is significant overlap between them, which we endeavour to highlight.
+In this section, we review a number of strategies for tackling such a target tracking problem. Note that although we divide up the algorithms into sections, there is significant overlap between them, which we endeavour to highlight.
 
-\section{Probabilistic data association}
+\subsection{Probabilistic data association}
 The earliest works on target tracking with data association used a combination of Kalman filters and heuristics. \cite{Sea1971} suggests using only the observation with the minimum Mahalanobis distance from the Kalman prediction, i.e. a maximum likelihood estimate of the association. Such nearest neighbour algorithms can easily be caused to lose track by a single unfortunate false alarm.
 
 A probabilistic approach was introduced by \cite{Bar-Shalom1975}, in the form of the probabilistic data association filter (PDAF). Rather than select a single observation for each target in each frame, for the PDAF a posterior probability of each possible association is calculated, given the previous target states. A Kalman update is then evaluated for each of the possible associations and the results added together, weighted by the corresponding association posterior. Thus, the final update takes into account multiple (indeed, all) observations. Thus the PDAF cannot be so easily upset by single clutter measurement, although additional error is introduced in situations where a nearest neighbour method would have picked the correct association, because of the influence of false alarms which now contribute to the estimate.
@@ -27,18 +27,54 @@ So far we have outlined how the JPDAF approaches the problems of data associatio
 
 The JPDAF requires the dynamics of the targets and the observation process to be linear and Gaussian, or that an appropriate EKF-like linear approximation can be made. However, even given this requirement, the estimation process still involves a sub-optimal step. The final posterior state distribution is constructed by adding a weighted sum of distributions, each made with a different association hypothesis. The individual components are Gaussians, and so the posterior should be a sum of Gaussian. However, in the JPDAF, this is collapsed into a single Gaussian with a matched mean and variance. This collapsing step may throw away important information if there is more than one significant component, and is responsible for the track coallescence effect noted before. It is possible to construct a filter which maintains the complete or a partially complete Gaussian sum posterior, \cite{Singer1974,Salmond1990}, at the expense of increased complexity. In fact, this produces an algorithm broadly equivalent to the multi-hypothesis tracker \cite{Blackman2004}!
 
+There is an alternative to using a Kalman filter for the JPDAF, with its associated approximations. We can use a particle filter instead for the state estimation. Such an algorithm is developed in \cite{Vermaak2005}. A set of particles representing targets states are propagated forwards using IS and used to calculate the association priors using a Monte Carlo estimate. These association priors are then used in the particle weight calculations. The particles approximate the target posterior state distribution. Using a particle approximation allows us to trade off accuracy against computation by varying the number of particles, which may be an improvement on Gaussian approximations for nonlinear models.
+
 A final note about the JPDAF. The algorithm assumes that the only interaction between targets is through the associations - no two targets can be associated with the same observation. Thus, once the association probabilities have been calculated, each target may be updated independently using a Kalman filter to give a marginal state distribution. Interactions between targets are difficult to accomodate because we do not work in the joint state space of all targets.
 
 
 
-\section{Multi-hypothesis tracking}
+\subsection{Data association hypothesis methods}
+With a JPDAF, the probability of each feasible combination of associations is calculated, and used to weight a sum of the state estimates made with the respective combinations. The Multi-Hypothesis Tracker (MHT) of \cite{Reid1979} instead maintains each of these estimates separately, with an associated probabilistic score. The MHT requires the target dynamics to be exactly or approximately linear-Gaussian, so that KFs can be used for state updates. As we shall see, a PF version results in Monte Carlo Data Association.
+
+For each frame of data, each possible combination of associations between objects and observations is formed. State estimates are calculated with KF updates and the hypothesis is scored with a posterior probability. Detection of new tracks is readily incorporated into MHT. New tracks can be added into hypotheses wherever an un-associated observation exists. MHT has a potentially enormous computational complexity which grows combinatorially as time proceeds. To render it practical, observations are gated, disallowing associations between targets and distant measurements, and `pruning' is used to eliminate hypotheses with low probabilities. \cite{Blackman2004} contains an excellent introduction to MHT and details of its implementation.
+
+MHT requires significantly more computational complexity than the JPDAF. In particular, high levels of clutter can lead to prohibitively large numbers of hypotheses. Furthermore, it is reliant on the use of Gaussian approximations so that KF methods can be used to obtain state estimates. 
+
+A modification of MHT is derived by relaxing the constraint that any observation can only be associated with one target. This allows the tracking of each target to be conducted independently, with a great saving in computation (Complete lists of hypotheses are no longer required). The EM algorithm may be used to select the maximum probability association hypothesis over a window of frames. This is known as Probabilistic MHT (PMHT) and was first proposed by \cite{Streit1994}. \cite{Willett2002} show that performance is similar to that of the PDAF (The PMHT assumption is equivalent to running an independent PDAF on each target instead of a JPDAF on the whole lot).
+
+MHT suffers from high computational loads due to the large number of possible association hypotheses. A particle method was introduced to address this problem in \cite{Oh2004}, called MCMC data association (MCMCDA). This method still uses Gaussian approximations so that KFs may be used to estimate the state distributions. However, instead of enumerating a posterior probability for every possible hypothesis, a Markov chain is constructed to target the posterior association hypothesis probability. This is a batch method, allowing changes to the associations in previous frames within some fixed length window. MH moves allow transitions between valid hypotheses, for example by initiating new tracks, extending or shortening tracks, or swapping observations between nearby targets. By choosing sensible proposals, low probability hypotheses are never even considered. In \cite{Oh2004,Oh2009}, the authors report significant improvements over MHT.
 
 
 
+\subsection{Full particle filters}
+In the MCMCDA method, a particle distribution was developed over the associations. In the MC-JPDAF, a particle filter was used for the target posterior state distributions. The next step is to maintain a particle distribution over both states and associations of all targets. Such a method using SISR was proposed by \cite{Vermaak2005}. The targetted distribution of the particle filter is the joint posterior of the target states and associations. Both these components must be proposed for each target, and the probability of each used in the weight updates.
+
+Full multi-target particle filters suffer from complexity issues. The dimensionality of the state space scales with the number of targets. Thus the variance of importance weights, or acceptance probabilities, increases rapidly. An SISR particle filter with more than a couple of targets may repeatedly have all the weight on a single particle, even with resampling every step. An intuitive interpretation of the effect is that a particle may be given a low weight because its estimate of one target state is poor, even if the others are all good. In \cite{Vermaak2005}, two strategies are proposed to cope with the dimensionality problems. In the Sequential Sampling Particle Filter (SSPF), targets are sampled sequentially, with optional resampling steps between each. This can be used to maintain a higher level of particle diversity, but there is still a worse than linear scaling in complexity to maintain a constant level of accuracy. For the Independent Partition Particle Filter, targets are assumed to be completely independent, by allowing multiple targets to associate with the same observation, as with PMHT. This allows an independent particle filter to be run for each target from which the joint distribution may be reconstructed.
+
+Interestingly, the a marginalised or Rao-Blackwellised version of the full multi-target particle filter (i.e. approximating the target states with Kalman filters) is equivalent to the MCMCDA approach. Such an algorithm using SISR is presented in \cite{Sarkka2007}.
+
+
+\subsection{Probability hypothesis density methods}
+All the methods outlined so far assume that each target is identified by some unique label. There exists another family of tracking algorithms based on the assumption that the multi-target state is an unordered set, i.e. that it does not matter which target is which, only where they occur. The finite set statisitics (FISST) required to handle states which are random finite sets (RFS) was presented by \cite{Mahler1994}. Practical algorithms based on RFS methods are generally restricted to estimating the first moment of the multitarget probability distribution, known as the ``probability hypothesis density'' (PHD), \cite{Mahler2003}, which can be approximated using Gaussian mixtures, \cite{Vo2006}, or particle filters, \cite{Vo2005,Whiteley2010}. A more detailed introduction to PHD methods can be found in \cite{Mahler2004,Wood2010}.
 
 
 
-\section{MCMC data association}
+\subsection{Bringing it all together}
+The methods we have considered can broadly be divided into those which attempt to explicity estimate the associations between targets and observations, and those that marginalise this information and estimate only a combined state estimate. We can also divide the methods into those which use Gaussian approximations and Kalman filters, and those which use particle approximations for the target states.
 
-\section{Probability hypothesis density methods}
-
+\begin{table}[!hbt]%
+\begin{center}\begin{tabular}{|c|c|c|}
+\hline
+ & Estimate Associations & Marginalise Associations\\
+\hline
+Gaussian & MHT & JPDAF \\
+State Approximation & MCMCDA & GM-PHD \\ 
+ & RBPF & \\
+\hline
+Particle & Full PF & MC-JPDAF \\
+State Approximation & & SMC-PHD \\
+\hline
+\end{tabular}\end{center}
+\caption{Loose grouping of target tracking algorithms by the treatment of associations and state approximations}
+\label{}
+\end{table}

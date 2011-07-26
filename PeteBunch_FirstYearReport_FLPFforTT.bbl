@@ -231,6 +231,22 @@ Liu, J.~S. \harvardand\ Chen, R.  \harvardyearleft 1995\harvardyearright .
   American Statistical Association} {\bf 90}(430):~pp. 567--576.
 \newline\harvardurl{http://www.jstor.org/stable/2291068}
 
+\harvarditem{Mahler}{1994}{Mahler1994}
+Mahler, R.  \harvardyearleft 1994\harvardyearright .
+\newblock Random-set approach to data fusion, {\em Proceedings of SPIE}, Vol.
+  2234, p.~287.
+
+\harvarditem{Mahler}{2003}{Mahler2003}
+Mahler, R.  \harvardyearleft 2003\harvardyearright .
+\newblock Multitarget bayes filtering via first-order multitarget moments, {\em
+  Aerospace and Electronic Systems, IEEE Transactions on} {\bf 39}(4):~1152 --
+  1178.
+
+\harvarditem{Mahler}{2004}{Mahler2004}
+Mahler, R.  \harvardyearleft 2004\harvardyearright .
+\newblock "statistics 101" for multisensor, multitarget data fusion, {\em
+  Aerospace and Electronic Systems Magazine, IEEE} {\bf 19}(1):~53 --64.
+
 \harvarditem[Metropolis et~al.]{Metropolis, Rosenbluth, Rosenbluth, Teller,
   Teller et~al.}{1953}{Metropolis1953}
 Metropolis, N., Rosenbluth, A., Rosenbluth, M., Teller, A., Teller, E. et~al.
@@ -250,6 +266,19 @@ Musicki, D., Evans, R. \harvardand\ Stankovic, S.  \harvardyearleft
   1994\harvardyearright .
 \newblock Integrated probabilistic data association, {\em Automatic Control,
   IEEE Transactions on} {\bf 39}(6):~1237 --1241.
+
+\harvarditem[Oh et~al.]{Oh, Russell \harvardand\ Sastry}{2004}{Oh2004}
+Oh, S., Russell, S. \harvardand\ Sastry, S.  \harvardyearleft
+  2004\harvardyearright .
+\newblock Markov chain monte carlo data association for general multiple-target
+  tracking problems, {\em Decision and Control, 2004. CDC. 43rd IEEE Conference
+  on}, Vol.~1, pp.~735 --742 Vol.1.
+
+\harvarditem[Oh et~al.]{Oh, Russell \harvardand\ Sastry}{2009}{Oh2009}
+Oh, S., Russell, S. \harvardand\ Sastry, S.  \harvardyearleft
+  2009\harvardyearright .
+\newblock Markov chain monte carlo data association for multi-target tracking,
+  {\em Automatic Control, IEEE Transactions on} {\bf 54}(3):~481 --497.
 
 \harvarditem[Pang et~al.]{Pang, Godsill, Li \harvardand\
   Septier}{2011}{Pang2011}
@@ -278,6 +307,11 @@ Rauch, H., Tung, F. \harvardand\ Striebel, C.  \harvardyearleft
 \newblock Maximum likelihood estimates of linear dynamic systems, {\em AIAA
   journal} {\bf 3}(8):~1445--1450.
 
+\harvarditem{Reid}{1979}{Reid1979}
+Reid, D.  \harvardyearleft 1979\harvardyearright .
+\newblock An algorithm for tracking multiple targets, {\em Automatic Control,
+  IEEE Transactions on} {\bf 24}(6):~843 -- 854.
+
 \harvarditem{Salmond}{1990}{Salmond1990}
 Salmond, D.  \harvardyearleft 1990\harvardyearright .
 \newblock Mixture reduction algorithms for target tracking in clutter, {\em
@@ -305,6 +339,21 @@ Singer, R., Sea, R. \harvardand\ Housewright, K.  \harvardyearleft
   dense multitarget environments, {\em Information Theory, IEEE Transactions
   on} {\bf 20}(4):~423 -- 432.
 
+\harvarditem[Särkkä et~al.]{Särkkä, Vehtari \harvardand\
+  Lampinen}{2007}{Sarkka2007}
+Särkkä, S., Vehtari, A. \harvardand\ Lampinen, J.  \harvardyearleft
+  2007\harvardyearright .
+\newblock Rao-blackwellized particle filter for multiple target tracking, {\em
+  Information Fusion} {\bf 8}(1):~2 -- 15.
+\newblock Special Issue on the Seventh International Conference on Information
+  Fusion-Part II, Seventh International Conference on Information Fusion.
+\newline\harvardurl{http://www.sciencedirect.com/science/article/B6W76-4HJRRX5-1/2/c4d5356937753f21dc812b7943ffd6cd}
+
+\harvarditem{Streit \harvardand\ Luginbuhl}{1994}{Streit1994}
+Streit, R. \harvardand\ Luginbuhl, T.  \harvardyearleft 1994\harvardyearright .
+\newblock Maximum likelihood method for probabilistic multihypothesis tracking,
+  {\em Proceedings of SPIE}, Vol. 2235, p.~394.
+
 \harvarditem[Svensson et~al.]{Svensson, Svensson \harvardand\
   Willett}{2009}{Svensson2009a}
 Svensson, L., Svensson, D. \harvardand\ Willett, P.  \harvardyearleft
@@ -312,5 +361,45 @@ Svensson, L., Svensson, D. \harvardand\ Willett, P.  \harvardyearleft
 \newblock Set jpda algorithm for tracking unordered sets of targets, {\em
   Information Fusion, 2009. FUSION '09. 12th International Conference on},
   pp.~1187 --1194.
+
+\harvarditem[Vermaak et~al.]{Vermaak, Godsill \harvardand\
+  Perez}{2005}{Vermaak2005}
+Vermaak, J., Godsill, S. \harvardand\ Perez, P.  \harvardyearleft
+  2005\harvardyearright .
+\newblock Monte carlo filtering for multi target tracking and data association,
+  {\em Aerospace and Electronic Systems, IEEE Transactions on} {\bf 41}(1):~309
+  -- 332.
+
+\harvarditem{Vo \harvardand\ Ma}{2006}{Vo2006}
+Vo, B.-N. \harvardand\ Ma, W.-K.  \harvardyearleft 2006\harvardyearright .
+\newblock The gaussian mixture probability hypothesis density filter, {\em
+  Signal Processing, IEEE Transactions on} {\bf 54}(11):~4091 --4104.
+
+\harvarditem[Vo et~al.]{Vo, Singh \harvardand\ Doucet}{2005}{Vo2005}
+Vo, B.-N., Singh, S. \harvardand\ Doucet, A.  \harvardyearleft
+  2005\harvardyearright .
+\newblock Sequential monte carlo methods for multitarget filtering with random
+  finite sets, {\em Aerospace and Electronic Systems, IEEE Transactions on}
+  {\bf 41}(4):~1224 -- 1245.
+
+\harvarditem[Whiteley et~al.]{Whiteley, Singh \harvardand\
+  Godsill}{2010}{Whiteley2010}
+Whiteley, N., Singh, S. \harvardand\ Godsill, S.  \harvardyearleft
+  2010\harvardyearright .
+\newblock Auxiliary particle implementation of probability hypothesis density
+  filter, {\em Aerospace and Electronic Systems, IEEE Transactions on} {\bf
+  46}(3):~1437 --1454.
+
+\harvarditem[Willett et~al.]{Willett, Ruan \harvardand\
+  Streit}{2002}{Willett2002}
+Willett, P., Ruan, Y. \harvardand\ Streit, R.  \harvardyearleft
+  2002\harvardyearright .
+\newblock Pmht: problems and some solutions, {\em Aerospace and Electronic
+  Systems, IEEE Transactions on} {\bf 38}(3):~738 -- 754.
+
+\harvarditem{Wood}{2010}{Wood2010}
+Wood, T.  \harvardyearleft 2010\harvardyearright .
+\newblock Random finite set theory for tracking.
+\newline\harvardurl{http://people.maths.ox.ac.uk/~woodtm/rfs_overview.pdf}
 
 \end{thebibliography}
