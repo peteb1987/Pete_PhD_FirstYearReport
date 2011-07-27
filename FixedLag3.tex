@@ -1,32 +1,20 @@
-Erm... i've kinda said what I was going to say here in the previous section
-
 \subsection{Importance distributions}
 
-The dimensionality of a fixed lag particle filter will generally be very large. Consider a problem where each target has a 4-dimensional kinematic state (postion and velocity in $x$ and $y$) and an observation-association index. This gives us five dimensions per target per time step. If we use a lag window with length $L=5$ and 5 targets we will have a 125 dimensional state. If we used a basic, bootstrap approach to such a problem, the chances of even a single particle following the correct path are negligible. Instead we must exploit the strong correlations between states arising from the structure of the problem. We first factorise the proposal thus:
+The dimensionality of a fixed lag particle filter will generally be very large. Consider a problem where each target has a 4-dimensional kinematic state (postion and velocity in $x$ and $y$) and an observation-association index. This gives us five dimensions per target per time step. If we use a lag window with length $L=5$ and 5 targets we will have a 125 dimensional state. If we used a basic, bootstrap approach to such a problem, the chances of even a single particle following the correct path are negligible. Instead we must exploit the strong correlations between states arising from the structure of the problem. We first factorise the proposal over the targets:
 
-%First we consider the importance distribution for a single target and a lag of $L$. The ``optimal'' distribution for this is
+\begin{equation}
+q(X_{t-L+1:t}, \Lambda_{t-L+1:t}|X_{t-L}, Y_{t-L+1:t}) = \prod_{j=1}^{K_t} q(x_{j,t-L+1:t}, \lambda_{j,t-L+1:t}|\lambda_{1:j-1,t-L+1:t}, x_{j,t-L}, Y_{t-L+1:t})
+\label{eq:}
+\end{equation}
 
-%\begin{multline}
-%q(x_{t-L+1:t}, \lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) = P(x_{t-L+1:t}, \lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) = \\
-%\frac{P(Y_{t-L+1:t}|x_{t-L+1:t}, \lambda_{t-L+1:t}) P(X_{t-L+1:t}, \lambda_{t-L+1:t}|x_{t-L})}{P(Y_{t-L+1:t}|x_{t-L})}
-%\label{eq:}
-%\end{multline}
-
-%\begin{multline}
-%q(x_{t-L+1:t}, \lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) = \\
-%q(\lambda_t|x_{t-L}, Y_t) \prod_{k=t-L+1}^{t-1} {q(\lambda_k| \lambda_{k+1:t}, Y_{k:t}, x_{t-L})} \nonumber \\
-%q(x_t|x_{t-L}, \lambda_{t-L+1:t}, Y_{t-L+1:t}) \prod_{k=t-L+1}^{t-1} {q(x_k|x_{t-L}, x_{k+1}, \lambda_{t-L+1:k}, Y_{t-L+1:k})} \nonumber
-%\label{eq:}
-%\end{multline}
+Thus, the targets may be proposed sequentially. The proposal for each target is then further decomposed.
 
 \begin{IEEEeqnarray}{rCl}
-q(x_{t-L+1:t}, \lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) & & \nonumber \\
- & = & q(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) \nonumber \\
- & = & q(x_{t-L+1:t}|x_{t-L}, \lambda_{t-L+1:t}, Y_{t-L+1:t})
+q(x_{j,t-L+1:t}, \lambda_{j,t-L+1:t}|\lambda_{1:j-1,t-L+1:t}, x_{j,t-L}, Y_{t-L+1:t}) & & \nonumber \\
+ & = & q(\lambda_{j,t-L+1:t}|\lambda_{1:j-1,t-L+1:t}, x_{j,t-L}, Y_{t-L+1:t}) \nonumber \\
+ & = & q(x_{j,t-L+1:t}|x_{j,t-L}, \lambda_{j,t-L+1:t}, Y_{t-L+1:t})
 \label{eq:}
 \end{IEEEeqnarray}
-
-%This can be sampled sequentially. We start with the last association variable, $\lambda_t$, then proceed backwards in time through $\lambda_{t-L+1:t-1}$. Once the association variables are set, the kinematic states may be sampled similarly using the method suggested in \cite{Doucet2006} and originally in \cite{Chib1996}, in which we first propose $x_t$ then sequentially backwards through $x_{t-L+1:t-1}$.
 
 Thus we can sample first the association variables then the state variables. Each of these terms can be further factorised over time, as we shall see. If we were to replace each of the factors with its corresponding posterior distribution then this factorsiation would recreate the ``optimal'' importance distribution.% In general we will not be able to either sample from or calculate such a posterior. The exception is the case where we have linear-Gaussian dynamics.
 
@@ -44,14 +32,14 @@ q(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) & & \nonumber \\
 
 This suggests a convenient sequential sampling procedure, starting with $\lambda_t$ and working backwards in time. The nomalisation constant is not known, but as this is discrete distribution we can enforce normalisation by dividing by the sum.
 
-First we consider a factor from this expression with $\lambda_tt=1$, i.e. a proposal that in a particular frame the target is not detected. In this case, the observation density is independent of the state of the target, and we have:
+First we consider a factor from this expression with $\lambda_{tt}=0$, i.e. a proposal that in a particular frame the target is not detected. In this case, the observation density is independent of the state of the target, and we have:
 
 \begin{equation}
 P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) P(\lambda_{tt}) = V^{-1} P(\lambda_t=0)
 \label{eq:}
 \end{equation}
 
-When the target is detected, the factors of the proposal ditribution of equation~\ref{eq:GeneralAssocProp} may calculated analytically for the linear-Gaussian case. For other cases, the EKF approximations may be used. As this is only a proposal distribution, such an approximation will not affect the distribution of the particle distribution generated. The state distribution term over $x_{tt}$ is problematic, requiring $k$ integrals to calculate. Although this is will be analytic with Gaussian dynamics, its complexity may become unmanageable. This term represents the probability of the state given the set of observations associated with this target at later times. We can render this calculation more manageable by replacing the whole set of future observations with just one.
+When the target is detected, the factors of the proposal ditribution of equation~\ref{eq:GeneralAssocProp} may be calculated analytically for the linear-Gaussian case. For other cases, the EKF approximations may be used. As this is only a proposal distribution, such an approximation will not affect the distribution of the particles generated. The state distribution term over $x_{tt}$ is problematic, requiring $k$ integrals to calculate. Although this is will be analytic with Gaussian dynamics, its complexity may become unmanageable. This term represents the probability of the state given the set of observations associated with this target at later times. We can render this calculation more manageable by replacing the whole set of future observations with just one.
 
 \begin{equation}
 P(x_k|Y_{k+1:t}, \lambda_{k+1:t}, x_{t-L}) \approx P(x_k|Y_{k+d}, \lambda_{k+d}, x_{t-L})
@@ -60,7 +48,7 @@ P(x_k|Y_{k+1:t}, \lambda_{k+1:t}, x_{t-L}) \approx P(x_k|Y_{k+d}, \lambda_{k+d},
 
 For cases with low observation noise, where an observation gives us significant information about the state of the target, this substitution will have little effect. Later observations cannot add much additional information. Again, as this is a proposal distribution, such a substitution will not affect the validity of the resulting particle distribution.
 
-In general we will use $d=1$, as the closest observation in time will give us the most information about $x_{tt}$. However, if the target is not detected at time $tt+1$, then we can increase $d$ to find the next detection of the target.
+In general we will use $d=1$, as the closest observation in time will give us the most information about $x_{tt}$. However, if the target is not detected at time $tt+1$, then we can increase $d$ to pick out the next detection of the target.
 
 Using this approximation, for $\lambda_{t-L+k} \ne 0$, we have
 
@@ -124,3 +112,5 @@ q(x_{t-L+1:t}|x_{t-L}, \lambda_{t-L+1:t}, Y_{t-L+1:t}) = \mathcal{N}(x_t|\mu_t, 
 where
 \begin{equation}S_k = [ A^T Q^{-1} A + \Sigma^{-1} ]^{-1}\label{eq:}\end{equation}
 \begin{equation}m_k = S_k [ A^T Q^{-1} x_{k+1} + \Sigma^{-1} \mu_k ]\label{eq:}\end{equation}
+
+This method is equivalent to proposing states from a Kalman smoother estimate over the window.

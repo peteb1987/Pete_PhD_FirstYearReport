@@ -40,14 +40,16 @@
 \contentsline {chapter}{\numberline {5}Fixed Lag Estimation for Tracking}{29}{chapter.5}
 \contentsline {section}{\numberline {5.1}The benefits of delaying}{29}{section.5.1}
 \contentsline {section}{\numberline {5.2}A mathematical framework for fixed lag estimation}{30}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Proposing older histories}{31}{subsection.5.2.1}
-\contentsline {section}{\numberline {5.3}Application to tracking}{31}{section.5.3}
-\contentsline {subsection}{\numberline {5.3.1}Importance distributions}{32}{subsection.5.3.1}
+\contentsline {section}{\numberline {5.3}STUFF THAT NEEDS PUTTING SOMEWHERE ELSE}{31}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Proposing older histories}{31}{subsection.5.3.1}
+\contentsline {section}{\numberline {5.4}Application to tracking}{32}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Importance distributions}{32}{subsection.5.4.1}
 \contentsline {subsubsection}{Association proposals}{32}{section*.11}
 \contentsline {subsubsection}{State proposals}{34}{section*.12}
 \contentsline {chapter}{\numberline {6}Fixed Lag Particle Filters}{35}{chapter.6}
-\contentsline {section}{\numberline {6.1}Sequential Importance Sampling and Resampling}{35}{section.6.1}
-\contentsline {subsection}{\numberline {6.1.1}Coping with dimensionality}{35}{subsection.6.1.1}
-\contentsline {section}{\numberline {6.2}Markov Chain Monte Carlo}{35}{section.6.2}
-\contentsline {section}{\numberline {6.3}Marginalised Particle Filters}{35}{section.6.3}
-\contentsline {chapter}{\numberline {7}Plan Of Future Research}{37}{chapter.7}
+\contentsline {section}{\numberline {6.1}Sequential Importance Sampling and Resampling Implementation}{35}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Resampling strategies}{35}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Coping with dimensionality}{36}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Markov Chain Monte Carlo}{37}{section.6.2}
+\contentsline {section}{\numberline {6.3}Marginalised Particle Filters}{37}{section.6.3}
+\contentsline {chapter}{\numberline {7}Plan Of Future Research}{39}{chapter.7}
