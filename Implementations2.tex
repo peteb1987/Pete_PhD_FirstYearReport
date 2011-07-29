@@ -3,8 +3,9 @@ The main failing of the SISR particle filter for tracking multiple targets is it
 Using the augmented target distribution of equation~\ref{eq:FLTarget} and an auxiliary form of history proposal as in equation~\ref{eq:AuxiliarySamplingProposal}, the MH acceptance probability can be calculated. Again, we use $\{Z_{1:t-1}, Z'_{t-L+1:t}\}$ to represent the current state of the sampler and $\{X_{1:t-1}, X'_{t-L+1:t}\}$ for the proposed state. Furthermore, we omit the association variables from the next expression for clarity. They should be considered as grouped with the corresponding state variables.
 
 \begin{multline}
-\alpha = \min \bigg ( 1,  \frac{ P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) q(Z_{1:t}|Y_{1:t} }{ P(Z_{1:t-L}, Z'_{t-L+1:t}|Y_{1:t}) \rho(Z_{t-L+1:t-1}|Z_{1:t-L}, Z'_{t-L+1:t}) q(X_{1:t}|Y_{1:t} }  \bigg ) \\
-\propto \min \bigg ( 1,  \frac{ P(Y_{t-L+1:t}|X'_{t-L+1:t})P(X'_{t-L+1:t}|X_{t-L}) }{ P(Y_{t-L+1:t}|Z'_{t-L+1:t})P(Z'_{t-L+1:t}|Z_{t-L}) } \\
+\alpha = \min \bigg ( 1,  \frac{ P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) q(Z_{1:t-1}, Z'_{t-L+1:t}|Y_{1:t} }{ P(Z_{1:t-L}, Z'_{t-L+1:t}|Y_{1:t}) \rho(Z_{t-L+1:t-1}|Z_{1:t-L}, Z'_{t-L+1:t}) q(X_{1:t-1}, X'_{t-L+1:t}|Y_{1:t} }  \bigg ) \\
+= \min \bigg ( 1,  \frac{ P(Y_{t-L+1:t}|X'_{t-L+1:t})P(X'_{t-L+1:t}|X_{t-L}) }{ P(Y_{t-L+1:t}|Z'_{t-L+1:t})P(Z'_{t-L+1:t}|Z_{t-L}) } 
+\times \frac{ P(Y_{t-L+1:t-1}|Z_{t-L+1:t-1})P(Z_{t-L+1:t-1}|Z_{t-L}) }{ P(Y_{t-L+1:t-1}|X_{t-L+1:t-1})P(X_{t-L+1:t-1}|X_{t-L}) } \\
  \times \frac{\rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t})}{\rho(Z_{t-L+1:t-1}|Z_{1:t-L}, Z'_{t-L+1:t})} \times \frac{q(Z_{t-L+1:t}|Y_{t-L+1:t}, Z_{t-L})}{q(X_{t-L+1:t}|Y_{t-L+1:t}, X_{t-L})} \times \frac{V_{Z,t}}{V_{X,t}}  \bigg )
 \label{eq:FLAcceptance}
 \end{multline}
@@ -16,3 +17,29 @@ As suggested, we can have MH moves which change only some subset of the states. 
 The difficulty for an MCMC scheme is implementing the history moves. A history move is the selection of a particle from the previous frame posterior approximation. Thus, the states of all targets will be changed. For large numbers of targets, this can lead to very low acceptance probabilities. At this point there is little choice but to assume the target histories are independent and approximate the history particle distribution as a product of marginal distributions. We can now propose changes in the target histories independently. Moreover, this assumption is really quite mild - it can lead to violations of the constraint on a single target per observation, but only in the historical states, $X_{1:t-L}$ (or the discarded states, $X_{t-L+1:t-1}$, but this is inconsequential). Merging tracks, the usual problem with relaxing this constraint, are prevented because the constraint is still enforced in the current states, $X_{t-L+1:t}$.
 
 An additional problem with the history moves, even with an independence assumption, is that they can have low acceptance probabilities because of the tendency to introduce tracks which are disjointed between $t-L$ and $t-L+1$. This can be mitigated by simultaneously proposing new states in some bridging region, $t-L+1:t-L+b$, where $b$ is 1 or 2. These states give us much better acceptance rates than changing just histories alone. NUMBERS.
+
+
+
+\subsection{Proposing older histories}
+So far we have used the $t-1$ particle distribution from which to propose histories, $X_{1:t-L}$ for the Markov chain. However, a suitable history could be also selected from the $t-s$ distribution, for $1 \le s \le L$. In a situation where a track has not been detected for several consecutive frames, taking a history from further in the past may make the proposal of a good candidate more probable. The correct path will have been more probable before the frames in which the target was not detected. Such a scheme has a similar effect to the conservative resampling strategy employed for the SISR FLPF in the previous section.
+
+PICTURE
+
+The history proposal lag variable $s$ can most easily be handled by sampling it too.
+
+\begin{equation}
+\{X_{1:t-s}, X'_{t-L+1:t}, s\} \sim q(s) q(X_{1:t-s}|Y_{1:t-s}) q(X'_{t-L+1:t}|X_{1:t-s}, Y_{t-L+1:t})
+\label{eq:ExtendedFLProposal}
+\end{equation}
+
+We only use $s$ in the proposal mechanism, so it can simply be discarded (marginalised) once the chain has moved on. In addition, if $q(s)$ is uniform over all possible values then it will cancel out in the acceptance probabilities. The only change to the proposal then is that we have an enlarged set of particles from which to select a history. The acceptance probability is now given by:
+
+\begin{multline}
+\alpha = \min \bigg ( 1,  \frac{ P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-s_X}|X_{1:t-L}, X'_{t-L+1:t}) q(Z_{1:t-s_Z}, Z'_{t-L+1:t}|Y_{1:t} }{ P(Z_{1:t-L}, Z'_{t-L+1:t}|Y_{1:t}) \rho(Z_{t-L+1:t-s_Z}|Z_{1:t-L}, Z'_{t-L+1:t}) q(X_{1:t-s_X}, X'_{t-L+1:t}|Y_{1:t} }  \bigg ) \\
+= \min \bigg ( 1,  \frac{ P(Y_{t-L+1:t}|X'_{t-L+1:t})P(X'_{t-L+1:t}|X_{t-L}) }{ P(Y_{t-L+1:t}|Z'_{t-L+1:t})P(Z'_{t-L+1:t}|Z_{t-L}) }
+ \times \frac{ P(Y_{t-L+1:t-s_Z}|Z_{t-L+1:t-s_Z})P(Z_{t-L+1:t-s_Z}|Z_{t-L}) }{ P(Y_{t-L+1:t-s_X}|X_{t-L+1:t-s_X})P(X_{t-L+1:t-s_X}|X_{t-L}) } \\
+ \times \frac{\rho(X_{t-L+1:t-s_X}|X_{1:t-L}, X'_{t-L+1:t})}{\rho(Z_{t-L+1:t-s_Z}|Z_{1:t-L}, Z'_{t-L+1:t})} \times \frac{q(Z_{t-L+1:t}|Y_{t-L+1:t}, Z_{t-L})}{q(X_{t-L+1:t}|Y_{t-L+1:t}, X_{t-L})} \times \frac{V_{Z,t}}{V_{X,t}}  \bigg )
+\label{eq:FLAcceptance}
+\end{multline}
+
+This scheme will be shown to give improved tracking performance.

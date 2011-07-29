@@ -63,35 +63,3 @@ q(X'_{t-L+1:t}|X_{1:t-s}, Y_{t-L+1:t}) = P(X'_{t-L+1:t}|X_{t-L}, Y_{t-L+1:t})
 Thus both artificial conditional and proposal distribution should equal to the conditional posterior. This is neither samplable nor calculable, and approximations will be required.
 
 
-
-\section{STUFF THAT NEEDS PUTTING SOMEWHERE ELSE}
-
- However, it is intuitive to use the same approximation for each by making the artificial conditional equal to the proposal. The ratio of target to proposal probability is then given by:
-
-\begin{multline}
-\frac{ P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) }{ q(X_{1:t-1}|Y_{1:t-1}) q(X'_{t-L+1:t}|X_{1:t-1}, Y_{t-L+1:t}) } \\
-= \frac{W_t}{V_t} \frac{ P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) q(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t-2}, Y_{t-L+1:t-1}) }{ P(X_{1:t-1}|Y_{1:t-1}) q(X'_{t-L+1:t}|X_{1:t-1}, Y_{t-L+1:t}) } \\
-\propto \frac{W_t}{V_t} \frac{ P(Y_{t-L+1:t}|X'_{t-L+1:t}) P(X'_{t-L+1:t}|X_{t-L}) q(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t-2}, Y_{t-L+1:t-1}) }{ P(Y_{t-L+1:t-1}|X_{t-L+1:t-1}) P(X_{t-L+1:t-1}|X_{t-L}) q(X'_{t-L+1:t}|X_{1:t-1}, Y_{t-L+1:t}) }
-\label{eq:}
-\end{multline}
-
-ARGH! NO! THE PROPOSAL CAN ALSO DEPEND ON $Z$ in the MCMC CASE!!!
-
-
-
-
-
-\subsection{Proposing older histories}
-CONSIDER MOVING THIS TO THE MCMC IMPLEMENTATION SECTION
-So far we have chosen to propose histories from the $t-1$ particle distribution. However, a suitable history could be also selected from the $t-s$ distribution, for $1 \le s \le L$. In a situation where a track has not been detected for several consecutive frames, taking a history from further in the past may make the proposal of a good candidate more probable.
-
-PICTURE
-
-The history proposal lag variable $s$ can most easily be handled by sampling it too.
-
-\begin{equation}
-\{X_{1:t-s}, X'_{t-L+1:t}, s\} \sim q(s) q(X_{1:t-s}|Y_{1:t-s}) q(X'_{t-L+1:t}|X_{1:t-s}, Y_{t-L+1:t})
-\label{eq:ExtendedFLProposal}
-\end{equation}
-
-This is simply equivalent to enlarging the pool of particles from which we propose histories. $q(s)$ is simply a modification to the particle proposal weights.
