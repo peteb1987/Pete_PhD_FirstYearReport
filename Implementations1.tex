@@ -9,6 +9,8 @@ W_t^{(m)} = \frac{ P(X_{1:t-L}^{(m)}, X_{t-L+1:t}^{'(m)}|Y_{1:t}) \rho(X_{t-L+1:
 
 Proposals are made using the method detailed in section~\ref{FixedLag_App}.
 
+The artifical conditional distribution, $\rho(.)$ should be an approximation for the conditional posterior, as discussed in section~\ref{sec:FixedLag2}. This was the objective we had when constructing the proposal distribution, so we use the same approximation. i.e. $\rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) = q(X_{t-L+1:t-1}|X_{t-L}, Y_{t-L+1:t-1})$.
+
 
 
 \subsection{Resampling strategies}

@@ -1,6 +1,6 @@
 \subsection{Importance distributions}
 
-The dimensionality of a fixed lag particle filter will generally be very large. Consider a problem where each target has a 4-dimensional kinematic state (postion and velocity in $x$ and $y$) and an observation-association index. This gives us five dimensions per target per time step. If we use a lag window with length $L=5$ and 5 targets we will have a 125 dimensional state. If we used a basic, bootstrap approach to such a problem, the chances of even a single particle following the correct path are negligible. Instead we must exploit the strong correlations between states arising from the structure of the problem. We first factorise the proposal over the targets:
+The dimensionality of a fixed lag particle filter will generally be very large. Consider a problem where each target has a 4-dimensional kinematic state (postion and velocity in $x$ and $y$) and an observation-association index. This gives us five dimensions per target per time step. If we use a lag window with length $L=5$ and 5 targets we will have a 125 dimensional state. If we used a basic, bootstrap approach to such a problem, the chances of even a single particle following the correct path are negligible. Instead we must exploit the strong correlations between states arising from the structure of the problem. This is achieved by designing better proposal distributions. We aim to approximate the ``optimal'' importance distribution of equation~\ref{eq:OptimalImportanceDist}. The same approximation will also be useful as the artifical conditional distribution required for extending the state-space for the fixed lag particle filters. We first factorise the proposal over the targets:
 
 \begin{equation}
 q(X_{t-L+1:t}, \Lambda_{t-L+1:t}|X_{t-L}, Y_{t-L+1:t}) = \prod_{j=1}^{K_t} q(x_{j,t-L+1:t}, \lambda_{j,t-L+1:t}|\lambda_{1:j-1,t-L+1:t}, x_{j,t-L}, Y_{t-L+1:t})
@@ -16,7 +16,7 @@ q(x_{j,t-L+1:t}, \lambda_{j,t-L+1:t}|\lambda_{1:j-1,t-L+1:t}, x_{j,t-L}, Y_{t-L+
 \label{eq:}
 \end{IEEEeqnarray}
 
-Thus we can sample first the association variables then the state variables. Each of these terms can be further factorised over time, as we shall see. If we were to replace each of the factors with its corresponding posterior distribution then this factorsiation would recreate the ``optimal'' importance distribution.% In general we will not be able to either sample from or calculate such a posterior. The exception is the case where we have linear-Gaussian dynamics.
+Thus we can sample first the association variables then the state variables. Each of these terms can be further factorised over time, as we shall see. If we were to replace each of the factors with its corresponding posterior distribution then this factorsiation would recreate the optimal importance distribution.% In general we will not be able to either sample from or calculate such a posterior. The exception is the case where we have linear-Gaussian dynamics.
 
 \subsubsection{Association proposals}
 
@@ -26,7 +26,7 @@ The proposal for the association variables is a discrete distribution over the p
 q(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) & & \nonumber \\
  & \propto & P(Y_{t-L+1:t}|\lambda_{t-L+1:t},x_{t-L}) P(\lambda_{t-L+1:t}|x_{t-L}) \nonumber \\
  & = & \prod_{\substack{k=1:L\\tt=t-L+k}} P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) P(\lambda_{tt}) \nonumber \\
- & = & \prod_{\substack{k=1:L\\tt=t-L+k}} \int P(Y_{tt}|x_{tt}, \lambda_k) P(x_{tt}|Y_{tt+1:t}, \lambda_{tt+1:t}, x_{t-L}) dx_{tt} P(\lambda_{tt})
+ & = & \prod_{\substack{k=1:L\\tt=t-L+k}} \int P(Y_{tt}|x_{tt}, \lambda_{tt}) P(x_{tt}|Y_{tt+1:t}, \lambda_{tt+1:t}, x_{t-L}) dx_{tt} P(\lambda_{tt})
 \label{eq:GeneralAssocProp}
 \end{IEEEeqnarray}
 
