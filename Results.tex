@@ -1,0 +1,32 @@
+A number of algorithms were compared on a set of standard tests to compare the performance:
+
+\begin{itemize}
+	\item SISR
+	\item SISR FL(5)
+	\item RB-SISR FL(5)
+	\item MCMC
+	\item MCMC FL(5)
+	\item RB-MCMC FL(5)
+	\item PDAF
+	\item JPDAF
+\end{itemize}
+
+where FL(N) indicates fixed lag with a window length of N. The test set consisted of:
+
+\begin{itemize}
+	\item 5 widely-spaced targets, high clutter and missed detection rate
+	\item 5 widely-spaced targets, low clutter and missed detection rate
+	\item 5 widely-spaced targets, high observation noise covariance
+	\item 5 closely-spaced targets
+\end{itemize}
+
+An example of each is shown in figure~\ref{}.
+
+PICTURE
+
+Each scenario was tested using fully linear-Gaussian dynamics and using the radar-type range and bearing observation model. Each algorithm-scenario combination was run with 10 different random seeds.
+
+Performance was assessed via a number of statistics. The RMS state error was measured. For particle-based algorithms, a state estimate was obtained by simply taking the mean of the state for each particle. For fixed lag schemes, estimates were made at a delay equal to the window length. The proportion of particles with the correct association was also calculated and the number of lost tracks were counted.
+
+Lost tracks were identified when no particle had the target associated with the correct observation for the length of the window. For the schemes where associations are not estimated (PDAF and JPDAF), tracks were designated as lost when the state estimate was greater than a threshold distance from the correct position.
+

@@ -112,14 +112,14 @@ It remains to choose the the importance distribution for the current state, $q(X
 An improved choice of proposal distribution is given by:
 
 \begin{equation}
-q(X_{t}|X_{t-1}, Y_{t}) = P(X_t|X_{t-1}, Y_t) = \frac{P(Y_t|X_t)}{X_t|X_{t-1}}{P(Y_t|X_{t-1})}
+q(X_{t}|X_{t-1}, Y_{t}) = P(X_t|X_{t-1}, Y_t) = \frac{P(Y_t|X_t)P(X_t|X_{t-1})}{P(Y_t|X_{t-1})}
 \label{eq:OptimalImportanceDist}
 \end{equation}
 
 This is often known as the ``optimal importance distribution''. The importance weights for a step without resampling are now given by:
 
 \begin{equation}
-W_t^{(m)} \propto \frac{ W_{t-1}^{(m)} P(Y_t|X_t^{(m)})P(X_t^{(m)}|X_{t-1}^{(m)})}{q(X_t^{(m)}|X_{t-1}^{(m)}, Y_t)} = 1
+W_t^{(m)} \propto \frac{ W_{t-1}^{(m)} }{ V_t^{(m)} } \frac{ P(Y_t|X_t^{(m)})P(X_t^{(m)}|X_{t-1}^{(m)}) }{q(X_t^{(m)}|X_{t-1}^{(m)}, Y_t)} \propto P(Y_t|X_{t-1}^{(m)})
 \label{eq:OptimalImportanceWeights}
 \end{equation}
 

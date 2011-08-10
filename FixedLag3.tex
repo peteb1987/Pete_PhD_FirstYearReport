@@ -20,7 +20,7 @@ Thus we can sample first the association variables then the state variables. Eac
 
 \subsubsection{Association proposals}
 
-The proposal for the association variables is a discrete distribution over the possible observations with which the target could be associated. Within the factorisation above, the ``optimal'' form of the proposal is:
+We first consider a proposal distribution for a single target. The proposal for the association variables is a discrete distribution over the possible observations with which the target could be associated. The ``optimal'' form of the proposal is:
 
 \begin{IEEEeqnarray}{rCl}
 q(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) & & \nonumber \\
@@ -80,7 +80,39 @@ P_D \mathcal{N}(y_{tt}^{(\lambda_{tt})}|m_{tt}, S_{tt}) & \lambda_{tt}=0 \\
 \label{eq:}
 \end{equation}
 
-This gives us a complete sequential mechanism for proposing the asociations.
+This scheme can be extended to multiple targets by simply sampling targets sequentially. The only modification required is that the proposal probability is set to zero if an observation has already been associated with another target.
+
+Realistically, we cannot calculate a proposal weight for all possible associations. If we have a large observation area and many false alarms this would require a vast number of calculations of weights which would mostly be negligible. Instead we use a gating procedure, considering only targets within a certain Mahalanobis squared distance of the proposal mean. i.e. those for which
+
+\begin{equation}
+(y_{tt}^{(\lambda_{tt})} - m_{tt})^T S_{tt}^{-1} (y_{tt}^{(\lambda_{tt})} - m_{tt}) < M_{\text{thresh}}
+\end{equation}
+
+This Mahalanobis squared distance will be chi-square distributed with $d$ degrees of freedom, where $d$ is the dimension of $y_{tt}$. To demonstrate this, consider the definition of a chi-square variable as (time indices omitted)
+
+\begin{equation}
+\chi_d^2 = \sum_{i=1}^d z_i^2 = z^T z
+\end{equation}
+
+where $z_i$ are i.i.d standard normal variables. Now apply a transformation
+
+\begin{equation}
+y = m + Uz \Lambda^{\frac{1}{2}}
+\end{equation}
+
+where $U$ and $\Lambda$ are derived from the eigenvalue decompostion
+
+\begin{equation}
+S = U \Lambda U^t
+\end{equation}
+
+Thus
+
+\begin{equation}
+\chi_d^2 = (y-m) \Sigma^{-1} (y-m)
+\end{equation}
+
+Hence $M_{\text{thresh}}$ can be chosen from the tabulated cumulative chi-square distribution to ensure a given probability of catching the correct observation in the gate. Choosing $M_{\text{thresh}}=16$ gives a probability of just 0.03\% of excluding the correct observation with 2 degrees of freedom. Note however that when a nonlinear model is in use this will rise significantly due to the linear approximation. A generous choice of $M_{\text{thresh}}=25$ is thus used for nonlinear cases.
 
 
 
