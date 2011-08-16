@@ -1,0 +1,94 @@
+A number of possible extensions to the current work are envisaged. Firstly, there are a number of variants of the particle filtering algorithms which would be interesting to investigate. Secondly, there are numerous additional problems in tracking which could be addressed. Finally, the fixed lag particle filter approach could be applied to different applications entirely.
+
+
+
+\section{Ideas for improved particle filters}
+
+
+
+\subsection{Mixed exact-flow filter}
+In a traditional particle filter, particles are propagated from one time step to the next through the use of a proposal distribution and a weighting step, with resampling to maintain diversity. In \cite{Daum2010}, the authors introduce a new sort of particle filter, in which particles are propagated as if they were diffusing according a differential equation governed by the observation likelihood. Thus, it is possible to generate an exact, unweighted sample from the desired posterior distribution even for a nonlinear, non-Gaussian model. This method cannot be directly applied to a target tracking problem because such particle flow ideas can only be used for continuous state-spaces. The association variables will need to be handled differently.
+
+It seems intuitive that we may be able to use an exact-flow filter for the kinematic target states, $X_t$, and an ordinary particle filter for the associations, $\Lambda_t$, in a similar manner to the Rao-Blackwellised method where a Kalman filter or filters is used for the kinematic states.
+
+Consider a single target with state $x_t$ and associations $\lambda_t$. From the previous processing step we have a particle approximation for the posterior, $\hat{P}(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1})$. The exact-flow method allows us to generate a sample from $P(x_t|x_{t-1}, \lambda_t, Y_t)$. Thus, a new particle set can be generated from the following proposal
+
+\begin{equation}
+x_{1:t}^{(m)},\lambda_{1:t}^{(m)} \sim \hat{P}(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|x_{t-1}, \lambda_t, Y_t)
+\end{equation}
+
+The same association proposal may be used as for the standard particle filters described in chapter~\ref{}. Note that this proposal implicity includes a resampling step, which could be omited, as always. The importance weights for such a filter will be given by
+
+\begin{equation}
+W_t^{(m)} \approx \frac{ P(x_{1:t}^{(m)}, \lambda_{1:t}^{(m)}|Y_{1:t}) }{ P(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|Y_{1:t}, \lambda_t) }
+\end{equation}
+
+ARGH! IT DOESN'T WORK!
+
+
+
+\subsection{SISR proposals for MCMC}
+The main failure mode of the MCMC-PF tracker occurs when there are two possible convincing routes for a target to take - generally one correct but with some missed detections and one marked by an unfortunate chain of clutter observations. The sampler gets onto the wrong path (is often initialised in it) and fails to jump to the other.
+
+The SISR-PF tracker does not have this problem, because the particles are generated in parallel. However, it only achieves acceptable performance if independence assumptions are introduced to reduce the dimensionality - effectively to run an independent PF on each target.
+
+It may be possible to combine the two schemes. First, taking the particle distribution from the previous processing step, a set of independent SISR-PFs can be run. The resulting marginal distributions may then be used as proposal distributions for moves in a joint-target MCMC-PF. Such a scheme may benefit from the advantages of the two different algorithms, maintaining a complete joint representation of the target space while minimising track loss. Furthermore, if the right set of values from the independent filters are stored in memory there is very little additional calculation required for the joint-target MCMC-PF stage.
+
+Such an algorithm is likely to fail when many targets are close together. In such a case, many of the proposals will result in association contradictions, and the MH acceptance rate will fall. Such invalid proposals can be rejected very quickly as we only need to check target associations rather than calculate transition or likelihood probabilities. Thus, we can mitigate this problem by simply lengthening the chain.
+
+
+
+\subsection{MCMC proposals for SISR}
+The weakness of the MCMC-PF can be viewed in an another way. When the probability of the correct path is low, the SISR-PF is able to maintain it in the particle distribution with a number of low-weight particles until its probability rises again. In an MCMC scheme, all particles have equal weights, and such low-probability modes may get very few or no particles. An alternative way to combine the advantages of the SISR and MCMC methods would be to construct a Markov chain which generated a weighted particle distribution.
+
+In an SISR scheme, a set of weighted particles $\{ x_{1:t}^{(m)}, W_t^{(m)} \}$ are used to approximate the posterior distibution, $P(x_{1:t}|Y_{1:t})$. The unweighted particles may be considered to be samples from some underlying distribution, $\mu(x_{1:t}|Y_{1:t})$ (determined by the proposal distribution and previous resampling steps). Potentially, a Markov chain could be targetted on $\mu(x_{1:t}|Y_{1:t})$ instead of $P(x_{1:t}|Y_{1:t})$.
+
+Suppose at the $m^{\text{th}}$ step in the chain we have the state $x_{1:t}^{(m)}$, with unnormalised weight $W_t^{(m)}$. A new state, $x_{1:t}^{*}$ is sampled from a MH proposal distribution $q(.|x_{1:t}^{(m)}, Y_{1:t})$. The standard acceptance probability formula will be
+
+\begin{equation}
+\alpha = \min \bigg \{ 1, \frac{\mu(x_{1:t}^{*}|Y_{1:t})q(x_{1:t}^{(m)}|x_{1:t}^{*}, Y_{1:t})}{\mu(x_{1:t}^{(m)}|Y_{1:t})q(x_{1:t}^{*}|x_{1:t}^{(m)}, Y_{1:t})} \bigg \}
+\end{equation}
+
+For any given particle, we know that $P(x_{1:t}^{(m)}|Y_{1:t}) = W_t^{(m)} \mu(x_{1:t}^{(m)}|Y_{1:t})$ by definition, so
+
+\begin{equation}
+\alpha = \min \bigg \{ 1, \frac{W_t^{(m)}}{W_t^{*}} \times \frac{P(x_{1:t}^{*}|Y_{1:t})q(x_{1:t}^{(m)}|x_{1:t}^{*}, Y_{1:t})}{P(x_{1:t}^{(m)}|Y_{1:t})q(x_{1:t}^{*}|x_{1:t}^{(m)}, Y_{1:t})} \bigg \}
+\end{equation}
+
+But with this formulation $W_t^{*}$ is unknown. In fact, it could be set to anything: $\mu(x_{1:t}|Y_{1:t})$ is defined by $P(x_{1:t}|Y_{1:t})$ and the choice of weights rather than vice versa. An obvious choice of weight is to select
+
+\begin{equation}
+W_t^{*} = W_t^{(m)} \times \frac{P(x_{1:t}^{*}|Y_{1:t})q(x_{1:t}^{(m)}|x_{1:t}^{*}, Y_{1:t})}{P(x_{1:t}^{(m)}|Y_{1:t})q(x_{1:t}^{*}|x_{1:t}^{(m)}, Y_{1:t})}
+\end{equation}
+
+which results in an acceptance probability of 1 for all moves.
+
+One possible choice of proposal would be to select a state history, $x_{1:t-1}$ from the previous particle distribution, $\hat{P}(x_{1:t-1}|Y_{1:t-1})$, and a current state dependent on this. This would result in a recursive cancellation in the particle weights, leading to (assuming $W_t^{(0)}=0$):
+
+\begin{equation}
+W_t^{*} = \frac{P(Y_t|x_t^{*})P(x_t^{*}|x_{t-1}^{*})}{q(x_{t}^{*}|x_{1:t-1}^{*}, Y_{t})}
+\end{equation}
+
+which is just the normal weight update formula for a simple SISR particle filter! However, we need not necessarily propose an entire new state for every particle, but can change one component (target) at a time. The result will be an SISR-like algorithm in which particles and weights are not generated independently but dependent on the previous particle and weight. In addition, we can choose different forms for the weight update equation. At the other end of the spectrum, we could set $W_t^{*}=1$ which gives us a standard MCMC-PF. Other choices could give some sort of intermediate filter which would allow some variation in weight but not as much as the SISR version.
+
+The hope is that such a scheme should allow us to maintain a complete joint-target posterior distribution and yet not lose track of targets whose path is temporarily of low probability. However, it may simply suffer from all the problems of a joint-target SISR-PF. Specifically, it may discard particles with good estimates of one target because their estimates of another target are poor. In any case, it seems like an interesting new way to view the equivalence of SISR and MCMC.
+
+
+
+\section{Additional tracking problems}
+
+\subsection{Minor additions}
+There are various possible extensions to the fixed-lag particle filter trackers. Firstly, the target detection mechanism currently only works with the SISR-PF and requires an independence assumption. It would be desirable to implement target detection for an MCMC-PF. It would also be interesting to try the algorithms on some more nonlinear models with non-Gaussian noise. In such cases the full particle filters would be expected to perform better than their Rao-Blackwellised equivalents.
+
+Furthermore, it would be interesting to compare the algorithms with an MC-JPDAF and a proper MHT, to see how they compare in terms of tracking performance and computation time.
+
+
+
+\subsection{Target correspondance and identification}
+
+
+
+
+
+\section{Other applications}
+There is potential to apply the fixed-lag particle filtering algorithms to other applications entirely. 

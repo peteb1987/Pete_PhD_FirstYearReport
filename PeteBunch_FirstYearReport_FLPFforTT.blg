@@ -3,12 +3,16 @@ The style file: dcu.bst
 Database file #1: D:/pb404/Bibtex/OTbib.bib
 Warning--string name "dec." is undefined
 --line 140 of file D:/pb404/Bibtex/OTbib.bib
-Warning--string name "march" is undefined
---line 1806 of file D:/pb404/Bibtex/OTbib.bib
-Warning--string name "dec." is undefined
---line 1840 of file D:/pb404/Bibtex/OTbib.bib
-Warning--string name "jan." is undefined
---line 2247 of file D:/pb404/Bibtex/OTbib.bib
 Warning--string name "july" is undefined
---line 2363 of file D:/pb404/Bibtex/OTbib.bib
-(There were 5 warnings)
+--line 1201 of file D:/pb404/Bibtex/OTbib.bib
+Warning--string name "july" is undefined
+--line 1217 of file D:/pb404/Bibtex/OTbib.bib
+Warning--string name "march" is undefined
+--line 1982 of file D:/pb404/Bibtex/OTbib.bib
+Warning--string name "dec." is undefined
+--line 2016 of file D:/pb404/Bibtex/OTbib.bib
+Warning--string name "jan." is undefined
+--line 2502 of file D:/pb404/Bibtex/OTbib.bib
+Warning--string name "july" is undefined
+--line 2618 of file D:/pb404/Bibtex/OTbib.bib
+(There were 7 warnings)

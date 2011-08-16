@@ -1,0 +1,42 @@
+\section{Target existence}
+
+In order to handle targets appearing and disappearing from the scene, we introduce an existence variable for each possible target, $e_{j,t}$, the set of which we denote $E_t$. These boolean variables indicate whether a target is present at a given time instant, taking values 1 (present) or 0 (absent). We limit the number of targets to $K_{\max}$.
+
+We would like to infer the values of $E_t$, so this may be added to the posterior thus:
+
+\begin{equation}
+P(X_{1:t}, \Lambda_{1:t}, E_{1:t}|Y_{1:t}) = \frac{P(Y_t|X_t, \Lambda_t, E_t) P(X_t|X_{t-1}, E_t, E_{t-1}) P(\Lambda_t|E_t) P(E_t|E_{t-1}) P(X_{1:t-1}, \Lambda_{1:t-1}, E_{1:t-1}|Y_{1:t-1})}{P(Y_t|Y_{1:t-1})}
+\label{eq:MTPosteriorWithE}
+\end{equation}
+
+Consider each of these terms. The form of the likelihood changes little.
+
+\begin{multline}
+P(Y_t|X_t, \Lambda_t, E_t) = V^{-(M_t-M_{T,t})} \prod_{\lambda_{j,t} \ne 0} P(y_t^{(\lambda_{j,t})}|x_{j,t}) \\
+= V^{-(M_t-K_{\max})} \prod_{j=1}^{K_{\max}} \begin{cases} P(y_t^{(\lambda_{j,t})}|x_{j,t}) & e_{j,t} = 1, \lambda_{j,t} \ne 0 \\ V^{-1} & e_{j,t} = 0 \text{ or } \lambda_{j,t} = 0 \end{cases}
+\label{eq:MTLikelihood}
+\end{multline}
+
+The association likelihood becomes:
+
+\begin{equation}
+P(\lambda_t|E_t) = \frac{\exp(-\mu_C) \mu_C^{(M_t-K_{\max})}}{M_t!} \prod_{j=1}^{K_{\max}} \begin{cases} P_D & e_{j,t} = 1, \lambda_{j,t} \ne 0, \lambda_{j,t} \notin \{ \lambda_{1:j-1,t} \} \\ 0 & e_{j,t} = 1, \lambda_{j,t} \in \{ \lambda_{1:j-1,t} \} \\ (1-P_D) \mu_C & e_{j,t} = 1, \lambda_{j,t}=0 \\ \mu_C & e_{j,t} = 0 \end{cases}
+\label{eq:MTFactorisedAssociationLikelihoodWithE}
+\end{equation}
+
+The transition density becomes more complex. When targets appear we assume that their kinematic states are distributed according to some birth distribution $P_b(x_{j,t}$, known a priori. This may be uniform. Before targets have appeared and after they have died we set their state to some fixed dead-state. Thus we have
+
+\begin{equation}
+P(X_t|X_{t-1}, E_t, E_{t-1}) = \prod_{j=1}^{K_{\max}} \begin{cases} P(x_{j,t}|x_{j-1}) & e_{j,t} = 1, e_{j,t-1} = 1 \\ P_b(x_{j,t}) & e_{j,t} = 1, e_{j,t-1} = 0 \\ \delta_{x_{\text{dead}}}(x_{j,t}) & e_{j,t} = 0 \end{cases}
+\label{eq:MTFactorisedTransitionWithE}
+\end{equation}
+
+Finally we need an expression for the existence transitions. We assume that targets have a fixed, independent probability of disappearing at any time, and that new targets are generated according to a Poisson process. Thus
+
+\begin{equation}
+P(E_t|E_{t-1}) = \frac{ \exp(\mu_{\text{birth}}) \mu_{\text{birth}}^{K_{\text{new},t}} }{ K_{\text{new},t} } \prod_{j=1}^{K_{\max}} \begin{cases} 1-P_{\text{death}} & e_{j,t} = 1, e_{j,t-1} = 1 \\ P_{\text{death}} & e_{j,t} = 0, e_{j,t-1} = 1 \end{cases}
+\label{eq:MTExistenceTransition}
+\end{equation}
+
+where $K_{\text{new},t}$ is the number of targets present in frame $t$ which were not present in frame $t-1$.
+

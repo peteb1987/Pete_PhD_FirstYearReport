@@ -1,6 +1,6 @@
 In this chapter we introduce the mathematical model for the object tracking problem which will be used throughout the rest of this report.
 
-We first assume that our targets exist at singular points in space, and that targets move independently of each other. At first, we will also assume that we know how many targets are in the scene. Each target will have be characterised by a state vector $x_{j,t}$. This state is composed of continuous-valued coordinates and evolves according to a hidden Markov model (HMM).
+We first assume that our targets exist at singular points in space, and that targets move independently of each other. At first, we will also assume that we know how many targets are in the scene and their starting locations, $x_{j,0}$. Each target will have be characterised by a state vector $x_{j,t}$. This state is composed of continuous-valued coordinates and evolves according to a hidden Markov model (HMM).
 
 \begin{equation}
 x_{j,t} = f(x_{j,t-1}, v_{j,t})
@@ -93,6 +93,7 @@ Here we summarise the assumptions made in the model formulations:
 \begin{itemize}
 	\item Targets and observations occur at singular points.
 	\item The number of targets is known.
+	\item Target starting locations known.
 	\item Target states evolve independently of each other according to a HMM.
 	\item Targets are detected in each frame with an independent probability $P_D$. A detected target generates one observation.
 	\item A single target is associated with each observation.
@@ -102,6 +103,8 @@ Here we summarise the assumptions made in the model formulations:
 
 
 \section{Specific models}
+
+\subsection{State transitions}
 In this work we employ a Near-Constant Velocity (NCV) model. We omit the target index $j$ in the following and consider only a single spatial dimension. The extension to multiple dimensions is trivial. A target state, $x$, is written as a vector:
 
 \begin{equation}
@@ -168,6 +171,7 @@ P & 0 & \frac{P^2}{2} & 0 \\
 
 and $P$ is the sampling period.
 
+\subsection{Observations}
 We will use two different observation models. Firstly, linear-Gaussian where the position is observed directly:
 
 \begin{equation}

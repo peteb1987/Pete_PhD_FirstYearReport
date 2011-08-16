@@ -6,8 +6,12 @@
 \usepackage{harvard}
 \usepackage{url}
 \usepackage{hyperref}
+\usepackage{subfigure}
+\usepackage{multirow}
+\usepackage{setspace}
 
 \renewcommand{\harvardurl}{URL: \url}
+\setstretch{1.36}
 
 \title{Fixed Lag Particle Filtering for Target Tracking}
 \subtitle{A report on the first year's progress}
@@ -62,11 +66,18 @@ Two spheres of literature will be of interest here: the developments of models a
 \section{Marginalised Particle Filters}
 \input{Implementations3}
 
+\chapter{Particle Filtering for Target Detection}
+\input{TargetExistence}
+
 \chapter{Results}
-\input{Results}
+\input{Results1}
+\input{Results2}
 
 \chapter{Plan Of Future Research}
-radar, insects, crowds, cells, jump-diffusions, cursor tracking...
+\input{FutureWork1}
+
+\chapter{Cursor Intentionality Tracking}
+\input{CursorTracking}
 
 \cleardoublepage
 

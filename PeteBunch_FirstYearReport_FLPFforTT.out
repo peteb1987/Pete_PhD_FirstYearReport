@@ -3,44 +3,67 @@
 \BOOKMARK [1][-]{section.2.1}{Particle filters}{chapter.2}% 3
 \BOOKMARK [2][-]{subsection.2.1.1}{Sequential importance sampling}{section.2.1}% 4
 \BOOKMARK [2][-]{subsection.2.1.2}{Markov chain Monte Carlo}{section.2.1}% 5
-\BOOKMARK [2][-]{subsection.2.1.3}{Coping with dimensionality}{section.2.1}% 6
-\BOOKMARK [2][-]{subsection.2.1.4}{Marginalised particle filters}{section.2.1}% 7
-\BOOKMARK [1][-]{section.2.2}{Tracking}{chapter.2}% 8
-\BOOKMARK [2][-]{subsection.2.2.1}{Probabilistic data association}{section.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.2}{Data association hypothesis methods}{section.2.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.3}{Full particle filters}{section.2.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.4}{Probability hypothesis density methods}{section.2.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.5}{Bringing it all together}{section.2.2}% 13
-\BOOKMARK [0][-]{chapter.3}{Mathematical foundations}{}% 14
-\BOOKMARK [1][-]{section.3.1}{Bayes of our lives - A short introduction to filtering}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.2}{Keep Kalman carry on - the Kalman filter and its extensions}{chapter.3}% 16
-\BOOKMARK [2][-]{subsection.3.2.1}{The basic filter}{section.3.2}% 17
-\BOOKMARK [2][-]{subsection.3.2.2}{The extended filter}{section.3.2}% 18
-\BOOKMARK [2][-]{subsection.3.2.3}{The Kalman smoother}{section.3.2}% 19
-\BOOKMARK [1][-]{section.3.3}{Tough as old bootstraps - the basic particle filter}{chapter.3}% 20
-\BOOKMARK [2][-]{subsection.3.3.1}{The basics}{section.3.3}% 21
-\BOOKMARK [2][-]{subsection.3.3.2}{Auxiliary sampling}{section.3.3}% 22
-\BOOKMARK [2][-]{subsection.3.3.3}{Degeneracy and resampling}{section.3.3}% 23
-\BOOKMARK [2][-]{subsection.3.3.4}{Importance distributions}{section.3.3}% 24
-\BOOKMARK [1][-]{section.3.4}{MCMC in da house - Markov chains for particle filtering}{chapter.3}% 25
-\BOOKMARK [0][-]{chapter.4}{The tracking model}{}% 26
-\BOOKMARK [1][-]{section.4.1}{Observation Likelihood}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.2}{Transition Dynamics}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.3}{Association Likelihood}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.4}{Assumptions}{chapter.4}% 30
-\BOOKMARK [1][-]{section.4.5}{Specific models}{chapter.4}% 31
-\BOOKMARK [0][-]{chapter.5}{Fixed Lag Estimation for Tracking}{}% 32
-\BOOKMARK [1][-]{section.5.1}{The benefits of delaying}{chapter.5}% 33
-\BOOKMARK [1][-]{section.5.2}{A mathematical framework for fixed lag estimation}{chapter.5}% 34
-\BOOKMARK [1][-]{section.5.3}{Application to tracking}{chapter.5}% 35
-\BOOKMARK [2][-]{subsection.5.3.1}{Importance distributions}{section.5.3}% 36
-\BOOKMARK [0][-]{chapter.6}{Fixed Lag Particle Filters}{}% 37
-\BOOKMARK [1][-]{section.6.1}{Sequential Importance Sampling and Resampling Implementation}{chapter.6}% 38
-\BOOKMARK [2][-]{subsection.6.1.1}{Resampling strategies}{section.6.1}% 39
-\BOOKMARK [2][-]{subsection.6.1.2}{Coping with dimensionality}{section.6.1}% 40
-\BOOKMARK [1][-]{section.6.2}{Markov Chain Monte Carlo}{chapter.6}% 41
-\BOOKMARK [2][-]{subsection.6.2.1}{Proposing older histories}{section.6.2}% 42
-\BOOKMARK [1][-]{section.6.3}{Marginalised Particle Filters}{chapter.6}% 43
-\BOOKMARK [0][-]{chapter.7}{Results}{}% 44
-\BOOKMARK [0][-]{chapter.8}{Plan Of Future Research}{}% 45
-\BOOKMARK [0][-]{appendix.A}{Association proposals}{}% 46
+\BOOKMARK [2][-]{subsection.2.1.3}{Particle smoothing}{section.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.1.4}{Coping with dimensionality}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.5}{Marginalised particle filters}{section.2.1}% 8
+\BOOKMARK [1][-]{section.2.2}{Tracking}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.2.1}{Probabilistic data association}{section.2.2}% 10
+\BOOKMARK [2][-]{subsection.2.2.2}{Data association hypothesis methods}{section.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.3}{Full particle filters}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.4}{Probability hypothesis density methods}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.5}{Bringing it all together}{section.2.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Mathematical foundations}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Bayes of our lives - A short introduction to filtering}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{Keep Kalman carry on - the Kalman filter and its extensions}{chapter.3}% 17
+\BOOKMARK [2][-]{subsection.3.2.1}{The basic filter}{section.3.2}% 18
+\BOOKMARK [2][-]{subsection.3.2.2}{The extended filter}{section.3.2}% 19
+\BOOKMARK [2][-]{subsection.3.2.3}{The Kalman smoother}{section.3.2}% 20
+\BOOKMARK [1][-]{section.3.3}{Tough as old bootstraps - the basic particle filter}{chapter.3}% 21
+\BOOKMARK [2][-]{subsection.3.3.1}{The basics}{section.3.3}% 22
+\BOOKMARK [2][-]{subsection.3.3.2}{Auxiliary sampling}{section.3.3}% 23
+\BOOKMARK [2][-]{subsection.3.3.3}{Degeneracy and resampling}{section.3.3}% 24
+\BOOKMARK [2][-]{subsection.3.3.4}{Importance distributions}{section.3.3}% 25
+\BOOKMARK [1][-]{section.3.4}{MCMC in da house - Markov chains for particle filtering}{chapter.3}% 26
+\BOOKMARK [0][-]{chapter.4}{The tracking model}{}% 27
+\BOOKMARK [1][-]{section.4.1}{Observation Likelihood}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.2}{Transition Dynamics}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.3}{Association Likelihood}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.4}{Assumptions}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.5}{Specific models}{chapter.4}% 32
+\BOOKMARK [2][-]{subsection.4.5.1}{State transitions}{section.4.5}% 33
+\BOOKMARK [2][-]{subsection.4.5.2}{Observations}{section.4.5}% 34
+\BOOKMARK [0][-]{chapter.5}{Fixed Lag Estimation for Tracking}{}% 35
+\BOOKMARK [1][-]{section.5.1}{The benefits of delaying}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.2}{A mathematical framework for fixed lag estimation}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.3}{Application to tracking}{chapter.5}% 38
+\BOOKMARK [2][-]{subsection.5.3.1}{Importance distributions}{section.5.3}% 39
+\BOOKMARK [0][-]{chapter.6}{Fixed Lag Particle Filters}{}% 40
+\BOOKMARK [1][-]{section.6.1}{Sequential Importance Sampling and Resampling Implementation}{chapter.6}% 41
+\BOOKMARK [2][-]{subsection.6.1.1}{Resampling strategies}{section.6.1}% 42
+\BOOKMARK [2][-]{subsection.6.1.2}{Coping with dimensionality}{section.6.1}% 43
+\BOOKMARK [1][-]{section.6.2}{Markov Chain Monte Carlo}{chapter.6}% 44
+\BOOKMARK [2][-]{subsection.6.2.1}{Proposing older histories}{section.6.2}% 45
+\BOOKMARK [1][-]{section.6.3}{Marginalised Particle Filters}{chapter.6}% 46
+\BOOKMARK [0][-]{chapter.7}{Particle Filtering for Target Detection}{}% 47
+\BOOKMARK [1][-]{section.7.1}{Changes to the model}{chapter.7}% 48
+\BOOKMARK [1][-]{section.7.2}{Particle filtering}{chapter.7}% 49
+\BOOKMARK [0][-]{chapter.8}{Results}{}% 50
+\BOOKMARK [1][-]{section.8.1}{Testing methods}{chapter.8}% 51
+\BOOKMARK [1][-]{section.8.2}{Performance assessment}{chapter.8}% 52
+\BOOKMARK [0][-]{chapter.9}{Plan Of Future Research}{}% 53
+\BOOKMARK [1][-]{section.9.1}{Ideas for improved particle filters}{chapter.9}% 54
+\BOOKMARK [2][-]{subsection.9.1.1}{Mixed exact-flow filter}{section.9.1}% 55
+\BOOKMARK [2][-]{subsection.9.1.2}{SISR proposals for MCMC}{section.9.1}% 56
+\BOOKMARK [2][-]{subsection.9.1.3}{MCMC proposals for SISR}{section.9.1}% 57
+\BOOKMARK [1][-]{section.9.2}{Additional tracking problems}{chapter.9}% 58
+\BOOKMARK [2][-]{subsection.9.2.1}{Minor additions}{section.9.2}% 59
+\BOOKMARK [2][-]{subsection.9.2.2}{Target correspondance and identification}{section.9.2}% 60
+\BOOKMARK [1][-]{section.9.3}{Other applications}{chapter.9}% 61
+\BOOKMARK [0][-]{chapter.10}{Cursor Intentionality Tracking}{}% 62
+\BOOKMARK [1][-]{section.10.1}{Algorithms}{chapter.10}% 63
+\BOOKMARK [2][-]{subsection.10.1.1}{Nearest Neighbour}{section.10.1}% 64
+\BOOKMARK [2][-]{subsection.10.1.2}{Mean-Reverting Diffusion}{section.10.1}% 65
+\BOOKMARK [2][-]{subsection.10.1.3}{Mean Bearing}{section.10.1}% 66
+\BOOKMARK [2][-]{subsection.10.1.4}{Composite}{section.10.1}% 67
+\BOOKMARK [1][-]{section.10.2}{Results}{chapter.10}% 68
+\BOOKMARK [0][-]{appendix.A}{Association proposals}{}% 69

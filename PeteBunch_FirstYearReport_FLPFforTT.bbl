@@ -85,6 +85,12 @@ Chib, S.  \harvardyearleft 1996\harvardyearright .
 \newblock Details forward-filtering-backward-sampling algorithm.
 \newline\harvardurl{http://www.sciencedirect.com/science/article/B6VC0-3VWT1TW-7/2/b66dae744497c95ff3eddb744f301a6c}
 
+\harvarditem{Clapp \harvardand\ Godsill}{1999}{Clapp1999}
+Clapp, T. \harvardand\ Godsill, S.  \harvardyearleft 1999\harvardyearright .
+\newblock Fixed-lag smoothing using sequential importance sampling, {\em
+  Bayesian Statistics 6: the Sixth Valencia International Meeting, June 1998,
+  Valencia, Spain}, Oxford University Press.
+
 \harvarditem{Daum}{2005}{Daum2005}
 Daum, F.  \harvardyearleft 2005\harvardyearright .
 \newblock Nonlinear filters: beyond the kalman filter, {\em Aerospace and
@@ -94,6 +100,20 @@ Daum, F.  \harvardyearleft 2005\harvardyearright .
 Daum, F. \harvardand\ Huang, J.  \harvardyearleft 2003\harvardyearright .
 \newblock Curse of dimensionality and particle filters, {\em Aerospace
   Conference, 2003. Proceedings. 2003 IEEE}, Vol.~4, pp.~1979--1993.
+
+\harvarditem[Daum et~al.]{Daum, Huang \harvardand\ Noushin}{2010}{Daum2010}
+Daum, F., Huang, J. \harvardand\ Noushin, A.  \harvardyearleft
+  2010\harvardyearright .
+\newblock Exact particle flow for nonlinear filters, {\em Proceedings of SPIE},
+  Vol. 7697, p.~769704.
+
+\harvarditem[Del~Moral et~al.]{Del~Moral, Doucet \harvardand\
+  Jasra}{2006}{DelMoral2006}
+Del~Moral, P., Doucet, A. \harvardand\ Jasra, A.  \harvardyearleft
+  2006\harvardyearright .
+\newblock Sequential monte carlo samplers, {\em Journal of the Royal
+  Statistical Society: Series B (Statistical Methodology)} {\bf
+  68}(3):~411--436.
 
 \harvarditem[Doucet et~al.]{Doucet, Briers \harvardand\
   S\'{e}n\'{e}cal}{2006}{Doucet2006}
@@ -118,6 +138,14 @@ Doucet, A. \harvardand\ Johansen, A.~M.  \harvardyearleft 2009\harvardyearright
   {\em in} D.~Crisan \harvardand\ B.~Rozovsky (eds), {\em The Oxford Handbook
   of Nonlinear Filtering}, Oxford University Press.
 \newline\harvardurl{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.157.772&rep=rep1&type=pdf}
+
+\harvarditem[Doucet et~al.]{Doucet, Vo, Andrieu \harvardand\
+  Davy}{2002}{Doucet2002}
+Doucet, A., Vo, B.-N., Andrieu, C. \harvardand\ Davy, M.  \harvardyearleft
+  2002\harvardyearright .
+\newblock Particle filtering for multi-target tracking and sensor management,
+  {\em Information Fusion, 2002. Proceedings of the Fifth International
+  Conference on}, Vol.~1, pp.~474 -- 481 vol.1.
 
 \harvarditem[Duane et~al.]{Duane, Kennedy, Pendleton \harvardand\
   Roweth}{1987}{Duane1987}
@@ -173,6 +201,14 @@ Girolami, M. \harvardand\ Calderhead, B.  \harvardyearleft
   {\bf 73}(2):~123--214.
 \newline\harvardurl{http://dx.doi.org/10.1111/j.1467-9868.2010.00765.x}
 
+\harvarditem[Godsill et~al.]{Godsill, Doucet \harvardand\
+  West}{2004}{Godsill2004}
+Godsill, S.~J., Doucet, A. \harvardand\ West, M.  \harvardyearleft
+  2004\harvardyearright .
+\newblock Monte carlo smoothing for nonlinear time series, {\em Journal of the
+  American Statistical Association} {\bf 99}(465):~156--168.
+\newline\harvardurl{http://pubs.amstat.org/doi/abs/10.1198/016214504000000151}
+
 \harvarditem[Godsill et~al.]{Godsill, Vermaak, Ng \harvardand\
   Li}{2007}{Godsill2007}
 Godsill, S., Vermaak, J., Ng, W. \harvardand\ Li, J.  \harvardyearleft
@@ -207,11 +243,36 @@ Hastings, W.~K.  \harvardyearleft 1970\harvardyearright .
   applications, {\em Biometrika} {\bf 57}(1):~97--109.
 \newline\harvardurl{http://biomet.oxfordjournals.org/content/57/1/97.abstract}
 
+\harvarditem{Horridge \harvardand\ Maskell}{2006}{Horridge2006}
+Horridge, P. \harvardand\ Maskell, S.  \harvardyearleft 2006\harvardyearright .
+\newblock Real-time tracking of hundreds of targets with efficient exact jpdaf
+  implementation, {\em Information Fusion, 2006 9th International Conference
+  on}, pp.~1 --8.
+
+\harvarditem{Horridge \harvardand\ Maskell}{2009}{Horridge2009}
+Horridge, P. \harvardand\ Maskell, S.  \harvardyearleft 2009\harvardyearright .
+\newblock Searching for, initiating and tracking multiple targets using
+  existence probabilities, {\em Information Fusion, 2009. FUSION '09. 12th
+  International Conference on}, pp.~611 --617.
+
+\harvarditem[Hue et~al.]{Hue, Le~Cadre \harvardand\ Perez}{2002}{Hue2002}
+Hue, C., Le~Cadre, J.-P. \harvardand\ Perez, P.  \harvardyearleft
+  2002\harvardyearright .
+\newblock Tracking multiple objects with particle filtering, {\em Aerospace and
+  Electronic Systems, IEEE Transactions on} {\bf 38}(3):~791 -- 812.
+
 \harvarditem{Kalman}{1960}{Kalman1960}
 Kalman, R.~E.  \harvardyearleft 1960\harvardyearright .
 \newblock A new approach to linear filtering and prediction problems, {\em
   Journal Of Basic Engineering} {\bf 82}(Series D):~35--45.
 \newline\harvardurl{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.129.6247&rep=rep1&type=pdf}
+
+\harvarditem{Karlsson \harvardand\ Gustafsson}{2001}{Karlsson2001}
+Karlsson, R. \harvardand\ Gustafsson, F.  \harvardyearleft
+  2001\harvardyearright .
+\newblock Monte carlo data association for multiple target tracking, {\em
+  Target Tracking: Algorithms and Applications (Ref. No. 2001/174), IEE},
+  Vol.~1, pp.~13/1 -- 13/5 vol.1.
 
 \harvarditem[Khan et~al.]{Khan, Balch \harvardand\ Dellaert}{2005}{Khan2005}
 Khan, Z., Balch, T. \harvardand\ Dellaert, F.  \harvardyearleft
@@ -255,6 +316,15 @@ Mahler, R.  \harvardyearleft 2004\harvardyearright .
 \newblock "statistics 101" for multisensor, multitarget data fusion, {\em
   Aerospace and Electronic Systems Magazine, IEEE} {\bf 19}(1):~53 --64.
 
+\harvarditem[Maskell et~al.]{Maskell, Rollason, Gordon \harvardand\
+  Salmond}{2003}{Maskell2003}
+Maskell, S., Rollason, M., Gordon, N. \harvardand\ Salmond, D.
+  \harvardyearleft 2003\harvardyearright .
+\newblock Efficient particle filtering for multiple target tracking with
+  application to tracking in structured images, {\em Image and Vision
+  Computing} {\bf 21}(10):~931 -- 939.
+\newline\harvardurl{http://www.sciencedirect.com/science/article/B6V09-4938V06-1/2/131145f5f06d8b8234e719b32a12fd74}
+
 \harvarditem[Metropolis et~al.]{Metropolis, Rosenbluth, Rosenbluth, Teller,
   Teller et~al.}{1953}{Metropolis1953}
 Metropolis, N., Rosenbluth, A., Rosenbluth, M., Teller, A., Teller, E. et~al.
@@ -288,6 +358,12 @@ Oh, S., Russell, S. \harvardand\ Sastry, S.  \harvardyearleft
 \newblock Markov chain monte carlo data association for multi-target tracking,
   {\em Automatic Control, IEEE Transactions on} {\bf 54}(3):~481 --497.
 
+\harvarditem{Orton \harvardand\ Fitzgerald}{2002}{Orton2002}
+Orton, M. \harvardand\ Fitzgerald, W.  \harvardyearleft 2002\harvardyearright .
+\newblock A bayesian approach to tracking multiple targets using sensor arrays
+  and particle filters, {\em Signal Processing, IEEE Transactions on} {\bf
+  50}(2):~216 --223.
+
 \harvarditem[Pang et~al.]{Pang, Godsill, Li \harvardand\
   Septier}{2011}{Pang2011}
 Pang, S., Godsill, S., Li, J. \harvardand\ Septier, F.  \harvardyearleft
@@ -308,6 +384,21 @@ Pitt, M.~K. \harvardand\ Shephard, N.  \harvardyearleft 1999\harvardyearright .
 \newblock Filtering via simulation: Auxiliary particle filters, {\em Journal of
   the American Statistical Association} {\bf 94}(446):~pp. 590--599.
 \newline\harvardurl{http://www.jstor.org/stable/2670179}
+
+\harvarditem{Pitt \harvardand\ Shephard}{2001}{Pitt2001}
+Pitt, M. \harvardand\ Shephard, N.  \harvardyearleft 2001\harvardyearright .
+\newblock Auxiliary variable based particle filters, {\em in} A.~Doucet,
+  N.~de~Freitas \harvardand\ N.~Gordon (eds), {\em Sequential Monte Carlo in
+  Practice}, Springer, pp.~273--293.
+
+\harvarditem[Polson et~al.]{Polson, Stroud \harvardand\
+  M\"{u}ller}{2008}{Polson2008}
+Polson, N.~G., Stroud, J.~R. \harvardand\ M\"{u}ller, P.  \harvardyearleft
+  2008\harvardyearright .
+\newblock Practical filtering with sequential parameter learning, {\em Journal
+  of the Royal Statistical Society: Series B (Statistical Methodology)} {\bf
+  70}(2):~413--428.
+\newline\harvardurl{http://dx.doi.org/10.1111/j.1467-9868.2007.00642.x}
 
 \harvarditem[Rauch et~al.]{Rauch, Tung \harvardand\ Striebel}{1965}{Rauch1965}
 Rauch, H., Tung, F. \harvardand\ Striebel, C.  \harvardyearleft
@@ -334,6 +425,15 @@ S\"{a}rkk\"{a}, S., Vehtari, A. \harvardand\ Lampinen, J.  \harvardyearleft
 \newblock Special Issue on the Seventh International Conference on Information
   Fusion-Part II, Seventh International Conference on Information Fusion.
 \newline\harvardurl{http://www.sciencedirect.com/science/article/B6W76-4HJRRX5-1/2/c4d5356937753f21dc812b7943ffd6cd}
+
+\harvarditem[Schulz et~al.]{Schulz, Burgard, Fox \harvardand\
+  Cremers}{2001}{Schulz2001}
+Schulz, D., Burgard, W., Fox, D. \harvardand\ Cremers, A.  \harvardyearleft
+  2001\harvardyearright .
+\newblock Tracking multiple moving targets with a mobile robot using particle
+  filters and statistical data association, {\em Robotics and Automation, 2001.
+  Proceedings 2001 ICRA. IEEE International Conference on}, Vol.~2, pp.~1665 --
+  1670 vol.2.
 
 \harvarditem{Sea}{1971}{Sea1971}
 Sea, R.~G.  \harvardyearleft 1971\harvardyearright .
