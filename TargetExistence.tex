@@ -8,6 +8,14 @@ P(X_{1:t}, \Lambda_{1:t}, E_{1:t}|Y_{1:t}) = \frac{P(Y_t|X_t, \Lambda_t, E_t) P(
 \label{eq:MTPosteriorWithE}
 \end{equation}
 
+The modified graphical model is shown in figure~\ref{fig:HMMExist}.
+
+\begin{figure}[hbt]%
+\input{tikz_HMMExist}
+\caption{Graphical model for the modified target tracking model including target existence variables.}%
+\label{fig:HMMExist}%
+\end{figure}
+
 Consider each of these terms. The form of the likelihood changes little.
 
 \begin{multline}

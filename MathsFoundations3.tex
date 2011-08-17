@@ -1,4 +1,12 @@
-In general we will not be so lucky as to have a problem with linear-Gaussian dynamics. In this case, a particle filter (PF) may be the best alternative. The PF is based on the idea that if we cannot represent a probability distribution analytically then we may approximate it as a collection of discrete samples or ``particles'' drawn from the distribution. Often, it will not even be possible to sample from the desired distribution. We therefore use importance sampling (IS) or Markov chain Monte Carlo methods to generate these samples. The principle of a particle filter is that we recursively generate such a set of particles to approximate $P(X_{1:t}|Y_{1:t})$ given a previous set representing $P(X_{1:t-1}|Y_{1:t-1})$.
+In general we will not be so lucky as to have a problem with linear-Gaussian dynamics. In this case, a particle filter (PF) may be the best alternative. The PF is based on the idea that if we cannot represent a probability distribution analytically then we may approximate it as a collection of discrete samples or ``particles'' drawn from the distribution.
+
+\begin{figure}[!hbt] \centering
+\includegraphics[width=0.7\columnwidth]{MonteCarlo.pdf}%
+\caption{An analytic probability density (blue) may be approximated by a set of samples drawn from it (red)}%
+\label{fig:MonteCarlo}%
+\end{figure}
+
+Often, it will not even be possible to sample from the desired distribution. We therefore use importance sampling (IS) or Markov chain Monte Carlo methods to generate these samples. The principle of a particle filter is that we recursively generate such a set of particles to approximate $P(X_{1:t}|Y_{1:t})$ given a previous set representing $P(X_{1:t-1}|Y_{1:t-1})$.
 
 \subsection{The basics}
 
@@ -90,9 +98,9 @@ This favours the selection of particles which better explain the new observation
 
 
 \subsection{Degeneracy and resampling}
-The simplest history proposal is given by $q(X_{1:t-1}|Y_{1:t}) = \mu(X_{1:t-1}|Y_{1:t-1})$. This may be ``sampled'' by simply keeping the $N$ particles from the previous processing step, which is thus equivalent to importance sampling with no resampling. Multiple steps of this nature will lead to a fall in particle diversity, as many of the weights tend towards 0. This occurs because of the recursive nature of the importance weight calculation in equation~\ref{eq:NoResamIW}. The solution to this degeneracy is to use the other form of history proposal, $q(X_{1:t-1}|Y_{1:t}) = \hat{P}(X_{1:t-1}|Y_{1:t-1})$, equivalent to importance sampling with resampling. Such a proposal will require additional computation time, but the weight updates are no longer recursive, see equation~\ref{eq:ResamIW}, so diversity is improved.
+The simplest history proposal is given by $q(X_{1:t-1}|Y_{1:t}) = \mu(X_{1:t-1}|Y_{1:t-1})$. This may be `sampled' by simply keeping the $N$ particles from the previous processing step, which is thus equivalent to importance sampling with no resampling. Multiple steps of this nature will lead to a fall in particle diversity, as many of the weights tend towards 0. This occurs because of the recursive nature of the importance weight calculation in equation~\ref{eq:NoResamIW}. The solution to this degeneracy is to use the other form of history proposal, $q(X_{1:t-1}|Y_{1:t}) = \hat{P}(X_{1:t-1}|Y_{1:t-1})$, equivalent to importance sampling with resampling. Such a proposal will require additional computation time, but the weight updates are no longer recursive, see equation~\ref{eq:ResamIW}, so diversity is improved.
 
-The resampling/history-sampling may be conducted in a variety of ways. The simplest is multinomial sampling, in which each particle is sampled independently with replacement. In residual sampling, particles are sampled from the particle distribution without replacement, i.e. after a particle is selected, the probability of selecting it again is reduced. Finally, for systematic resampling, a finite real line is divided into sections corresponding to the weight of each particle. Particles are sampled by choosing regular points along this line, with some constant, random offset. The final method produces the least variance in the number of child particles chosen from each parent given the weights, and thus introduces the least Monte Carlo error.
+The resampling/history-sampling may be conducted in a variety of ways. The simplest is multinomial sampling, in which each particle is sampled independently with replacement. In residual sampling, particles are sampled from the particle distribution without replacement, i.e. after a particle is selected, the probability of selecting it again is reduced. Finally, for systematic resampling, a finite real line is divided into sections corresponding to the weight of each particle. Particles are sampled by choosing regular points along this line, with some constant, random offset. The final method produces the least variance in the number of child particles chosen from each parent given the weights, and thus introduces the least Monte Carlo error. For more details see \cite{Doucet2009} and the references therein.
 
 Degeneracy is measured using the Effective Sample Size of \cite{Liu1995}, which is given by:
 
@@ -119,8 +127,8 @@ q(X_{t}|X_{t-1}, Y_{t}) = P(X_t|X_{t-1}, Y_t) = \frac{P(Y_t|X_t)P(X_t|X_{t-1})}{
 This is often known as the ``optimal importance distribution''. The importance weights for a step without resampling are now given by:
 
 \begin{equation}
-W_t^{(m)} \propto \frac{ W_{t-1}^{(m)} }{ V_t^{(m)} } \frac{ P(Y_t|X_t^{(m)})P(X_t^{(m)}|X_{t-1}^{(m)}) }{q(X_t^{(m)}|X_{t-1}^{(m)}, Y_t)} \propto P(Y_t|X_{t-1}^{(m)})
+W_t^{(m)} \propto \frac{ W_{t-1}^{(m)} }{ V_t^{(m)} } \times \frac{ P(Y_t|X_t^{(m)})P(X_t^{(m)}|X_{t-1}^{(m)}) }{q(X_t^{(m)}|X_{t-1}^{(m)}, Y_t)} \propto \frac{ W_{t-1}^{(m)} }{ V_t^{(m)} } \times P(Y_t|X_{t-1}^{(m)})
 \label{eq:OptimalImportanceWeights}
 \end{equation}
 
-The sense in which this is an optimal proposal can thus be seen: all weights are equal, and resampling will never be required. In general, the optimal importance distribution will not be samplable, but proposals using Gaussian approximations of this form may be used.
+If the auxiliary weights are set to $V_t^{(m)}=P(Y_t|X_{t-1}^{(m)})$ then all weights are equal throughout, and resampling will never be required. In general, the optimal importance distribution will not be samplable, but proposals using Gaussian approximations of this form may be used.

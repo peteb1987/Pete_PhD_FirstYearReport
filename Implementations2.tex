@@ -21,9 +21,7 @@ An additional problem with the history moves, even with an independence assumpti
 
 
 \subsection{Proposing older histories}
-So far we have used the $t-1$ particle distribution from which to propose histories, $X_{1:t-L}$ for the Markov chain. However, a suitable history could be also selected from the $t-s$ distribution, for $1 \le s \le L$. In a situation where a track has not been detected for several consecutive frames, taking a history from further in the past may make the proposal of a good candidate more probable. The correct path will have been more probable before the frames in which the target was not detected. Such a scheme has a similar effect to the conservative resampling strategy employed for the SISR FLPF in the previous section.
-
-PICTURE
+So far we have used the $t-1$ particle distribution from which to propose histories, $X_{1:t-L}$ for the Markov chain. However, a suitable history could be also selected from the $t-s$ distribution, for $1 \le s \le L$. In a situation where a target has not been detected for several consecutive frames, taking a history from further in the past may make the proposal of a good candidate more probable. The correct path will have been more probable before the frames in which the target was not detected. Such a scheme has a aim as the conservative resampling strategy employed for the SISR FLPF - to maintain the track on a target which temporarily follows a low probability path.
 
 The history proposal lag variable $s$ can most easily be handled by sampling it too.
 

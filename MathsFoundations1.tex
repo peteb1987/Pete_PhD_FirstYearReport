@@ -16,7 +16,15 @@ P(X|Y) = \frac{P(Y|X)P(X)}{P(Y)}
 
 This is the basis of the process of inference. Mathematically, we can assign a probability distribution to the state space of $X$. By applying Bayes rule, we are updating our belief about the values of $X$ using the information in $Y$.
 
-Often the quantity in which we are interested, $X$, is changing over time, and we would like to estimate its value at each point in time given only the observations received so far. In this case we will generally assume that the state is Markovian, i.e. that $X_t|X_{t-1}$ is independent of $X_{1:t-2}$, giving us a hidden Markov state-space model. This is the traditional filtering problem. By constucting a model for the evolution of the unknown state, we can now derive our prior information from our estimate at the previous time step. In discrete time, we now write:
+Often the quantity in which we are interested, $X$, is changing over time, and we would like to estimate its value at each point in time given only the observations received so far. In this case we will generally assume that the state is Markovian, i.e. that $X_t|X_{t-1}$ is independent of $X_{1:t-2}$ in discrete time, giving us a hidden Markov state-space model. This is the traditional filtering problem. This model is shown graphically in figure~\ref{fig:HMM}.
+
+\begin{figure}[hbt]%
+\input{tikz_HMM}
+\caption{Graphical hidden Markov model.}%
+\label{fig:HMM}%
+\end{figure}
+
+By constucting a model for the evolution of the unknown state, we can now derive our prior information from our estimate at the previous time step. We now write:
 
 \begin{equation}
 P(X_t|Y_{1:t}) = \frac{\int P(Y_t|X_t)P(X_t|X_{t-1})P(X_{t-1}|Y_{1:t-1}) dX_{t-1}}{P(Y_t|Y_{1:t-1})}

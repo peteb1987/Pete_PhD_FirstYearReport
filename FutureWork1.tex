@@ -78,17 +78,23 @@ The hope is that such a scheme should allow us to maintain a complete joint-targ
 \section{Additional tracking problems}
 
 \subsection{Minor additions}
-There are various possible extensions to the fixed-lag particle filter trackers. Firstly, the target detection mechanism currently only works with the SISR-PF and requires an independence assumption. It would be desirable to implement target detection for an MCMC-PF. It would also be interesting to try the algorithms on some more nonlinear models with non-Gaussian noise. In such cases the full particle filters would be expected to perform better than their Rao-Blackwellised equivalents.
+There are various possible extensions to the fixed-lag particle filter trackers. Firstly, the target detection mechanism currently only works with the SISR-PF and requires an independence assumption. It would be desirable to implement target detection for an MCMC-PF. It would also be interesting to try the algorithms on some more nonlinear models with non-Gaussian noise. In such cases the full particle filters would be expected to perform better than their Rao-Blackwellised equivalents. Models for manoeuvring targets would also be of interest.
 
 Furthermore, it would be interesting to compare the algorithms with an MC-JPDAF and a proper MHT, to see how they compare in terms of tracking performance and computation time.
 
 
 
 \subsection{Target correspondance and identification}
+In all the studies conducted so far there has been only one sensor observing the scene. Simple situations with multiple sensors can be handle by introducing additional association variables, as in \cite{Vermaak2005}. However, 
 
+
+
+\subsection{Other applications}
+Cells, crowds, insects.
 
 
 
 
 \section{Other applications}
-There is potential to apply the fixed-lag particle filtering algorithms to other applications entirely. 
+There is potential to apply the fixed-lag particle filtering algorithms to other applications entirely.
+Jump-diffusions, music.
