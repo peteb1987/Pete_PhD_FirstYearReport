@@ -123,3 +123,10 @@ Figure~\ref{fig:CursorTracking} shows a screenshot of a tracking algorithm in ac
 \caption{A screen shot showing the cursor trace, the grid of phantom buttons and their probabilities. See text for details.}
 \label{fig:CursorTracking}
 \end{figure}
+
+
+
+\section{Future work}
+The next stage required for a practical system is to introduce a method for deciding when the selected button is that which the user would like to click on. This could be decided by waiting for the MAP selection to settle on a particular choice for a given length of time, or by waiting for the MAP probability to exceed a certain threshold.
+
+Improved tracking algorithms may be possible using jump-diffusion models, in which the cursor is assumed to move smoothly in between a number of discrete jump times, at which point a large change in velocity may occur. Such models may require particle filter implementations.

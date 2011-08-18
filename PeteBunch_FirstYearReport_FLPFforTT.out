@@ -50,21 +50,23 @@
 \BOOKMARK [0][-]{chapter.8}{Results}{}% 50
 \BOOKMARK [1][-]{section.8.1}{Testing methods}{chapter.8}% 51
 \BOOKMARK [1][-]{section.8.2}{Performance assessment}{chapter.8}% 52
-\BOOKMARK [0][-]{chapter.9}{Plan Of Future Research}{}% 53
-\BOOKMARK [1][-]{section.9.1}{Ideas for improved particle filters}{chapter.9}% 54
-\BOOKMARK [2][-]{subsection.9.1.1}{Mixed exact-flow filter}{section.9.1}% 55
-\BOOKMARK [2][-]{subsection.9.1.2}{SISR proposals for MCMC}{section.9.1}% 56
-\BOOKMARK [2][-]{subsection.9.1.3}{MCMC proposals for SISR}{section.9.1}% 57
-\BOOKMARK [1][-]{section.9.2}{Additional tracking problems}{chapter.9}% 58
-\BOOKMARK [2][-]{subsection.9.2.1}{Minor additions}{section.9.2}% 59
-\BOOKMARK [2][-]{subsection.9.2.2}{Target correspondance and identification}{section.9.2}% 60
-\BOOKMARK [2][-]{subsection.9.2.3}{Other applications}{section.9.2}% 61
-\BOOKMARK [1][-]{section.9.3}{Other applications}{chapter.9}% 62
-\BOOKMARK [0][-]{chapter.10}{Cursor Intentionality Tracking}{}% 63
-\BOOKMARK [1][-]{section.10.1}{Algorithms}{chapter.10}% 64
-\BOOKMARK [2][-]{subsection.10.1.1}{Nearest Neighbour}{section.10.1}% 65
-\BOOKMARK [2][-]{subsection.10.1.2}{Mean-Reverting Diffusion}{section.10.1}% 66
-\BOOKMARK [2][-]{subsection.10.1.3}{Mean Bearing}{section.10.1}% 67
-\BOOKMARK [2][-]{subsection.10.1.4}{Composite}{section.10.1}% 68
-\BOOKMARK [1][-]{section.10.2}{Results}{chapter.10}% 69
-\BOOKMARK [0][-]{appendix.A}{Association proposals}{}% 70
+\BOOKMARK [0][-]{chapter.9}{Cursor Intentionality Tracking}{}% 53
+\BOOKMARK [1][-]{section.9.1}{Algorithms}{chapter.9}% 54
+\BOOKMARK [2][-]{subsection.9.1.1}{Nearest Neighbour}{section.9.1}% 55
+\BOOKMARK [2][-]{subsection.9.1.2}{Mean-Reverting Diffusion}{section.9.1}% 56
+\BOOKMARK [2][-]{subsection.9.1.3}{Mean Bearing}{section.9.1}% 57
+\BOOKMARK [2][-]{subsection.9.1.4}{Composite}{section.9.1}% 58
+\BOOKMARK [1][-]{section.9.2}{Results}{chapter.9}% 59
+\BOOKMARK [1][-]{section.9.3}{Future work}{chapter.9}% 60
+\BOOKMARK [0][-]{chapter.10}{Plan Of Future Research}{}% 61
+\BOOKMARK [1][-]{section.10.1}{Ideas for improved particle filters}{chapter.10}% 62
+\BOOKMARK [2][-]{subsection.10.1.1}{Mixed exact-flow filter}{section.10.1}% 63
+\BOOKMARK [2][-]{subsection.10.1.2}{SISR proposals for MCMC}{section.10.1}% 64
+\BOOKMARK [2][-]{subsection.10.1.3}{MCMC importance sampling}{section.10.1}% 65
+\BOOKMARK [1][-]{section.10.2}{Additional tracking problems}{chapter.10}% 66
+\BOOKMARK [2][-]{subsection.10.2.1}{Additions to the algorithms}{section.10.2}% 67
+\BOOKMARK [2][-]{subsection.10.2.2}{Target correspondence}{section.10.2}% 68
+\BOOKMARK [2][-]{subsection.10.2.3}{Other applications}{section.10.2}% 69
+\BOOKMARK [1][-]{section.10.3}{Fixed lag particle filtering}{chapter.10}% 70
+\BOOKMARK [1][-]{section.10.4}{A plan for future research}{chapter.10}% 71
+\BOOKMARK [0][-]{appendix.A}{Association proposals}{}% 72

@@ -4,8 +4,6 @@ A number of possible extensions to the current work are envisaged. Firstly, ther
 
 \section{Ideas for improved particle filters}
 
-
-
 \subsection{Mixed exact-flow filter}
 In a traditional particle filter, particles are propagated from one time step to the next through the use of a proposal distribution and a weighting step, with resampling to maintain diversity. In \cite{Daum2010}, the authors introduce a new sort of particle filter, in which particles are propagated as if they were diffusing according a differential equation governed by the observation likelihood. Thus, it is possible to generate an exact, unweighted sample from the desired posterior distribution even for a nonlinear, non-Gaussian model. This method cannot be directly applied to a target tracking problem because such particle flow ideas can only be used for continuous state-spaces. The association variables will need to be handled differently.
 
@@ -19,11 +17,18 @@ x_{1:t}^{(m)},\lambda_{1:t}^{(m)} \sim \hat{P}(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t
 
 The same association proposal may be used as for the standard particle filters described in chapter~\ref{}. Note that this proposal implicity includes a resampling step, which could be omited, as always. The importance weights for such a filter will be given by
 
+\begin{IEEEeqnarray}{rCl}
+W_t^{(m)} & \approx & \frac{ P(x_{1:t}^{(m)}, \lambda_{1:t}^{(m)}|Y_{1:t}) }{ P(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|Y_{1:t}, \lambda_t) } \\
+ & = & \frac{ P(\lambda_t^{(m)}) P(Y_t|x_{t-1}^{(m)},\lambda_t^{(m)}) }{ P(Y_t|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) }
+\end{IEEEeqnarray}
+
+Unfortuneately, the $P(Y_t|x_{t-1}^{(m)},\lambda_t^{(m)})$ term will not be tractable in general. However, a Monte Carlo approximation could be used.
+
 \begin{equation}
-W_t^{(m)} \approx \frac{ P(x_{1:t}^{(m)}, \lambda_{1:t}^{(m)}|Y_{1:t}) }{ P(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|Y_{1:t}, \lambda_t) }
+P(Y_t|x_{t-1},\lambda_t) = \int P(Y_t|x_{t},\lambda_t) P(x_t|x_{t-1}) dx_t \approx \sum_i P(Y_t|x_t^{(i)}, \lambda_t)
 \end{equation}
 
-ARGH! IT DOESN'T WORK!
+where the summation is over a set of particles sampled from $P(x_t|x_{t-1})$. This of course leads to an algorithm with $O(N^2)$ complexity in the number of particles as a Monte Carlo approximation is needed for each particle in the main filter. However, provided both the transition density and the likelihood have a simple, unimodal form, the inner approximation may require only a small number of particles, rendering the scheme tractable.
 
 
 
@@ -38,7 +43,7 @@ Such an algorithm is likely to fail when many targets are close together. In suc
 
 
 
-\subsection{MCMC proposals for SISR}
+\subsection{MCMC importance sampling}
 The weakness of the MCMC-PF can be viewed in an another way. When the probability of the correct path is low, the SISR-PF is able to maintain it in the particle distribution with a number of low-weight particles until its probability rises again. In an MCMC scheme, all particles have equal weights, and such low-probability modes may get very few or no particles. An alternative way to combine the advantages of the SISR and MCMC methods would be to construct a Markov chain which generated a weighted particle distribution.
 
 In an SISR scheme, a set of weighted particles $\{ x_{1:t}^{(m)}, W_t^{(m)} \}$ are used to approximate the posterior distibution, $P(x_{1:t}|Y_{1:t})$. The unweighted particles may be considered to be samples from some underlying distribution, $\mu(x_{1:t}|Y_{1:t})$ (determined by the proposal distribution and previous resampling steps). Potentially, a Markov chain could be targetted on $\mu(x_{1:t}|Y_{1:t})$ instead of $P(x_{1:t}|Y_{1:t})$.
@@ -77,24 +82,51 @@ The hope is that such a scheme should allow us to maintain a complete joint-targ
 
 \section{Additional tracking problems}
 
-\subsection{Minor additions}
-There are various possible extensions to the fixed-lag particle filter trackers. Firstly, the target detection mechanism currently only works with the SISR-PF and requires an independence assumption. It would be desirable to implement target detection for an MCMC-PF. It would also be interesting to try the algorithms on some more nonlinear models with non-Gaussian noise. In such cases the full particle filters would be expected to perform better than their Rao-Blackwellised equivalents. Models for manoeuvring targets would also be of interest.
+\subsection{Additions to the algorithms}
+There are various possible extensions to the fixed-lag particle filter trackers. Firstly, the target detection mechanism currently only works with the SISR-PF and requires an independence assumption. It would be desirable to implement target detection for an MCMC-PF. It would also be interesting to try the algorithms on some more nonlinear models with non-Gaussian noise. In such cases the full particle filters would be expected to perform better than their Rao-Blackwellised equivalents. Models for manoeuvring targets would also be of interest, such as those of \cite{Li2003} or the intrinsic coordinate models of \cite{Godsill2007a}.
 
 Furthermore, it would be interesting to compare the algorithms with an MC-JPDAF and a proper MHT, to see how they compare in terms of tracking performance and computation time.
 
 
 
-\subsection{Target correspondance and identification}
-In all the studies conducted so far there has been only one sensor observing the scene. Simple situations with multiple sensors can be handle by introducing additional association variables, as in \cite{Vermaak2005}. However, 
+\subsection{Target correspondence}
+In all the studies conducted so far there has been only one sensor observing the scene. Simple situations with multiple sensors can be handled by introducing additional association variables, as in \cite{Vermaak2005}. However, another problem of interest is that of matching the targets viewed by one sensor with those of another when the time periods of observation may not be overlapping, the characteristics of the sensors may be very different, including different biases, and the fields of view may not overlap. In particular, if one object in a group is of particular interest and has been identified by one sensor, we want to be able to identify it with the other sensor, based on the its location in the group. Such a problem will require the detection and tracking of objects as well as simultaneous estimation of correspondence.
 
 
 
 \subsection{Other applications}
-Cells, crowds, insects.
+So far the work conducted has been entirely theoretical, using simulated data with no specific application in mind. It would be interesting to test the fixed-lag particle filter trackers on some real data. Suggested potential applications include tracking groups of people or animals in video sequences, or cells in microscopy data. Extensions for additional latent variables would also be interesting, such as the group structure variables used in \cite{Pang2011}.
 
 
 
+\section{Fixed lag particle filtering}
+There are numerous other situations in which fixed-lag particle filters may be of use. For example, the music transcription algorithms of \cite{Bunch2010} could well be improved by revising particle estimates once further data has been received. Note onsets and offsets would certainly be more easily detected.
 
-\section{Other applications}
-There is potential to apply the fixed-lag particle filtering algorithms to other applications entirely.
-Jump-diffusions, music.
+Another area in which the fixed-lag particle filters could be applied is in change-point detection, for example in the jump-diffusion models of \cite{Godsill2007a} and \cite{Christensen2012}. Here a particle filter is used to estimate a latent series of jump times in a signal. Intuitively, it should be easier to see whether a jump has occured after further data has been received, so a fixed-lag particle filter may improve the estimate of jump times and thus the predictive power of the algorithm.
+
+
+
+\section{A plan for future research}
+As anyone working in signal processing will be aware, prediction is a difficult task, prone to exponential growth in uncertainty. Practically speaking, any attempt to plan out a PhD with a horizon longer than a few months is unlikely to bare much resemblence to the course actually followed. So in table~\ref{tab:FuturePlan} we simply list a number of the aforementioned interesting possibilities in a rough order of priority with an estimate of the time required.
+
+\begin{table} \centering
+\begin{tabular}{|l|l|}
+\hline
+Task & Time estimate (months) \\
+\hline \hline
+Application to more nonlinear models & 1/2 \\
+Mixed exact-flow PF for tracking & 3 \\
+Independent SISR proposals for an MCMC-PF tracker & 1 \\
+MCMC importance sampling & 2 \\
+Cursor intentionality tracking & 1/2 \\
+Fixed-lag PFs for jump-diffusion models & 2 \\
+Target correspondence and other high-level modelling & 6 \\
+Application of trackers to real data & 3 \\
+Fixed-lag PFs for music transcription & 3 \\
+\hline
+\end{tabular}
+\caption{}
+\label{tab:FuturePlan}
+\end{table}
+
+The time estimates in table~\ref{tab:FuturePlan} sum to 22 months, leaving 4 months before the 3 year deadline (or 7 months before funding ends) for writing up. Realistically, it is far more likely that one of the tasks provides numerous interesting opportunities and takes over the entire course of research.

@@ -55,3 +55,12 @@ A particle filter for joint target detection and state estimation was implemente
 Target appearance is a greater challenge, as the dimensionality of the state space expands enormously (any number of targets can appear in any location). In order to devise a practical algorithm, we use the method of a `search track' of \cite{Horridge2009}. The SISR particle filter already requires that we assume independence between targets. We assume that $\mu_{\text{birth}}$ is low enough that the probability of more than 1 track appearing at a given time is negligible. Then, we simply need one extra track whose particles represent the associations and states of a potential new target. When these search particles are observed to cluster in one location, we conclude that a new target has appeared and a new target filter is initiated.
 
 A new mechanism is be required for proposing the observation associations for the search track particles, as we have no knowledge about the target position or velocity. Once the associations are proposed, the usual method for state proposals may be used. In even moderate clutter some scheme is needed to identify likely sites where a new target may have appeared, for example, by locating strings of observations in close proximity over time. These sites can be used to propose search particle associations. Without such a heuristic frontend, the probability of putting particles in the right place is likely to be very low.
+
+An example of the SISR algorithm with lag 5 tracking 5 targets is shown in figure~\ref{fig:DetectionTracking}, using the linear-Gaussian observation model. Process and observation noises are set to 1, detection probability is 0.9 and expected number of clutter observations is 200 per frame.
+
+\begin{figure} \centering
+\subfigure[Observations]{\includegraphics[width=0.45\columnwidth]{DetectionTrackingObs.pdf}}
+\subfigure[States and Particle Estimates]{\includegraphics[width=0.45\columnwidth]{DetectionTracking.pdf}}
+\caption{Target detection and tracking with fixed lag SISR algorithm with lag 5.}%
+\label{fig:DetectionTracking}%
+\end{figure}

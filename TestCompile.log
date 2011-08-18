@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2010.11.3)  17 AUG 2011 15:41
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2010.11.3)  18 AUG 2011 15:52
 entering extended mode
 **D:/pb404/FirstYearReport/TestCompile.tex
 (D:/pb404/FirstYearReport/TestCompile.tex
@@ -689,32 +689,7 @@ Package: html 1999/07/19 v1.38 hypertext commands for latex2html (nd, hws, rrm)
 Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
 
 Package: `setspace' 6.7 <2000/12/01>
-) (D:\pb404\FirstYearReport\TestCompile.aux
-
-LaTeX Warning: Label `eq:' multiply defined.
-
-
-LaTeX Warning: Label `eq:' multiply defined.
-
-
-LaTeX Warning: Label `eq:' multiply defined.
-
-
-LaTeX Warning: Label `eq:' multiply defined.
-
-
-LaTeX Warning: Label `eq:' multiply defined.
-
-
-LaTeX Warning: Label `eq:' multiply defined.
-
-
-LaTeX Warning: Label `eq:' multiply defined.
-
-
-LaTeX Warning: Label `eq:' multiply defined.
-
-)
+) (D:\pb404\FirstYearReport\TestCompile.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
 LaTeX Font Info:    ... okay on input line 27.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
@@ -801,51 +776,78 @@ LaTeX Info: Redefining \nameref on input line 27.
 
 ABD: EveryShipout initializing macros
 Chapter 1.
-(D:\pb404\FirstYearReport\FixedLag1.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 1.
+(D:\pb404\FirstYearReport\FutureWork1.tex
+LaTeX Font Info:    Try loading font information for OT1+jkposn on input line 5
+.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\kpfonts\ot1jkposn.fd"
+File: ot1jkposn.fd 2008/02/18 Fontinst v1.928 font definitions for OT1/jkposn.
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 1.
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 
-LaTeX Warning: Citation 'Gilks2001' on page 1 undefined on input line 5.
-
-
-LaTeX Warning: Citation 'Doucet2006' on page 1 undefined on input line 7.
-
-
-LaTeX Warning: Citation 'Doucet2006' on page 1 undefined on input line 7.
-
-
-Underfull \vbox (badness 3579) has occurred while \output is active []
-
+LaTeX Warning: Citation 'Daum2010' on page 1 undefined on input line 8.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/it' in size <24> not available
-(Font)              size <24.88> substituted on input line 8.
+(Font)              size <24.88> substituted on input line 13.
 
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 8.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 13.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-(D:\pb404\FirstYearReport\Rerouting.pdf_tex
-<Rerouting.pdf, id=50, 285.75351pt x 281.85298pt>
-File: Rerouting.pdf Graphic file (type pdf)
- <use Rerouting.pdf>))
+
+LaTeX Warning: Reference `' on page 2 undefined on input line 18.
+
+[2] [3]
+
+LaTeX Warning: Citation 'Li2003' on page 4 undefined on input line 86.
+
+
+LaTeX Warning: Citation 'Godsill2007a' on page 4 undefined on input line 86.
+
+[4]
+
+LaTeX Warning: Citation 'Vermaak2005' on page 5 undefined on input line 93.
+
+
+LaTeX Warning: Citation 'Pang2011' on page 5 undefined on input line 98.
+
+
+LaTeX Warning: Citation 'Bunch2010' on page 5 undefined on input line 103.
+
+
+LaTeX Warning: Citation 'Godsill2007a' on page 5 undefined on input line 105.
+
+
+LaTeX Warning: Citation 'Christensen2012' on page 5 undefined on input line 105
+.
+
+
+LaTeX Warning: Reference `tab:FuturePlan' on page 5 undefined on input line 110
+.
+
+[5]
+
+LaTeX Warning: Reference `tab:FuturePlan' on page 6 undefined on input line 132
+.
+
+)
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 34.
-
-[2 <D:/pb404/FirstYearReport/Rerouting.pdf>]
+ [6]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 34.
-
-(D:\pb404\FirstYearReport\TestCompile.aux)
+ (D:\pb404\FirstYearReport\TestCompile.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 34.
 
 
@@ -854,60 +856,48 @@ Package rerunfilecheck Warning: File `TestCompile.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `TestCompile.out':
-(rerunfilecheck)             Before: DF83E24C7CECAA0EC131A16642F36E59;501
-(rerunfilecheck)             After:  A635A4AE2774B38AC862794C2CD84A9C;40.
+(rerunfilecheck)             Before: 02CF0F9C755D88CCAD5BE6A45A3EDD31;199
+(rerunfilecheck)             After:  2E0F1B1646C68FB5DA7BBCB31FFD11C2;807.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.88pt have occurred.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 15937 strings out of 494019
- 279209 string characters out of 3143930
- 357796 words of memory out of 3000000
- 18875 multiletter control sequences out of 15000+200000
- 12708 words of font info for 34 fonts, out of 3000000 for 9000
+ 16015 strings out of 494019
+ 280201 string characters out of 3143930
+ 361973 words of memory out of 3000000
+ 18922 multiletter control sequences out of 15000+200000
+ 25750 words of font info for 70 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 56i,11n,55p,747b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{subsection.1.5.2} has been referenced but does no
-t exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{subsection.1.5.1} has been referenced but does not 
-exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.5} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.4} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.3} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.2} has been referenced but does not exist
-, replaced by a fixed one
-
-pdfTeX warning (dest): name{section.1.1} has been referenced but does not exist
-, replaced by a fixed one
-
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program 
-Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program Fi
+ 56i,11n,55p,920b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
 les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program File
 s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/
-fonts/type1/urw/times/utmb8a.pfb>
-Output written on TestCompile.pdf (2 pages, 110381 bytes).
+ 2.9/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
+nts/type1/public/kpfonts/jkpbit8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
+type1/public/kpfonts/jkpbitc.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
+/public/kpfonts/jkpbn8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publ
+ic/kpfonts/jkpbnc.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/
+utmb8a.pfb>
+Output written on TestCompile.pdf (6 pages, 181216 bytes).
 PDF statistics:
- 101 PDF objects out of 1000 (max. 8388607)
- 12 named destinations out of 1000 (max. 500000)
- 82 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 136 PDF objects out of 1000 (max. 8388607)
+ 25 named destinations out of 1000 (max. 500000)
+ 37 words of extra memory for PDF output out of 10000 (max. 10000000)
 

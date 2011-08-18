@@ -85,6 +85,14 @@ Chib, S.  \harvardyearleft 1996\harvardyearright .
 \newblock Details forward-filtering-backward-sampling algorithm.
 \newline\harvardurl{http://www.sciencedirect.com/science/article/B6VC0-3VWT1TW-7/2/b66dae744497c95ff3eddb744f301a6c}
 
+\harvarditem[Christensen et~al.]{Christensen, Murphy \harvardand\
+  Godsill}{2012}{Christensen2012}
+Christensen, H.~L., Murphy, J. \harvardand\ Godsill, S.~J.  \harvardyearleft
+  2012\harvardyearright .
+\newblock Forecasting high-frequency futures returns using online langevin
+  dynamics, {\em submitted to IEEE journal of selected topics in signal
+  processing} .
+
 \harvarditem{Clapp \harvardand\ Godsill}{1999}{Clapp1999}
 Clapp, T. \harvardand\ Godsill, S.  \harvardyearleft 1999\harvardyearright .
 \newblock Fixed-lag smoothing using sequential importance sampling, {\em
@@ -201,6 +209,12 @@ Girolami, M. \harvardand\ Calderhead, B.  \harvardyearleft
   {\bf 73}(2):~123--214.
 \newline\harvardurl{http://dx.doi.org/10.1111/j.1467-9868.2010.00765.x}
 
+\harvarditem{Godsill}{2007}{Godsill2007a}
+Godsill, S.  \harvardyearleft 2007\harvardyearright .
+\newblock Particle filters for continuous-time jump models in tracking
+  applications, {\em ESAIM: Proc.} {\bf 19}:~39--52.
+\newline\harvardurl{http://dx.doi.org/10.1051/proc:071907}
+
 \harvarditem[Godsill et~al.]{Godsill, Doucet \harvardand\
   West}{2004}{Godsill2004}
 Godsill, S.~J., Doucet, A. \harvardand\ West, M.  \harvardyearleft
@@ -293,6 +307,12 @@ Laplace, P.~S.  \harvardyearleft 1774\harvardyearright .
 \newblock Memoir on the probability of the causes of events, {\em Statistical
   Science} {\bf 1}(3):~pp. 364--378.
 \newline\harvardurl{http://www.jstor.org/stable/2245476}
+
+\harvarditem{Li \harvardand\ Jilkov}{2003}{Li2003}
+Li, X. \harvardand\ Jilkov, V.  \harvardyearleft 2003\harvardyearright .
+\newblock Survey of maneuvering target tracking. part i: Dynamic models, {\em
+  IEEE Transactions on Aerospace and Electronic Systems} {\bf
+  39}(4):~1333--1364.
 
 \harvarditem{Liu \harvardand\ Chen}{1995}{Liu1995}
 Liu, J.~S. \harvardand\ Chen, R.  \harvardyearleft 1995\harvardyearright .

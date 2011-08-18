@@ -61,21 +61,23 @@
 \contentsline {chapter}{\numberline {8}Results}{63}{chapter.8}
 \contentsline {section}{\numberline {8.1}Testing methods}{63}{section.8.1}
 \contentsline {section}{\numberline {8.2}Performance assessment}{66}{section.8.2}
-\contentsline {chapter}{\numberline {9}Plan Of Future Research}{75}{chapter.9}
-\contentsline {section}{\numberline {9.1}Ideas for improved particle filters}{75}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Mixed exact-flow filter}{75}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}SISR proposals for MCMC}{76}{subsection.9.1.2}
-\contentsline {subsection}{\numberline {9.1.3}MCMC proposals for SISR}{77}{subsection.9.1.3}
-\contentsline {section}{\numberline {9.2}Additional tracking problems}{78}{section.9.2}
-\contentsline {subsection}{\numberline {9.2.1}Minor additions}{78}{subsection.9.2.1}
-\contentsline {subsection}{\numberline {9.2.2}Target correspondance and identification}{78}{subsection.9.2.2}
-\contentsline {subsection}{\numberline {9.2.3}Other applications}{79}{subsection.9.2.3}
-\contentsline {section}{\numberline {9.3}Other applications}{79}{section.9.3}
-\contentsline {chapter}{\numberline {10}Cursor Intentionality Tracking}{81}{chapter.10}
-\contentsline {section}{\numberline {10.1}Algorithms}{81}{section.10.1}
-\contentsline {subsection}{\numberline {10.1.1}Nearest Neighbour}{81}{subsection.10.1.1}
-\contentsline {subsection}{\numberline {10.1.2}Mean-Reverting Diffusion}{82}{subsection.10.1.2}
-\contentsline {subsection}{\numberline {10.1.3}Mean Bearing}{83}{subsection.10.1.3}
-\contentsline {subsection}{\numberline {10.1.4}Composite}{84}{subsection.10.1.4}
-\contentsline {section}{\numberline {10.2}Results}{84}{section.10.2}
+\contentsline {chapter}{\numberline {9}Cursor Intentionality Tracking}{75}{chapter.9}
+\contentsline {section}{\numberline {9.1}Algorithms}{75}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Nearest Neighbour}{75}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Mean-Reverting Diffusion}{76}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Mean Bearing}{77}{subsection.9.1.3}
+\contentsline {subsection}{\numberline {9.1.4}Composite}{78}{subsection.9.1.4}
+\contentsline {section}{\numberline {9.2}Results}{78}{section.9.2}
+\contentsline {section}{\numberline {9.3}Future work}{79}{section.9.3}
+\contentsline {chapter}{\numberline {10}Plan Of Future Research}{81}{chapter.10}
+\contentsline {section}{\numberline {10.1}Ideas for improved particle filters}{81}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}Mixed exact-flow filter}{81}{subsection.10.1.1}
+\contentsline {subsection}{\numberline {10.1.2}SISR proposals for MCMC}{82}{subsection.10.1.2}
+\contentsline {subsection}{\numberline {10.1.3}MCMC importance sampling}{83}{subsection.10.1.3}
+\contentsline {section}{\numberline {10.2}Additional tracking problems}{84}{section.10.2}
+\contentsline {subsection}{\numberline {10.2.1}Additions to the algorithms}{84}{subsection.10.2.1}
+\contentsline {subsection}{\numberline {10.2.2}Target correspondence}{85}{subsection.10.2.2}
+\contentsline {subsection}{\numberline {10.2.3}Other applications}{85}{subsection.10.2.3}
+\contentsline {section}{\numberline {10.3}Fixed lag particle filtering}{85}{section.10.3}
+\contentsline {section}{\numberline {10.4}A plan for future research}{86}{section.10.4}
 \contentsline {chapter}{\numberline {A}Association proposals}{87}{appendix.A}
