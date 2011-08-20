@@ -2,15 +2,15 @@ The main failing of the SISR particle filter for tracking multiple targets is it
 
 Using the augmented target distribution of equation~\ref{eq:FLTarget} and an auxiliary form of history proposal as in equation~\ref{eq:AuxiliarySamplingProposal}, the MH acceptance probability can be calculated. Again, we use $\{Z_{1:t-1}, Z'_{t-L+1:t}\}$ to represent the current state of the sampler and $\{X_{1:t-1}, X'_{t-L+1:t}\}$ for the proposed state. Furthermore, we omit the association variables from the next expression for clarity. They should be considered as grouped with the corresponding state variables.
 
-\begin{multline}
-\alpha = \min \bigg ( 1,  \frac{ P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) q(Z_{1:t-1}, Z'_{t-L+1:t}|Y_{1:t} }{ P(Z_{1:t-L}, Z'_{t-L+1:t}|Y_{1:t}) \rho(Z_{t-L+1:t-1}|Z_{1:t-L}, Z'_{t-L+1:t}) q(X_{1:t-1}, X'_{t-L+1:t}|Y_{1:t} }  \bigg ) \\
-= \min \bigg ( 1,  \frac{ P(Y_{t-L+1:t}|X'_{t-L+1:t})P(X'_{t-L+1:t}|X_{t-L}) }{ P(Y_{t-L+1:t}|Z'_{t-L+1:t})P(Z'_{t-L+1:t}|Z_{t-L}) } 
-\times \frac{ P(Y_{t-L+1:t-1}|Z_{t-L+1:t-1})P(Z_{t-L+1:t-1}|Z_{t-L}) }{ P(Y_{t-L+1:t-1}|X_{t-L+1:t-1})P(X_{t-L+1:t-1}|X_{t-L}) } \\
- \times \frac{\rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t})}{\rho(Z_{t-L+1:t-1}|Z_{1:t-L}, Z'_{t-L+1:t})} \times \frac{q(Z_{t-L+1:t}|Y_{t-L+1:t}, Z_{t-L})}{q(X_{t-L+1:t}|Y_{t-L+1:t}, X_{t-L})} \times \frac{V_{Z,t}}{V_{X,t}}  \bigg )
-\label{eq:FLAcceptance}
-\end{multline}
+\begin{IEEEeqnarray}{rCl}
+\alpha & = & \min \bigg ( 1,  \frac{ P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) q(Z_{1:t-1}, Z'_{t-L+1:t}|Y_{1:t} }{ P(Z_{1:t-L}, Z'_{t-L+1:t}|Y_{1:t}) \rho(Z_{t-L+1:t-1}|Z_{1:t-L}, Z'_{t-L+1:t}) q(X_{1:t-1}, X'_{t-L+1:t}|Y_{1:t} }  \bigg ) \nonumber \\
+ & = & \min \bigg ( 1,  \underbrace{\frac{ P(Y_{t-L+1:t}|X'_{t-L+1:t})P(X'_{t-L+1:t}|X_{t-L}) }{ P(Y_{t-L+1:t}|Z'_{t-L+1:t})P(Z'_{t-L+1:t}|Z_{t-L}) } }_{\textnormal{Posterior ratio}} \nonumber \\
+ & & \qquad \qquad \times \: \underbrace{\frac{ P(Y_{t-L+1:t-1}|Z_{t-L+1:t-1})P(Z_{t-L+1:t-1}|Z_{t-L}) }{ P(Y_{t-L+1:t-1}|X_{t-L+1:t-1})P(X_{t-L+1:t-1}|X_{t-L}) } }_{\textnormal{Discarded tracks posterior ratio}} \nonumber \\
+ & & \qquad \qquad \times \: \underbrace{\frac{\rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t})}{\rho(Z_{t-L+1:t-1}|Z_{1:t-L}, Z'_{t-L+1:t})}}_{\textnormal{Artificial conditional distribution ratio}} \nonumber \\
+ & & \qquad \qquad \times \: \underbrace{ \frac{q(Z_{t-L+1:t}|Y_{t-L+1:t}, Z_{t-L})}{q(X_{t-L+1:t}|Y_{t-L+1:t}, X_{t-L})} }_{\textnormal{Proposal ratio}} \times \underbrace{\frac{V_{Z,t}}{V_{X,t}}}_{\textnormal{Auxiliary weight ratio}}  \bigg )\label{eq:FLAcceptance}
+\end{IEEEeqnarray}
 
-As for the SISR particle filter, we can use the appoximations developed in section~\ref{sec:FixedLag2} for the artificial conditional distribution. The same form may be used for the proposal distribution.
+As for the SISR particle filter, we can use the approximations developed in section~\ref{sec:FixedLag2} for the artificial conditional distribution. The same form may be used for the proposal distribution.
 
 As suggested, we can have MH moves which change only some subset of the states. For example, we can have moves which change only the current states, $X'_{t-L+1:t}$, and others which change the history, $X_{1:t-1}$. For the current states, an obvious choice here is to change only one target at a time. For well-spaced targets, this is almost equivalent to running a separate particle filter on each, the moves concerning one target will have no effect on any other. When targets are closely spaced, there is a disadvantage to using only single-target moves. If two targets share two likely candidate observations, it will be hard for them to ``swap''. Thus we should also include a number of two-target moves in our MCMC scheme, using pairs of targets identified as being close together.
 
@@ -32,12 +32,13 @@ The history proposal lag variable $s$ can most easily be handled by sampling it 
 
 We only use $s$ in the proposal mechanism, so it can simply be discarded (marginalised) once the chain has moved on. In addition, if $q(s)$ is uniform over all possible values then it will cancel out in the acceptance probabilities. The only change to the proposal then is that we have an enlarged set of particles from which to select a history. The acceptance probability is now given by:
 
-\begin{multline}
-\alpha = \min \bigg ( 1,  \frac{ P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-s_X}|X_{1:t-L}, X'_{t-L+1:t}) q(Z_{1:t-s_Z}, Z'_{t-L+1:t}|Y_{1:t} }{ P(Z_{1:t-L}, Z'_{t-L+1:t}|Y_{1:t}) \rho(Z_{t-L+1:t-s_Z}|Z_{1:t-L}, Z'_{t-L+1:t}) q(X_{1:t-s_X}, X'_{t-L+1:t}|Y_{1:t} }  \bigg ) \\
-= \min \bigg ( 1,  \frac{ P(Y_{t-L+1:t}|X'_{t-L+1:t})P(X'_{t-L+1:t}|X_{t-L}) }{ P(Y_{t-L+1:t}|Z'_{t-L+1:t})P(Z'_{t-L+1:t}|Z_{t-L}) }
- \times \frac{ P(Y_{t-L+1:t-s_Z}|Z_{t-L+1:t-s_Z})P(Z_{t-L+1:t-s_Z}|Z_{t-L}) }{ P(Y_{t-L+1:t-s_X}|X_{t-L+1:t-s_X})P(X_{t-L+1:t-s_X}|X_{t-L}) } \\
- \times \frac{\rho(X_{t-L+1:t-s_X}|X_{1:t-L}, X'_{t-L+1:t})}{\rho(Z_{t-L+1:t-s_Z}|Z_{1:t-L}, Z'_{t-L+1:t})} \times \frac{q(Z_{t-L+1:t}|Y_{t-L+1:t}, Z_{t-L})}{q(X_{t-L+1:t}|Y_{t-L+1:t}, X_{t-L})} \times \frac{V_{Z,t}}{V_{X,t}}  \bigg )
+\begin{IEEEeqnarray}{rCl}
+\alpha & = & \min \bigg ( 1,  \frac{ P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-s_X}|X_{1:t-L}, X'_{t-L+1:t}) q(Z_{1:t-s_Z}, Z'_{t-L+1:t}|Y_{1:t} }{ P(Z_{1:t-L}, Z'_{t-L+1:t}|Y_{1:t}) \rho(Z_{t-L+1:t-s_Z}|Z_{1:t-L}, Z'_{t-L+1:t}) q(X_{1:t-s_X}, X'_{t-L+1:t}|Y_{1:t} }  \bigg ) \nonumber \\
+ & = & \min \bigg ( 1,  \underbrace{\frac{ P(Y_{t-L+1:t}|X'_{t-L+1:t})P(X'_{t-L+1:t}|X_{t-L}) }{ P(Y_{t-L+1:t}|Z'_{t-L+1:t})P(Z'_{t-L+1:t}|Z_{t-L}) } }_{\textnormal{Posterior ratio}} \nonumber \\
+ & & \qquad \qquad \times \: \underbrace{\frac{ P(Y_{t-L+1:t-s_Z}|Z_{t-L+1:t-s_Z})P(Z_{t-L+1:t-s_Z}|Z_{t-L}) }{ P(Y_{t-L+1:t-s_X}|X_{t-L+1:t-s_X})P(X_{t-L+1:t-s_X}|X_{t-L}) } }_{\textnormal{Discarded tracks posterior ratio}} \nonumber \\
+ & & \qquad \qquad \times \: \underbrace{\frac{\rho(X_{t-L+1:t-s_X}|X_{1:t-L}, X'_{t-L+1:t})}{\rho(Z_{t-L+1:t-s_Z}|Z_{1:t-L}, Z'_{t-L+1:t})}}_{\textnormal{Artificial conditional distribution ratio}} \nonumber \\
+ & & \qquad \qquad \times \: \underbrace{ \frac{q(Z_{t-L+1:t}|Y_{t-L+1:t}, Z_{t-L})}{q(X_{t-L+1:t}|Y_{t-L+1:t}, X_{t-L})} }_{\textnormal{Proposal ratio}} \times \underbrace{\frac{V_{Z,t}}{V_{X,t}}}_{\textnormal{Auxiliary weight ratio}}  \bigg )
 \label{eq:FLAcceptance}
-\end{multline}
+\end{IEEEeqnarray}
 
-This scheme will be shown to give improved tracking performance.
+This scheme gives a small improvement in tracking performance.

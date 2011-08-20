@@ -15,14 +15,14 @@ Consider a single target with state $x_t$ and associations $\lambda_t$. From the
 x_{1:t}^{(m)},\lambda_{1:t}^{(m)} \sim \hat{P}(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|x_{t-1}, \lambda_t, Y_t)
 \end{equation}
 
-The same association proposal may be used as for the standard particle filters described in chapter~\ref{}. Note that this proposal implicity includes a resampling step, which could be omited, as always. The importance weights for such a filter will be given by
+The same association proposal may be used as for the standard particle filters described in chapter~\ref{}. Note that this proposal implicitly includes a resampling step, which could be omitted, as always. The importance weights for such a filter will be given by
 
 \begin{IEEEeqnarray}{rCl}
 W_t^{(m)} & \approx & \frac{ P(x_{1:t}^{(m)}, \lambda_{1:t}^{(m)}|Y_{1:t}) }{ P(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|Y_{1:t}, \lambda_t) } \\
  & = & \frac{ P(\lambda_t^{(m)}) P(Y_t|x_{t-1}^{(m)},\lambda_t^{(m)}) }{ P(Y_t|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) }
 \end{IEEEeqnarray}
 
-Unfortuneately, the $P(Y_t|x_{t-1}^{(m)},\lambda_t^{(m)})$ term will not be tractable in general. However, a Monte Carlo approximation could be used.
+Unfortunately, the $P(Y_t|x_{t-1}^{(m)},\lambda_t^{(m)})$ term will not be tractable in general. However, a Monte Carlo approximation could be used.
 
 \begin{equation}
 P(Y_t|x_{t-1},\lambda_t) = \int P(Y_t|x_{t},\lambda_t) P(x_t|x_{t-1}) dx_t \approx \sum_i P(Y_t|x_t^{(i)}, \lambda_t)
@@ -46,7 +46,7 @@ Such an algorithm is likely to fail when many targets are close together. In suc
 \subsection{MCMC importance sampling}
 The weakness of the MCMC-PF can be viewed in an another way. When the probability of the correct path is low, the SISR-PF is able to maintain it in the particle distribution with a number of low-weight particles until its probability rises again. In an MCMC scheme, all particles have equal weights, and such low-probability modes may get very few or no particles. An alternative way to combine the advantages of the SISR and MCMC methods would be to construct a Markov chain which generated a weighted particle distribution.
 
-In an SISR scheme, a set of weighted particles $\{ x_{1:t}^{(m)}, W_t^{(m)} \}$ are used to approximate the posterior distibution, $P(x_{1:t}|Y_{1:t})$. The unweighted particles may be considered to be samples from some underlying distribution, $\mu(x_{1:t}|Y_{1:t})$ (determined by the proposal distribution and previous resampling steps). Potentially, a Markov chain could be targetted on $\mu(x_{1:t}|Y_{1:t})$ instead of $P(x_{1:t}|Y_{1:t})$.
+In an SISR scheme, a set of weighted particles $\{ x_{1:t}^{(m)}, W_t^{(m)} \}$ are used to approximate the posterior distribution, $P(x_{1:t}|Y_{1:t})$. The unweighted particles may be considered to be samples from some underlying distribution, $\mu(x_{1:t}|Y_{1:t})$ (determined by the proposal distribution and previous resampling steps). Potentially, a Markov chain could be targeted on $\mu(x_{1:t}|Y_{1:t})$ instead of $P(x_{1:t}|Y_{1:t})$.
 
 Suppose at the $m^{\text{th}}$ step in the chain we have the state $x_{1:t}^{(m)}$, with unnormalised weight $W_t^{(m)}$. A new state, $x_{1:t}^{*}$ is sampled from a MH proposal distribution $q(.|x_{1:t}^{(m)}, Y_{1:t})$. The standard acceptance probability formula will be
 
@@ -102,12 +102,12 @@ So far the work conducted has been entirely theoretical, using simulated data wi
 \section{Fixed lag particle filtering}
 There are numerous other situations in which fixed-lag particle filters may be of use. For example, the music transcription algorithms of \cite{Bunch2010} could well be improved by revising particle estimates once further data has been received. Note onsets and offsets would certainly be more easily detected.
 
-Another area in which the fixed-lag particle filters could be applied is in change-point detection, for example in the jump-diffusion models of \cite{Godsill2007a} and \cite{Christensen2012}. Here a particle filter is used to estimate a latent series of jump times in a signal. Intuitively, it should be easier to see whether a jump has occured after further data has been received, so a fixed-lag particle filter may improve the estimate of jump times and thus the predictive power of the algorithm.
+Another area in which the fixed-lag particle filters could be applied is in change-point detection, for example in the jump-diffusion models of \cite{Godsill2007a} and \cite{Christensen2012}. Here a particle filter is used to estimate a latent series of jump times in a signal. Intuitively, it should be easier to see whether a jump has occurred after further data has been received, so a fixed-lag particle filter may improve the estimate of jump times and thus the predictive power of the algorithm.
 
 
 
 \section{A plan for future research}
-As anyone working in signal processing will be aware, prediction is a difficult task, prone to exponential growth in uncertainty. Practically speaking, any attempt to plan out a PhD with a horizon longer than a few months is unlikely to bare much resemblence to the course actually followed. So in table~\ref{tab:FuturePlan} we simply list a number of the aforementioned interesting possibilities in a rough order of priority with an estimate of the time required.
+As anyone working in signal processing will be aware, prediction is a difficult task, prone to exponential growth in uncertainty. Practically speaking, any attempt to plan out a PhD with a horizon longer than a few months is unlikely to bare much resemblance to the course actually followed. So in table~\ref{tab:FuturePlan} we simply list a number of the aforementioned interesting possibilities in a rough order of priority with an estimate of the time required.
 
 \begin{table} \centering
 \begin{tabular}{|l|l|}

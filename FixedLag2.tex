@@ -1,4 +1,4 @@
-Here we consider the mathematical framework for fixed-lag estimatation, as presented by \cite{Doucet2006} and \cite{Briers2006}.
+Here we consider the mathematical framework for fixed-lag estimation, as presented by \cite{Doucet2006} and \cite{Briers2006}.
 
 As before, the target posterior distribution in which we are interested is the familiar $P(X_{1:t}|Y_{1:t})$. However, the proposal mechanism now becomes more complex, because we will be replacing states in an existing particle. We first propose a particle from which to take the state ``history'', that is $X_{1:t-L}$. However, if we take this from the particle distribution from the previous step we get more of the path than we need, because each particle is a set of states $X_{1:t-1}$. The final $L-1$ states will be replaced when by a new ``present'', $X'_{t-L+1:t}$, drawn from an importance distribution. The complete proposal is thus
 
@@ -46,7 +46,7 @@ With an expanded space for the target distribution there is no need to marginali
 
 Histories are proposed from the $t-1$ frame in the normal manner, see equation~\ref{eq:AuxiliarySamplingProposal}.
 
-\cite{Doucet2006} show that the optimum choice (in the minimal importance weight variance sense) of artifical conditional distribution is given by 
+\cite{Doucet2006} show that the optimum choice (in the minimal importance weight variance sense) of artificial conditional distribution is given by 
 
 \begin{equation}
 \rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) = P(X_{t-L+1:t-1}|X_{t-L}, Y_{t-L+1:t-1})
@@ -61,5 +61,3 @@ q(X'_{t-L+1:t}|X_{1:t-s}, Y_{t-L+1:t}) = P(X'_{t-L+1:t}|X_{t-L}, Y_{t-L+1:t})
 \end{equation}
 
 Thus both artificial conditional and proposal distribution should equal to the conditional posterior. This is neither samplable nor calculable, and approximations will be required.
-
-

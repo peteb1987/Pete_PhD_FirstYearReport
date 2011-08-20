@@ -1,12 +1,12 @@
 \section{Changes to the model}
-In order to handle targets appearing and disappearing from the scene, we introduce an existence variable for each possible target, $e_{j,t}$, the set of which we denote $E_t$. These boolean variables indicate whether a target is present at a given time instant, taking values 1 (present) or 0 (absent). We limit the number of targets to $K_{\max}$.
+In order to handle targets appearing and disappearing from the scene, we introduce an existence variable for each possible target, $e_{j,t}$, the set of which we denote $E_t$. These Boolean variables indicate whether a target is present at a given time instant, taking values 1 (present) or 0 (absent). We limit the number of targets to $K_{\max}$.
 
 We would like to infer the values of $E_t$, so this may be added to the posterior thus:
 
-\begin{equation}
-P(X_{1:t}, \Lambda_{1:t}, E_{1:t}|Y_{1:t}) = \frac{P(Y_t|X_t, \Lambda_t, E_t) P(X_t|X_{t-1}, E_t, E_{t-1}) P(\Lambda_t|E_t) P(E_t|E_{t-1}) P(X_{1:t-1}, \Lambda_{1:t-1}, E_{1:t-1}|Y_{1:t-1})}{P(Y_t|Y_{1:t-1})}
+\begin{multline}
+P(X_{1:t}, \Lambda_{1:t}, E_{1:t}|Y_{1:t}) = \frac{1}{P(Y_t|Y_{1:t-1})} P(Y_t|X_t, \Lambda_t, E_t) P(X_t|X_{t-1}, E_t, E_{t-1}) \\ P(\Lambda_t|E_t) P(E_t|E_{t-1}) P(X_{1:t-1}, \Lambda_{1:t-1}, E_{1:t-1}|Y_{1:t-1})
 \label{eq:MTPosteriorWithE}
-\end{equation}
+\end{multline}
 
 The modified graphical model is shown in figure~\ref{fig:HMMExist}.
 
@@ -31,7 +31,7 @@ P(\lambda_t|E_t) = \frac{\exp(-\mu_C) \mu_C^{(M_t-K_{\max})}}{M_t!} \prod_{j=1}^
 \label{eq:MTFactorisedAssociationLikelihoodWithE}
 \end{equation}
 
-The transition density becomes more complex. When targets appear we assume that their kinematic states are distributed according to some birth distribution $P_b(x_{j,t}$, known a priori. This may be uniform. Before targets have appeared and after they have died we set their state to some fixed dead-state. Thus we have
+The transition density becomes more complex. When targets appear we assume that their kinematic states are distributed according to some birth distribution $P_b(x_{j,t})$, known a priori. This may be uniform. Before targets have appeared and after they have died we set their state to some fixed dead-state. Thus we have
 
 \begin{equation}
 P(X_t|X_{t-1}, E_t, E_{t-1}) = \prod_{j=1}^{K_{\max}} \begin{cases} P(x_{j,t}|x_{j-1}) & e_{j,t} = 1, e_{j,t-1} = 1 \\ P_b(x_{j,t}) & e_{j,t} = 1, e_{j,t-1} = 0 \\ \delta_{x_{\text{dead}}}(x_{j,t}) & e_{j,t} = 0 \end{cases}
@@ -54,7 +54,7 @@ A particle filter for joint target detection and state estimation was implemente
 
 Target appearance is a greater challenge, as the dimensionality of the state space expands enormously (any number of targets can appear in any location). In order to devise a practical algorithm, we use the method of a `search track' of \cite{Horridge2009}. The SISR particle filter already requires that we assume independence between targets. We assume that $\mu_{\text{birth}}$ is low enough that the probability of more than 1 track appearing at a given time is negligible. Then, we simply need one extra track whose particles represent the associations and states of a potential new target. When these search particles are observed to cluster in one location, we conclude that a new target has appeared and a new target filter is initiated.
 
-A new mechanism is be required for proposing the observation associations for the search track particles, as we have no knowledge about the target position or velocity. Once the associations are proposed, the usual method for state proposals may be used. In even moderate clutter some scheme is needed to identify likely sites where a new target may have appeared, for example, by locating strings of observations in close proximity over time. These sites can be used to propose search particle associations. Without such a heuristic frontend, the probability of putting particles in the right place is likely to be very low.
+A new mechanism is required for proposing the observation associations for the search track particles, as we have no knowledge about the target position or velocity. Once the associations are proposed, the usual method for state proposals may be used. In even moderate clutter some scheme is needed to identify likely sites where a new target may have appeared, for example, by locating strings of observations in close proximity over time. These sites can be used to propose search particle associations. Without such a heuristic frontend, the probability of putting particles in the right place is likely to be very low.
 
 An example of the SISR algorithm with lag 5 tracking 5 targets is shown in figure~\ref{fig:DetectionTracking}, using the linear-Gaussian observation model. Process and observation noises are set to 1, detection probability is 0.9 and expected number of clutter observations is 200 per frame.
 

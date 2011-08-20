@@ -1,4 +1,4 @@
-As an aside from the primary work on fixed lag particle filtering for tracking, a short study has been made on inferring the intended destimation of a computer mouse cursor, as a component for aiding disabled computer user. A number of algorithms have been implemented and tested on a set of logged data.
+As an aside from the primary work on fixed lag particle filtering for tracking, a short study has been made on inferring the intended destination of a computer mouse cursor, as a component for aiding disabled computer user. A number of algorithms have been implemented and tested on a set of logged data.
 
 
 
@@ -21,7 +21,7 @@ If we consider that the cursor position at every measurement is independent (cle
 P(b_i|x_{1:k}) = \frac{P(b_i)\prod_{j=1}^{k}{P(x_j| b_i)}}{P(x_{1:k})}
 \end{equation}
 
-We assume a uniform prior over the buttons, although more sophisticated choices could be used if prior knowledge about the probaility of each button is known. The MAP choice of button is now that with the least mean square distance to the cursor over the measurements $x_{1:k}$, which accords with intuition. We need not necessarily use all the measurements for this calculation, but only those which lie in a window of fixed time length before the current time. The length of this window, $L$, is another design parameter.
+We assume a uniform prior over the buttons, although more sophisticated choices could be used if prior knowledge about the probability of each button is known. The MAP choice of button is now that with the least mean square distance to the cursor over the measurements $x_{1:k}$, which accords with intuition. We need not necessarily use all the measurements for this calculation, but only those which lie in a window of fixed time length before the current time. The length of this window, $L$, is another design parameter.
 
 \subsubsection*{Summary}
 Pick the button which is closest to the cursor (on average).
@@ -30,7 +30,7 @@ Design parameters: Window length, $L$.
 
 
 \subsection{Mean-Reverting Diffusion}
-The cursor movement can be modeled as an Ornstein-Uhlenbeck process, a diffusion with a mean-reversion term. The cursor velocity is assumed to have two components, one random (Gaussian) and one deterministic which moves it towards the correct button.
+The cursor movement can be modelled as an Ornstein-Uhlenbeck process, a diffusion with a mean-reversion term. The cursor velocity is assumed to have two components, one random (Gaussian) and one deterministic which moves it towards the correct button.
 
 \begin{equation}dx_t = \lambda (b_i - x_t)dt + \sigma dw_t\end{equation}
 where $w_t$ is a Wiener process.

@@ -1,6 +1,6 @@
 The previous sections have focussed on the traditional, SISR particle filter. Here we examine the MCMC version. The mathematical extensions required are minimal.
 
-MCMC methods allow us to generate an unweighted particle approximation to a target probability distribution. Particles are generated sequentially, each dependent on the last, giving us a Markov chain whose stationary distriubtion is equal to that which we wish to approximate. For a basic MH step, a proposal distribution is sampled to acquire a new candidate state. With some probability this candidate is accepted as the new state. Otherwise, it is rejected and the old state is kept as the new state. The acceptance probability required to make $P(X)$ the stationary distribution of the Markov chain is given by:
+MCMC methods allow us to generate an unweighted particle approximation to a target probability distribution. Particles are generated sequentially, each dependent on the last, giving us a Markov chain whose stationary distribution is equal to that which we wish to approximate. For a basic MH step, a proposal distribution is sampled to acquire a new candidate state. With some probability this candidate is accepted as the new state. Otherwise, it is rejected and the old state is kept as the new state. The acceptance probability required to make $P(X)$ the stationary distribution of the Markov chain is given by:
 
 \begin{equation}
 \alpha = \min \bigg ( 1,  \frac{ P(X_{\text{new}}) q(X_{\text{old}}|X_{\text{new}}) }{ P(X_{\text{old}}) q(X_{\text{new}}|X_{\text{old}}) }  \bigg )
@@ -18,10 +18,10 @@ As for the SISR particle filter, the proposal distribution factorises as  $X_{1:
 
 We now adopt the following notation: $X$ for the new state of the Markov chain, and $Z$ for the old state, with $V_{X,t}$ and $V_{Z,t}$ respectively for the auxiliary proposal weights. Using these expansions, the acceptance probability is given by:
 
-\begin{multline}
-\alpha = \min \bigg ( 1,  \frac{ P(X_{1:t}|Y_{1:t}) q(Z_{1:t}|Y_{1:t} }{ P(Z_{1:t}|Y_{1:t}) q(X_{1:t}|Y_{1:t} }  \bigg ) \\
-= \min \bigg ( 1,  \frac{ P(Y_t|X_t)P(X_t|X_{t-1}) q(Z_t|Y_t, Z_{1:t-1}) V_{Z,t} }{ P(Y_t|Z_t)P(Z_t|Z_{t-1}) q(X_t|Y_t, X_{1:t-1}) V_{X,t} }  \bigg )
+\begin{IEEEeqnarray}{rCl}
+\alpha & = & \min \bigg ( 1,  \frac{ P(X_{1:t}|Y_{1:t}) q(Z_{1:t}|Y_{1:t} }{ P(Z_{1:t}|Y_{1:t}) q(X_{1:t}|Y_{1:t} }  \bigg ) \nonumber \\
+ & = & \min \bigg ( 1,  \frac{ P(Y_t|X_t)P(X_t|X_{t-1}) q(Z_t|Y_t, Z_{1:t-1}) V_{Z,t} }{ P(Y_t|Z_t)P(Z_t|Z_{t-1}) q(X_t|Y_t, X_{1:t-1}) V_{X,t} }  \bigg )
 \label{eq:MCMCPFAcceptance}
-\end{multline}
+\end{IEEEeqnarray}
 
 The advantage of using a MCMC scheme is that we can vary only some subset of the state variables in each move if we choose. For example, we can have one sort of MH move which keeps the history the same, $X_{1:t}=Z_{1:t}$. This leads to a simplification of the equation for $\alpha$ and an improved probability of acceptance.

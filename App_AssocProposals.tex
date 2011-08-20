@@ -38,7 +38,7 @@ where
 R_d & = & R + C_{t+d} Q_d C_{t+d}^T
 \end{IEEEeqnarray}
 
-Here we derive an approximation for the ``optimal'' association proposal for a linear-Gaussian model. For nonlinear models, linear apprximations may be used in the style of the EKF. The optimum form for the proposal distribution is given by
+Here we derive an approximation for the `optimal' association proposal for a linear-Gaussian model. For nonlinear models, linear approximations may be used in the style of the EKF. The optimum form for the proposal distribution is given by
 
 \begin{IEEEeqnarray}{rCl}
 q(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) & & \nonumber \\
@@ -64,8 +64,8 @@ P(x_{tt}|Y_{tt+1:t}, \lambda_{tt+1:t}, x_{t-L}) \approx P(x_{tt}|Y_{tt+d}, \lamb
 where $d$ is the minimum positive value such that $\lambda_{tt+d} \ne 0$. This can be expanded as
 
 \begin{IEEEeqnarray}{rCl}
-P(x_{tt}|Y_{tt+d}, \lambda_{tt+d}, x_{t-L}) &  & \nonumber \\
- & \propto & \int P(Y_{tt+d}|x_{tt+d}, \lambda_{tt+d}) P(x_{tt+d}|x_{tt}) dx_{tt+d} P(x_{tt}|x_{t-L}) \nonumber \\
+\IEEEeqnarraymulticol{3}{l}{P(x_{tt}|Y_{tt+d}, \lambda_{tt+d}, x_{t-L})} \nonumber \\
+\qquad \qquad & \propto & \int P(Y_{tt+d}|x_{tt+d}, \lambda_{tt+d}) P(x_{tt+d}|x_{tt}) dx_{tt+d} P(x_{tt}|x_{t-L}) \nonumber \\
  & \propto & \int \mathcal{N}(y_{tt+d}^{(\lambda_{tt+d})}|C x_{tt+d}, R) \mathcal{N}(x_{tt+d}|A_d x_{tt}, Q_d) dx_{tt+d} \mathcal{N}(x_{tt}|A_k x_{t-L}, Q_k) \nonumber \\
  & \propto & \mathcal{N}(y_{tt+d}^{(\lambda_{tt+d})}|C_{tt+d} A_d x_{tt}, R + C_{tt+d} Q_d C_{tt+d}^T) \mathcal{N}(x_{tt}|A_k x_{t-L}, Q_k) \nonumber \\
 \label{eq:AssPropStateExpansion}
@@ -74,8 +74,8 @@ P(x_{tt}|Y_{tt+d}, \lambda_{tt+d}, x_{t-L}) &  & \nonumber \\
 Substituting equation~\ref{eq:AssPropStateExpansion} into equation~\ref{eq:AssPropBackPredLike}, we have
 
 \begin{IEEEeqnarray}{rCl}
-P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) &  & \nonumber \\
- & \stackrel{\sim}{\propto} & \int \mathcal{N}(y_{tt}^{(\lambda_{tt})}|C_{tt} x_{tt}, R) \mathcal{N}(y_{tt+d}^{(\lambda_{tt+d})}|C_{tt+d} A_d x_{tt}, R + C_{tt+d} Q_d C_{tt+d}^T) \mathcal{N}(x_{tt}|A_k x_{t-L}, Q_k) dx_{tt} \nonumber \\
+\IEEEeqnarraymulticol{3}{l}{P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L})} \nonumber \\
+\qquad & \stackrel{\sim}{\propto} & \int \mathcal{N}(y_{tt}^{(\lambda_{tt})}|C_{tt} x_{tt}, R) \mathcal{N}(y_{tt+d}^{(\lambda_{tt+d})}|C_{tt+d} A_d x_{tt}, R + C_{tt+d} Q_d C_{tt+d}^T) \mathcal{N}(x_{tt}|A_k x_{t-L}, Q_k) dx_{tt} \nonumber \\
  & \propto & \int \exp(-\frac{1}{2} \xi) dx_{tt} \nonumber \\
  & \propto & \exp(-\frac{1}{2} \zeta)
 \end{IEEEeqnarray}
