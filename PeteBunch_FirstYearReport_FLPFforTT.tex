@@ -18,7 +18,7 @@
 \setstretch{1.36}
 
 \title{Fixed Lag Particle Filtering for Target Tracking}
-\subtitle{A report on the first year's progress}
+\subtitle{A report on the first year's progress \\ \bigskip Supervised by Prof. Simon Godsill}
 \author{Pete Bunch}
 \date{August 2011}
 
@@ -41,8 +41,8 @@ Two spheres of literature will be of interest here: the developments of models a
 \section{Tracking}
 \input{LitRev2}
 
-\chapter{Mathematical foundations} \label{chap:basics}
-\section{Bayes of our lives - A short introduction to filtering}
+\chapter{Mathematical Foundations} \label{chap:basics}
+\section{Bayes of our lives - a short introduction to filtering}
 \input{MathsFoundations1}
 \section{Keep Kalman carry on - the Kalman filter and its extensions}
 \input{MathsFoundations2}
@@ -51,11 +51,11 @@ Two spheres of literature will be of interest here: the developments of models a
 \section{MCMC in da house - Markov chains for particle filtering}
 \input{MathsFoundations4}
 
-\chapter{The tracking model}
+\chapter{The Tracking Model}
 \input{TrackingModel1}
 
 \chapter{Fixed Lag Estimation for Tracking}\label{FixedLag}
-\section{The benefits of delaying}
+\section{The advantage of waiting}
 \input{FixedLag1}
 \section{A mathematical framework for fixed lag estimation}
 \input{FixedLag2}\label{sec:FixedLag2}
@@ -63,11 +63,11 @@ Two spheres of literature will be of interest here: the developments of models a
 \input{FixedLag3}
 
 \chapter{Fixed Lag Particle Filters}
-\section{Sequential Importance Sampling and Resampling Implementation}
+\section{Sequential importance sampling with resampling implementation}
 \input{Implementations1}
-\section{Markov Chain Monte Carlo}
+\section{Markov chain Monte Carlo implementation}
 \input{Implementations2}
-\section{Marginalised Particle Filters}
+\section{Marginalised particle filters}
 \input{Implementations3}
 
 \chapter{Particle Filtering for Target Detection}
@@ -86,8 +86,20 @@ Two spheres of literature will be of interest here: the developments of models a
 \cleardoublepage
 
 \appendix
-\chapter{Association proposals}
+\chapter{Association proposals}\label{chap:App_AssocProposals}
 \input{App_AssocProposals}
+
+%\chapter*{Acknowledgements}
+%Many thanks
+%\begin{itemize}
+%	\item to Prof. Godsill for supervising this project.
+%	\item to Stuart Bennett for his sufferings as a LaTeX helpdesk.
+%	\item to Jana Lemke for solving a stochastic differential equation, and for throwing pens at me.
+%	\item to James Murphy for helping to track down a number of difficult references.
+%	\item to Henry Gommersal for his inciteful philosophy on the nature and purpose of a first year report.
+%	\item to 
+%\end{itemize}
+
 
 \setstretch{1}
 \bibliographystyle{dcu}%_noURLs}

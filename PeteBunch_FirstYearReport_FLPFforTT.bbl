@@ -4,8 +4,8 @@
   Jennison}{2004}{Al-Awadhi2004}
 Al-Awadhi, F., Hurn, M. \harvardand\ Jennison, C.  \harvardyearleft
   2004\harvardyearright .
-\newblock Improving the acceptance rate of reversible jump mcmc proposals, {\em
-  Statistics \& Probability Letters} {\bf 69}(2):~189 -- 198.
+\newblock Improving the acceptance rate of reversible jump {MCMC} proposals,
+  {\em Statistics \& Probability Letters} {\bf 69}(2):~189 -- 198.
 \newline\harvardurl{http://www.sciencedirect.com/science/article/B6V1D-4CT4DWS-2/2/cab144a2f70e81f189a0e819c4517adc}
 
 \harvarditem[Bar-Shalom et~al.]{Bar-Shalom, Chang \harvardand\
@@ -47,28 +47,28 @@ Blake, A., Isard, M. et~al.  \harvardyearleft 1998\harvardyearright .
   Horridge}{2006}{Briers2006}
 Briers, M., Doucet, A., Maskell, S. \harvardand\ Horridge, P.  \harvardyearleft
   2006\harvardyearright .
-\newblock Fixed-lag sequential monte carlo data association, {\em Proceedings
+\newblock Fixed-lag sequential {Monte Carlo} data association, {\em Proceedings
   of SPIE}, Vol. 6236, p.~62360S.
 \newblock Paper copy from British Library.
 
 \harvarditem{Bunch \harvardand\ Godsill}{2010}{Bunch2010}
 Bunch, P. \harvardand\ Godsill, S.  \harvardyearleft 2010\harvardyearright .
 \newblock Transcription of musical audio using poisson point processes and
-  sequential mcmc, {\em Proc. of 7th International Symposium on Computer Music
-  Modeling and Retrieval}.
+  sequential {MCMC}, {\em Proc. of 7th International Symposium on Computer
+  Music Modeling and Retrieval}.
 
 \harvarditem[Capp{\'e} et~al.]{Capp{\'e}, Godsill \harvardand\
   Moulines}{2007}{Cappe2007}
 Capp{\'e}, O., Godsill, S. \harvardand\ Moulines, E.  \harvardyearleft
   2007\harvardyearright .
 \newblock An overview of existing methods and recent advances in sequential
-  monte carlo, {\em Proceedings of the IEEE} {\bf 95}(5):~899--924.
+  {Monte Carlo}, {\em Proceedings of the IEEE} {\bf 95}(5):~899--924.
 
 \harvarditem[Carmi et~al.]{Carmi, Godsill \harvardand\
   Septier}{2009}{Carmi2009}
 Carmi, A., Godsill, S. \harvardand\ Septier, F.  \harvardyearleft
   2009\harvardyearright .
-\newblock Evolutionary mcmc particle filtering for target cluster tracking,
+\newblock Evolutionary {MCMC} particle filtering for target cluster tracking,
   {\em IEEE 13th DSP Workshop and the 5th SPE Workshop}, Marco Island, Florida.
 
 \harvarditem{Casella \harvardand\ Robert}{1996}{Casella1996}
@@ -119,7 +119,7 @@ Daum, F., Huang, J. \harvardand\ Noushin, A.  \harvardyearleft
   Jasra}{2006}{DelMoral2006}
 Del~Moral, P., Doucet, A. \harvardand\ Jasra, A.  \harvardyearleft
   2006\harvardyearright .
-\newblock Sequential monte carlo samplers, {\em Journal of the Royal
+\newblock Sequential {Monte Carlo} samplers, {\em Journal of the Royal
   Statistical Society: Series B (Statistical Methodology)} {\bf
   68}(3):~411--436.
 
@@ -127,15 +127,16 @@ Del~Moral, P., Doucet, A. \harvardand\ Jasra, A.  \harvardyearleft
   S\'{e}n\'{e}cal}{2006}{Doucet2006}
 Doucet, A., Briers, M. \harvardand\ S\'{e}n\'{e}cal, S.  \harvardyearleft
   2006\harvardyearright .
-\newblock Efficient block sampling strategies for sequential monte carlo, {\em
-  Journal of Computational and Graphical Statistics} {\bf 15}(3):~693--711.
+\newblock Efficient block sampling strategies for sequential {Monte Carlo},
+  {\em Journal of Computational and Graphical Statistics} {\bf
+  15}(3):~693--711.
 
 \harvarditem[Doucet et~al.]{Doucet, Godsill \harvardand\
   Andrieu}{2000}{Doucet2000a}
 Doucet, A., Godsill, S. \harvardand\ Andrieu, C.  \harvardyearleft
   2000\harvardyearright .
-\newblock On sequential monte carlo sampling methods for bayesian filtering,
-  {\em Statistics and Computing} {\bf 10}:~197--208.
+\newblock On sequential {Monte Carlo} sampling methods for {Bayesian}
+  filtering, {\em Statistics and Computing} {\bf 10}:~197--208.
 \newblock 10.1023/A:1008935410038.
 \newline\harvardurl{http://dx.doi.org/10.1023/A:1008935410038}
 
@@ -170,7 +171,7 @@ Fitzgerald, R.  \harvardyearleft 1985\harvardyearright .
 
 \harvarditem{Fitzgerald}{1986}{Fitzgerald1986}
 Fitzgerald, R.~J.  \harvardyearleft 1986\harvardyearright .
-\newblock Development of practical pda logic for multitarget tracking by
+\newblock Development of practical {PDA} logic for multitarget tracking by
   microprocessor, {\em American Control Conference, 1986}, pp.~889 --898.
 
 \harvarditem[Fortmann et~al.]{Fortmann, Bar-Shalom \harvardand\
@@ -190,9 +191,9 @@ Geman, S. \harvardand\ Geman, D.  \harvardyearleft 1984\harvardyearright .
 \harvarditem{Gilks \harvardand\ Berzuini}{2001}{Gilks2001}
 Gilks, W.~R. \harvardand\ Berzuini, C.  \harvardyearleft 2001\harvardyearright
   .
-\newblock Following a moving target—monte carlo inference for dynamic bayesian
-  models, {\em Journal of the Royal Statistical Society: Series B (Statistical
-  Methodology)} {\bf 63}(1):~127--146.
+\newblock Following a moving target-{Monte Carlo} inference for dynamic
+  {Bayesian} models, {\em Journal of the Royal Statistical Society: Series B
+  (Statistical Methodology)} {\bf 63}(1):~127--146.
 \newline\harvardurl{http://dx.doi.org/10.1111/1467-9868.00280}
 
 \harvarditem[Gilks et~al.]{Gilks, Richardson \harvardand\
@@ -204,9 +205,9 @@ Gilks, W., Richardson, S. \harvardand\ Spiegelhalter, D.  \harvardyearleft
 \harvarditem{Girolami \harvardand\ Calderhead}{2011}{Girolami2011}
 Girolami, M. \harvardand\ Calderhead, B.  \harvardyearleft
   2011\harvardyearright .
-\newblock Riemann manifold langevin and hamiltonian monte carlo methods, {\em
-  Journal of the Royal Statistical Society: Series B (Statistical Methodology)}
-  {\bf 73}(2):~123--214.
+\newblock {Riemann} manifold {Langevin} and {Hamiltonian Monte Carlo} methods,
+  {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)} {\bf 73}(2):~123--214.
 \newline\harvardurl{http://dx.doi.org/10.1111/j.1467-9868.2010.00765.x}
 
 \harvarditem{Godsill}{2007}{Godsill2007a}
@@ -219,8 +220,8 @@ Godsill, S.  \harvardyearleft 2007\harvardyearright .
   West}{2004}{Godsill2004}
 Godsill, S.~J., Doucet, A. \harvardand\ West, M.  \harvardyearleft
   2004\harvardyearright .
-\newblock Monte carlo smoothing for nonlinear time series, {\em Journal of the
-  American Statistical Association} {\bf 99}(465):~156--168.
+\newblock {Monte Carlo} smoothing for nonlinear time series, {\em Journal of
+  the American Statistical Association} {\bf 99}(465):~156--168.
 \newline\harvardurl{http://pubs.amstat.org/doi/abs/10.1198/016214504000000151}
 
 \harvarditem[Godsill et~al.]{Godsill, Vermaak, Ng \harvardand\
@@ -248,19 +249,19 @@ Gordon, N., Salmond, D. \harvardand\ Smith, A.  \harvardyearleft
 
 \harvarditem{Green}{1995}{Green1995}
 Green, P.  \harvardyearleft 1995\harvardyearright .
-\newblock Reversible jump markov chain monte carlo computation and bayesian
+\newblock Reversible jump {Markov chain Monte Carlo} computation and bayesian
   model determination, {\em Biometrika} {\bf 82}(4):~711.
 
 \harvarditem{Hastings}{1970}{Hastings1970}
 Hastings, W.~K.  \harvardyearleft 1970\harvardyearright .
-\newblock Monte carlo sampling methods using markov chains and their
+\newblock {Monte Carlo} sampling methods using {Markov} chains and their
   applications, {\em Biometrika} {\bf 57}(1):~97--109.
 \newline\harvardurl{http://biomet.oxfordjournals.org/content/57/1/97.abstract}
 
 \harvarditem{Horridge \harvardand\ Maskell}{2006}{Horridge2006}
 Horridge, P. \harvardand\ Maskell, S.  \harvardyearleft 2006\harvardyearright .
-\newblock Real-time tracking of hundreds of targets with efficient exact jpdaf
-  implementation, {\em Information Fusion, 2006 9th International Conference
+\newblock Real-time tracking of hundreds of targets with efficient exact {JPDAF
+  } implementation, {\em Information Fusion, 2006 9th International Conference
   on}, pp.~1 --8.
 
 \harvarditem{Horridge \harvardand\ Maskell}{2009}{Horridge2009}
@@ -284,14 +285,14 @@ Kalman, R.~E.  \harvardyearleft 1960\harvardyearright .
 \harvarditem{Karlsson \harvardand\ Gustafsson}{2001}{Karlsson2001}
 Karlsson, R. \harvardand\ Gustafsson, F.  \harvardyearleft
   2001\harvardyearright .
-\newblock Monte carlo data association for multiple target tracking, {\em
+\newblock {Monte Carlo} data association for multiple target tracking, {\em
   Target Tracking: Algorithms and Applications (Ref. No. 2001/174), IEE},
   Vol.~1, pp.~13/1 -- 13/5 vol.1.
 
 \harvarditem[Khan et~al.]{Khan, Balch \harvardand\ Dellaert}{2005}{Khan2005}
 Khan, Z., Balch, T. \harvardand\ Dellaert, F.  \harvardyearleft
   2005\harvardyearright .
-\newblock Mcmc-based particle filtering for tracking a variable number of
+\newblock {MCMC}-based particle filtering for tracking a variable number of
   interacting targets, {\em Pattern Analysis and Machine Intelligence, IEEE
   Transactions on} {\bf 27}(11):~1805 --1819.
 
@@ -301,6 +302,15 @@ Kitagawa, G.  \harvardyearleft 1996\harvardyearright .
   space models, {\em Journal of Computational and Graphical Statistics} {\bf
   5}(1):~pp. 1--25.
 \newline\harvardurl{http://www.jstor.org/stable/1390750}
+
+\harvarditem[Klaas et~al.]{Klaas, Briers, de~Freitas, Doucet, Maskell
+  \harvardand\ Lang}{2006}{Klaas2006}
+Klaas, M., Briers, M., de~Freitas, N., Doucet, A., Maskell, S. \harvardand\
+  Lang, D.  \harvardyearleft 2006\harvardyearright .
+\newblock Fast particle smoothing: if i had a million particles, {\em
+  Proceedings of the 23rd international conference on Machine learning}, ICML
+  '06, ACM, New York, NY, USA, pp.~481--488.
+\newline\harvardurl{http://doi.acm.org/10.1145/1143844.1143905}
 
 \harvarditem{Laplace}{1774}{Laplace1774}
 Laplace, P.~S.  \harvardyearleft 1774\harvardyearright .
@@ -333,7 +343,7 @@ Mahler, R.  \harvardyearleft 2003\harvardyearright .
 
 \harvarditem{Mahler}{2004}{Mahler2004}
 Mahler, R.  \harvardyearleft 2004\harvardyearright .
-\newblock "statistics 101" for multisensor, multitarget data fusion, {\em
+\newblock ``{S}tatistics 101'' for multisensor, multitarget data fusion, {\em
   Aerospace and Electronic Systems Magazine, IEEE} {\bf 19}(1):~53 --64.
 
 \harvarditem[Maskell et~al.]{Maskell, Rollason, Gordon \harvardand\
@@ -345,10 +355,10 @@ Maskell, S., Rollason, M., Gordon, N. \harvardand\ Salmond, D.
   Computing} {\bf 21}(10):~931 -- 939.
 \newline\harvardurl{http://www.sciencedirect.com/science/article/B6V09-4938V06-1/2/131145f5f06d8b8234e719b32a12fd74}
 
-\harvarditem[Metropolis et~al.]{Metropolis, Rosenbluth, Rosenbluth, Teller,
-  Teller et~al.}{1953}{Metropolis1953}
-Metropolis, N., Rosenbluth, A., Rosenbluth, M., Teller, A., Teller, E. et~al.
-  \harvardyearleft 1953\harvardyearright .
+\harvarditem[Metropolis et~al.]{Metropolis, Rosenbluth, Rosenbluth, Teller
+  \harvardand\ Teller}{1953}{Metropolis1953}
+Metropolis, N., Rosenbluth, A., Rosenbluth, M., Teller, A. \harvardand\ Teller,
+  E.  \harvardyearleft 1953\harvardyearright .
 \newblock Equation of state calculations by fast computing machines, {\em The
   journal of chemical physics} {\bf 21}(6):~1087.
 
@@ -368,15 +378,16 @@ Musicki, D., Evans, R. \harvardand\ Stankovic, S.  \harvardyearleft
 \harvarditem[Oh et~al.]{Oh, Russell \harvardand\ Sastry}{2004}{Oh2004}
 Oh, S., Russell, S. \harvardand\ Sastry, S.  \harvardyearleft
   2004\harvardyearright .
-\newblock Markov chain monte carlo data association for general multiple-target
-  tracking problems, {\em Decision and Control, 2004. CDC. 43rd IEEE Conference
-  on}, Vol.~1, pp.~735 --742 Vol.1.
+\newblock {Markov chain Monte Carlo} data association for general
+  multiple-target tracking problems, {\em Decision and Control, 2004. CDC. 43rd
+  IEEE Conference on}, Vol.~1, pp.~735 --742 Vol.1.
 
 \harvarditem[Oh et~al.]{Oh, Russell \harvardand\ Sastry}{2009}{Oh2009}
 Oh, S., Russell, S. \harvardand\ Sastry, S.  \harvardyearleft
   2009\harvardyearright .
-\newblock Markov chain monte carlo data association for multi-target tracking,
-  {\em Automatic Control, IEEE Transactions on} {\bf 54}(3):~481 --497.
+\newblock {Markov} chain {Monte Carlo} data association for multi-target
+  tracking, {\em Automatic Control, IEEE Transactions on} {\bf 54}(3):~481
+  --497.
 
 \harvarditem{Orton \harvardand\ Fitzgerald}{2002}{Orton2002}
 Orton, M. \harvardand\ Fitzgerald, W.  \harvardyearleft 2002\harvardyearright .
@@ -440,8 +451,8 @@ Salmond, D.  \harvardyearleft 1990\harvardyearright .
   Lampinen}{2007}{Sarkka2007}
 S\"{a}rkk\"{a}, S., Vehtari, A. \harvardand\ Lampinen, J.  \harvardyearleft
   2007\harvardyearright .
-\newblock Rao-blackwellized particle filter for multiple target tracking, {\em
-  Information Fusion} {\bf 8}(1):~2 -- 15.
+\newblock {Rao-Blackwellized} particle filter for multiple target tracking,
+  {\em Information Fusion} {\bf 8}(1):~2 -- 15.
 \newblock Special Issue on the Seventh International Conference on Information
   Fusion-Part II, Seventh International Conference on Information Fusion.
 \newline\harvardurl{http://www.sciencedirect.com/science/article/B6W76-4HJRRX5-1/2/c4d5356937753f21dc812b7943ffd6cd}
@@ -465,8 +476,8 @@ Sea, R.~G.  \harvardyearleft 1971\harvardyearright .
   Godsill}{2009}{Septier2009}
 Septier, F., Pang, S.~K., Carmi, A. \harvardand\ Godsill, S.  \harvardyearleft
   2009\harvardyearright .
-\newblock On mcmc-based particle methods for bayesian filtering: Application to
-  multitarget tracking, {\em Computational Advances in Multi-Sensor Adaptive
+\newblock On {MCMC}-based particle methods for bayesian filtering: Application
+  to multitarget tracking, {\em Computational Advances in Multi-Sensor Adaptive
   Processing (CAMSAP), 2009 3rd IEEE International Workshop on}, pp.~360 --363.
 
 \harvarditem[Singer et~al.]{Singer, Sea \harvardand\
@@ -486,7 +497,7 @@ Streit, R. \harvardand\ Luginbuhl, T.  \harvardyearleft 1994\harvardyearright .
   Willett}{2009}{Svensson2009a}
 Svensson, L., Svensson, D. \harvardand\ Willett, P.  \harvardyearleft
   2009\harvardyearright .
-\newblock Set jpda algorithm for tracking unordered sets of targets, {\em
+\newblock Set {JPDA} algorithm for tracking unordered sets of targets, {\em
   Information Fusion, 2009. FUSION '09. 12th International Conference on},
   pp.~1187 --1194.
 
@@ -506,9 +517,9 @@ Vo, B.-N. \harvardand\ Ma, W.-K.  \harvardyearleft 2006\harvardyearright .
 \harvarditem[Vo et~al.]{Vo, Singh \harvardand\ Doucet}{2005}{Vo2005}
 Vo, B.-N., Singh, S. \harvardand\ Doucet, A.  \harvardyearleft
   2005\harvardyearright .
-\newblock Sequential monte carlo methods for multitarget filtering with random
-  finite sets, {\em Aerospace and Electronic Systems, IEEE Transactions on}
-  {\bf 41}(4):~1224 -- 1245.
+\newblock Sequential {Monte Carlo} methods for multitarget filtering with
+  random finite sets, {\em Aerospace and Electronic Systems, IEEE Transactions
+  on} {\bf 41}(4):~1224 -- 1245.
 
 \harvarditem[Whiteley et~al.]{Whiteley, Singh \harvardand\
   Godsill}{2010}{Whiteley2010}
@@ -522,7 +533,7 @@ Whiteley, N., Singh, S. \harvardand\ Godsill, S.  \harvardyearleft
   Streit}{2002}{Willett2002}
 Willett, P., Ruan, Y. \harvardand\ Streit, R.  \harvardyearleft
   2002\harvardyearright .
-\newblock Pmht: problems and some solutions, {\em Aerospace and Electronic
+\newblock {PMHT}: problems and some solutions, {\em Aerospace and Electronic
   Systems, IEEE Transactions on} {\bf 38}(3):~738 -- 754.
 
 \harvarditem{Wood}{2010}{Wood2010}

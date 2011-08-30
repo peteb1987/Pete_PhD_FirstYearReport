@@ -12,7 +12,7 @@ A number of algorithms were compared on a set of standard tests to compare the p
 	\item JPDAF
 \end{itemize}
 
-where FL(N) indicates fixed lag with a window length of N. The test set consisted of:
+where FL(N) indicates fixed lag with a window length of N and RB indicated Rao-Blackwellisation. The test set consisted of:
 
 \begin{enumerate}
 	\item 5 widely-spaced targets
@@ -24,30 +24,30 @@ where FL(N) indicates fixed lag with a window length of N. The test set consiste
 Each scenario lasted for 50 time steps. Each was tested using both the linear and bearing-range observation models. Each combination was run with 10 different random seeds. An example of each is shown in figures~\ref{fig:EgScen1} to~\ref{fig:EgScen4}.
 
 \begin{figure}%
-\subfigure[state]{\includegraphics[width=0.3\columnwidth]{results_wide_low_state.pdf}}
-\subfigure[linear observations]{\includegraphics[width=0.3\columnwidth]{results_wide_low_lGobs.pdf}}
-\subfigure[bearing-range observations]{\includegraphics[width=0.3\columnwidth]{results_wide_low_brobs.pdf}}
+\subfigure[state]{\includegraphics[width=0.3\columnwidth]{results_wide_low_state-crop.pdf}}
+\subfigure[linear observations]{\includegraphics[width=0.3\columnwidth]{results_wide_low_lGobs-crop.pdf}}
+\subfigure[bearing-range observations]{\includegraphics[width=0.3\columnwidth]{results_wide_low_brobs-crop.pdf}}
 \caption{Case 1}%
 \label{fig:EgScen1}%
 \end{figure}
 \begin{figure}%
-\subfigure[state]{\includegraphics[width=0.3\columnwidth]{results_wide_high_state.pdf}}
-\subfigure[linear observations]{\includegraphics[width=0.3\columnwidth]{results_wide_high_lGobs.pdf}}
-\subfigure[bearing-range observations]{\includegraphics[width=0.3\columnwidth]{results_wide_high_brobs.pdf}}
+\subfigure[state]{\includegraphics[width=0.3\columnwidth]{results_wide_high_state-crop.pdf}}
+\subfigure[linear observations]{\includegraphics[width=0.3\columnwidth]{results_wide_high_lGobs-crop.pdf}}
+\subfigure[bearing-range observations]{\includegraphics[width=0.3\columnwidth]{results_wide_high_brobs-crop.pdf}}
 \caption{Case 2}%
 \label{fig:EgScen2}%
 \end{figure}
 \begin{figure}%
-\subfigure[state]{\includegraphics[width=0.3\columnwidth]{results_wide_noise_state.pdf}}
-\subfigure[linear observations]{\includegraphics[width=0.3\columnwidth]{results_wide_noise_lGobs.pdf}}
-\subfigure[bearing-range observations]{\includegraphics[width=0.3\columnwidth]{results_wide_noise_brobs.pdf}}
+\subfigure[state]{\includegraphics[width=0.3\columnwidth]{results_wide_noise_state-crop.pdf}}
+\subfigure[linear observations]{\includegraphics[width=0.3\columnwidth]{results_wide_noise_lGobs-crop.pdf}}
+\subfigure[bearing-range observations]{\includegraphics[width=0.3\columnwidth]{results_wide_noise_brobs-crop.pdf}}
 \caption{Case 3}%
 \label{fig:EgScen3}%
 \end{figure}
 \begin{figure}%
-\subfigure[state]{\includegraphics[width=0.3\columnwidth]{results_close_state.pdf}}
-\subfigure[linear observations]{\includegraphics[width=0.3\columnwidth]{results_close_lGobs.pdf}}
-\subfigure[bearing-range observations]{\includegraphics[width=0.3\columnwidth]{results_close_brobs.pdf}}
+\subfigure[state]{\includegraphics[width=0.3\columnwidth]{results_close_state-crop.pdf}}
+\subfigure[linear observations]{\includegraphics[width=0.3\columnwidth]{results_close_lGobs-crop.pdf}}
+\subfigure[bearing-range observations]{\includegraphics[width=0.3\columnwidth]{results_close_brobs-crop.pdf}}
 \caption{Case 4}%
 \label{fig:EgScen4}%
 \end{figure}
@@ -69,7 +69,7 @@ detection probability ($P_D$) & 0.9 & 0.75 & 0.9 & 0.75 \\
 \hline
 \end{tabular}
 \end{center}
-\caption{}
+\caption{Table of parameters for each test case.}
 \label{tab:CaseParameters}
 \end{table}
 

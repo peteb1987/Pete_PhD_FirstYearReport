@@ -12,13 +12,13 @@ It seems intuitive that we may be able to use an exact-flow filter for the kinem
 Consider a single target with state $x_t$ and associations $\lambda_t$. From the previous processing step we have a particle approximation for the posterior, $\hat{P}(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1})$. The exact-flow method allows us to generate a sample from $P(x_t|x_{t-1}, \lambda_t, Y_t)$. Thus, a new particle set can be generated from the following proposal
 
 \begin{equation}
-x_{1:t}^{(m)},\lambda_{1:t}^{(m)} \sim \hat{P}(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|x_{t-1}, \lambda_t, Y_t)
+\{ x_{1:t}^{(m)},\lambda_{1:t}^{(m)} \} \sim \hat{P}(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|x_{t-1}, \lambda_t, Y_t)
 \end{equation}
 
-The same association proposal may be used as for the standard particle filters described in chapter~\ref{}. Note that this proposal implicitly includes a resampling step, which could be omitted, as always. The importance weights for such a filter will be given by
+The same association proposal may be used as for the standard particle filters described in chapter~\ref{chap:basics}. Note that this proposal implicitly includes a resampling step, which could be omitted, as always. The importance weights for such a filter will be given by
 
 \begin{IEEEeqnarray}{rCl}
-W_t^{(m)} & \approx & \frac{ P(x_{1:t}^{(m)}, \lambda_{1:t}^{(m)}|Y_{1:t}) }{ P(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|Y_{1:t}, \lambda_t) } \\
+\tilde{W}_t^{(m)} & \approx & \frac{ P(x_{1:t}^{(m)}, \lambda_{1:t}^{(m)}|Y_{1:t}) }{ P(x_{1:t-1}, \lambda_{1:t-1}|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) P(x_t|Y_{1:t}, \lambda_t) } \\
  & = & \frac{ P(\lambda_t^{(m)}) P(Y_t|x_{t-1}^{(m)},\lambda_t^{(m)}) }{ P(Y_t|Y_{1:t-1}) q(\lambda_t|X_{t-1}, Y_t) }
 \end{IEEEeqnarray}
 
@@ -48,33 +48,33 @@ The weakness of the MCMC-PF can be viewed in an another way. When the probabilit
 
 In an SISR scheme, a set of weighted particles $\{ x_{1:t}^{(m)}, W_t^{(m)} \}$ are used to approximate the posterior distribution, $P(x_{1:t}|Y_{1:t})$. The unweighted particles may be considered to be samples from some underlying distribution, $\mu(x_{1:t}|Y_{1:t})$ (determined by the proposal distribution and previous resampling steps). Potentially, a Markov chain could be targeted on $\mu(x_{1:t}|Y_{1:t})$ instead of $P(x_{1:t}|Y_{1:t})$.
 
-Suppose at the $m^{\text{th}}$ step in the chain we have the state $x_{1:t}^{(m)}$, with unnormalised weight $W_t^{(m)}$. A new state, $x_{1:t}^{*}$ is sampled from a MH proposal distribution $q(.|x_{1:t}^{(m)}, Y_{1:t})$. The standard acceptance probability formula will be
+Suppose at the $m^{\text{th}}$ step in the chain we have the state $x_{1:t}^{(m)}$, with unnormalised weight $\tilde{W}_t^{(m)}$. A new state, $x_{1:t}^{*}$ is sampled from a MH proposal distribution $q(.|x_{1:t}^{(m)}, Y_{1:t})$. The standard acceptance probability formula will be
 
 \begin{equation}
 \alpha = \min \bigg \{ 1, \frac{\mu(x_{1:t}^{*}|Y_{1:t})q(x_{1:t}^{(m)}|x_{1:t}^{*}, Y_{1:t})}{\mu(x_{1:t}^{(m)}|Y_{1:t})q(x_{1:t}^{*}|x_{1:t}^{(m)}, Y_{1:t})} \bigg \}
 \end{equation}
 
-For any given particle, we know that $P(x_{1:t}^{(m)}|Y_{1:t}) = W_t^{(m)} \mu(x_{1:t}^{(m)}|Y_{1:t})$ by definition, so
+For any given particle, we know that $P(x_{1:t}^{(m)}|Y_{1:t}) = \tilde{W}_t^{(m)} \mu(x_{1:t}^{(m)}|Y_{1:t})$ by definition, so
 
 \begin{equation}
-\alpha = \min \bigg \{ 1, \frac{W_t^{(m)}}{W_t^{*}} \times \frac{P(x_{1:t}^{*}|Y_{1:t})q(x_{1:t}^{(m)}|x_{1:t}^{*}, Y_{1:t})}{P(x_{1:t}^{(m)}|Y_{1:t})q(x_{1:t}^{*}|x_{1:t}^{(m)}, Y_{1:t})} \bigg \}
+\alpha = \min \bigg \{ 1, \frac{\tilde{W}_t^{(m)}}{\tilde{W}_t^{*}} \times \frac{P(x_{1:t}^{*}|Y_{1:t})q(x_{1:t}^{(m)}|x_{1:t}^{*}, Y_{1:t})}{P(x_{1:t}^{(m)}|Y_{1:t})q(x_{1:t}^{*}|x_{1:t}^{(m)}, Y_{1:t})} \bigg \}
 \end{equation}
 
 But with this formulation $W_t^{*}$ is unknown. In fact, it could be set to anything: $\mu(x_{1:t}|Y_{1:t})$ is defined by $P(x_{1:t}|Y_{1:t})$ and the choice of weights rather than vice versa. An obvious choice of weight is to select
 
 \begin{equation}
-W_t^{*} = W_t^{(m)} \times \frac{P(x_{1:t}^{*}|Y_{1:t})q(x_{1:t}^{(m)}|x_{1:t}^{*}, Y_{1:t})}{P(x_{1:t}^{(m)}|Y_{1:t})q(x_{1:t}^{*}|x_{1:t}^{(m)}, Y_{1:t})}
+\tilde{W}_t^{*} = \tilde{W}_t^{(m)} \times \frac{P(x_{1:t}^{*}|Y_{1:t})q(x_{1:t}^{(m)}|x_{1:t}^{*}, Y_{1:t})}{P(x_{1:t}^{(m)}|Y_{1:t})q(x_{1:t}^{*}|x_{1:t}^{(m)}, Y_{1:t})}
 \end{equation}
 
 which results in an acceptance probability of 1 for all moves.
 
-One possible choice of proposal would be to select a state history, $x_{1:t-1}$ from the previous particle distribution, $\hat{P}(x_{1:t-1}|Y_{1:t-1})$, and a current state dependent on this. This would result in a recursive cancellation in the particle weights, leading to (assuming $W_t^{(0)}=0$):
+One possible choice of proposal would be to select a state history, $x_{1:t-1}$ from the previous particle distribution, $\hat{P}(x_{1:t-1}|Y_{1:t-1})$, and a current state dependent on this. This would result in a recursive cancellation in the particle weights, leading to (assuming $W_t^{(0)}=1$):
 
 \begin{equation}
 W_t^{*} = \frac{P(Y_t|x_t^{*})P(x_t^{*}|x_{t-1}^{*})}{q(x_{t}^{*}|x_{1:t-1}^{*}, Y_{t})}
 \end{equation}
 
-which is just the normal weight update formula for a simple SISR particle filter! However, we need not necessarily propose an entire new state for every particle, but can change one component (target) at a time. The result will be an SISR-like algorithm in which particles and weights are not generated independently but dependent on the previous particle and weight. In addition, we can choose different forms for the weight update equation. At the other end of the spectrum, we could set $W_t^{*}=1$ which gives us a standard MCMC-PF. Other choices could give some sort of intermediate filter which would allow some variation in weight but not as much as the SISR version.
+which is just the normal weight formula for a simple SISR particle filter! However, we need not necessarily propose an entire new state for every particle, but can change one component (target) at a time. The result will be an SISR-like algorithm in which particles and weights are not generated independently but dependent on the previous particle and weight. In addition, we can choose different forms for the weights. At the other end of the spectrum, we could set $\tilde{W}_t^{*}=\tilde{W}_t^{(m)}$ which gives us a standard MCMC-PF. Other choices could give some sort of intermediate filter which would allow some variation in weight but not as much as the SISR version.
 
 The hope is that such a scheme should allow us to maintain a complete joint-target posterior distribution and yet not lose track of targets whose path is temporarily of low probability. However, it may simply suffer from all the problems of a joint-target SISR-PF. Specifically, it may discard particles with good estimates of one target because their estimates of another target are poor. In any case, it seems like an interesting new way to view the equivalence of SISR and MCMC.
 
@@ -107,7 +107,7 @@ Another area in which the fixed-lag particle filters could be applied is in chan
 
 
 \section{A plan for future research}
-As anyone working in signal processing will be aware, prediction is a difficult task, prone to exponential growth in uncertainty. Practically speaking, any attempt to plan out a PhD with a horizon longer than a few months is unlikely to bare much resemblance to the course actually followed. So in table~\ref{tab:FuturePlan} we simply list a number of the aforementioned interesting possibilities in a rough order of priority with an estimate of the time required.
+As anyone working in signal processing will be aware, prediction is a difficult task, prone to exponential growth in uncertainty with forecast horizon. Practically speaking, any attempt to plan out a PhD with a horizon longer than a few months is unlikely to bare much resemblance to the course actually followed. So in table~\ref{tab:FuturePlan} we simply list a number of the aforementioned interesting possibilities in a rough order of priority with an estimate of the time required.
 
 \begin{table} \centering
 \begin{tabular}{|l|l|}

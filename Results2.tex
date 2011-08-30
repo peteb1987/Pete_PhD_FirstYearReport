@@ -1,16 +1,16 @@
 \section{Performance assessment}
 Performance was assessed via a number of statistics. Firstly the number of lost tracks was counted. For the particle filter algorithms these were identified using the associations. When no particle was associated with the correct observation for five frames, the target was considered lost. For non-particle algorithms (PDAF and JPDAF), targets were considered lost when the mean state estimate was greater than a certain threshold distance from the correct position.
 
-After excluding lost tracks, the RMS state error was measured. For the particle algorithms a state estimate was obtained by taking the mean of the state of all particles. For non-particle algorithms, the mean of the Gaussian representing the state distribution was used. For particle algorithms, the proportion of particles with the correct association was also calculated. These statistics were all measured at a fixed lag of five steps from the current time, for consistency of comparison.
+After excluding lost tracks, the root-mean-square state error (RMSE) was measured. For the particle algorithms a state estimate was obtained by taking the mean of the state of all particles. For non-particle algorithms, the mean of the Gaussian representing the state distribution was used. For particle algorithms, the proportion of particles with the correct association was also calculated. These statistics were all measured at a fixed lag of five steps from the current time, for consistency of comparison.
 
-Results are shown in table\ref{}. Blank cells indicate that the tracker failed to complete the test. With the JPDAF this occurred when the number of association hypotheses grew too large.
+Results are shown in tables~\ref{tab:ResultsLinear} and~\ref{tab:ResultsRadar}. Blank cells indicate that the tracker failed to complete the test in a reasonable time. With the JPDAF this occurred when the number of association hypotheses grew too large.
 
-\begin{table} \centering
+\begin{table}[!p] \centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
  & & \multicolumn{4}{|c|}{Algorithm} \\
 \hline
- & & Case 1 & Case 2 & Case 3 & Case 4 \\
+ & & Case 2 & Case 1 & Case 3 & Case 4 \\
 \hline
 \multirow{3}{*}{PDAF} & lost tracks             & 32\% & 4\% & 56\% & 50\% \\
                          & RMSE                 & 4.00 & 1.57 & 5.93 & 4.12 \\
@@ -47,12 +47,12 @@ Results are shown in table\ref{}. Blank cells indicate that the tracker failed t
 \label{tab:ResultsLinear}
 \end{table}
 
-\begin{table} \centering
+\begin{table}[!p] \centering
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
  & & \multicolumn{4}{|c|}{Algorithm} \\
 \hline
- & & Case 1 & Case 2 & Case 3 & Case 4 \\
+ & & Case 2 & Case 1 & Case 3 & Case 4 \\
 \hline
 \multirow{3}{*}{PDAF} & lost tracks             & 60\% & 8\% & 80\% & 72\% \\
                          & RMSE                 & 4.89 & 2.96 & 10.15 & 5.98 \\
@@ -89,26 +89,26 @@ Results are shown in table\ref{}. Blank cells indicate that the tracker failed t
 \label{tab:ResultsRadar}
 \end{table}
 
-Figure~\ref{} to~\ref{} show the comparative performance of the algorithms on a few example cases.
+Figures~\ref{fig:Tracking_PDAF} to~\ref{fig:Tracking_MCMC} show the comparative performance of the algorithms on a few example cases.
 
 \begin{figure} \centering
-\subfigure[PDAF]{\includegraphics[width=0.49\columnwidth]{results_PDAF.pdf}}
+\subfigure[PDAF]{\includegraphics[width=0.49\columnwidth]{results_PDAF-crop.pdf}}
 \caption{PDAF tracking results. Ellipses mark 1 standard deviation from the mean from the Gaussian covariance estimate.}%
 \label{fig:Tracking_PDAF}%
 \end{figure}
 
 \begin{figure} \centering
-\subfigure[SISR(1)]{\includegraphics[width=0.49\columnwidth]{results_SISR1.pdf}}
-\subfigure[SISR(5)]{\includegraphics[width=0.49\columnwidth]{results_SISR5.pdf}} \\
-\subfigure[RB-SISR(5)]{\includegraphics[width=0.49\columnwidth]{results_RB-SISR5.pdf}}
+\subfigure[SISR(1)]{\includegraphics[width=0.49\columnwidth]{results_SISR1-crop.pdf}}
+\subfigure[SISR(5)]{\includegraphics[width=0.49\columnwidth]{results_SISR5-crop.pdf}} \\
+\subfigure[RB-SISR(5)]{\includegraphics[width=0.49\columnwidth]{results_RB-SISR5-crop.pdf}}
 \caption{SISR tracking results. All particles plotted.}%
 \label{fig:Tracking_SISR}%
 \end{figure}
 
 \begin{figure} \centering
-\subfigure[MCMC(1)]{\includegraphics[width=0.49\columnwidth]{results_MCMC1.pdf}}
-\subfigure[MCMC(5)]{\includegraphics[width=0.49\columnwidth]{results_MCMC5.pdf}} \\
-\subfigure[RB-MCMC(5)]{\includegraphics[width=0.49\columnwidth]{results_RB-MCMC5.pdf}}
+\subfigure[MCMC(1)]{\includegraphics[width=0.49\columnwidth]{results_MCMC1-crop.pdf}}
+\subfigure[MCMC(5)]{\includegraphics[width=0.49\columnwidth]{results_MCMC5-crop.pdf}} \\
+\subfigure[RB-MCMC(5)]{\includegraphics[width=0.49\columnwidth]{results_RB-MCMC5-crop.pdf}}
 \caption{MCMC tracking results. All particles plotted.}%
 \label{fig:Tracking_MCMC}%
 \end{figure}

@@ -11,9 +11,9 @@
 \BOOKMARK [2][-]{subsection.2.2.2}{Data association hypothesis methods}{section.2.2}% 11
 \BOOKMARK [2][-]{subsection.2.2.3}{Full particle filters}{section.2.2}% 12
 \BOOKMARK [2][-]{subsection.2.2.4}{Probability hypothesis density methods}{section.2.2}% 13
-\BOOKMARK [2][-]{subsection.2.2.5}{Bringing it all together}{section.2.2}% 14
-\BOOKMARK [0][-]{chapter.3}{Mathematical foundations}{}% 15
-\BOOKMARK [1][-]{section.3.1}{Bayes of our lives - A short introduction to filtering}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.2.2.5}{Summary}{section.2.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Mathematical Foundations}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Bayes of our lives - a short introduction to filtering}{chapter.3}% 16
 \BOOKMARK [1][-]{section.3.2}{Keep Kalman carry on - the Kalman filter and its extensions}{chapter.3}% 17
 \BOOKMARK [2][-]{subsection.3.2.1}{The basic filter}{section.3.2}% 18
 \BOOKMARK [2][-]{subsection.3.2.2}{The extended filter}{section.3.2}% 19
@@ -24,26 +24,26 @@
 \BOOKMARK [2][-]{subsection.3.3.3}{Degeneracy and resampling}{section.3.3}% 24
 \BOOKMARK [2][-]{subsection.3.3.4}{Importance distributions}{section.3.3}% 25
 \BOOKMARK [1][-]{section.3.4}{MCMC in da house - Markov chains for particle filtering}{chapter.3}% 26
-\BOOKMARK [0][-]{chapter.4}{The tracking model}{}% 27
-\BOOKMARK [1][-]{section.4.1}{Observation Likelihood}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.2}{Transition Dynamics}{chapter.4}% 29
-\BOOKMARK [1][-]{section.4.3}{Association Likelihood}{chapter.4}% 30
+\BOOKMARK [0][-]{chapter.4}{The Tracking Model}{}% 27
+\BOOKMARK [1][-]{section.4.1}{Observation likelihood}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.2}{Transition dynamics}{chapter.4}% 29
+\BOOKMARK [1][-]{section.4.3}{Association likelihood}{chapter.4}% 30
 \BOOKMARK [1][-]{section.4.4}{Assumptions}{chapter.4}% 31
 \BOOKMARK [1][-]{section.4.5}{Specific models}{chapter.4}% 32
 \BOOKMARK [2][-]{subsection.4.5.1}{State transitions}{section.4.5}% 33
 \BOOKMARK [2][-]{subsection.4.5.2}{Observations}{section.4.5}% 34
 \BOOKMARK [0][-]{chapter.5}{Fixed Lag Estimation for Tracking}{}% 35
-\BOOKMARK [1][-]{section.5.1}{The benefits of delaying}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.1}{The advantage of waiting}{chapter.5}% 36
 \BOOKMARK [1][-]{section.5.2}{A mathematical framework for fixed lag estimation}{chapter.5}% 37
 \BOOKMARK [1][-]{section.5.3}{Application to tracking}{chapter.5}% 38
 \BOOKMARK [2][-]{subsection.5.3.1}{Importance distributions}{section.5.3}% 39
 \BOOKMARK [0][-]{chapter.6}{Fixed Lag Particle Filters}{}% 40
-\BOOKMARK [1][-]{section.6.1}{Sequential Importance Sampling and Resampling Implementation}{chapter.6}% 41
+\BOOKMARK [1][-]{section.6.1}{Sequential importance sampling with resampling implementation}{chapter.6}% 41
 \BOOKMARK [2][-]{subsection.6.1.1}{Resampling strategies}{section.6.1}% 42
 \BOOKMARK [2][-]{subsection.6.1.2}{Coping with dimensionality}{section.6.1}% 43
-\BOOKMARK [1][-]{section.6.2}{Markov Chain Monte Carlo}{chapter.6}% 44
+\BOOKMARK [1][-]{section.6.2}{Markov chain Monte Carlo implementation}{chapter.6}% 44
 \BOOKMARK [2][-]{subsection.6.2.1}{Proposing older histories}{section.6.2}% 45
-\BOOKMARK [1][-]{section.6.3}{Marginalised Particle Filters}{chapter.6}% 46
+\BOOKMARK [1][-]{section.6.3}{Marginalised particle filters}{chapter.6}% 46
 \BOOKMARK [0][-]{chapter.7}{Particle Filtering for Target Detection}{}% 47
 \BOOKMARK [1][-]{section.7.1}{Changes to the model}{chapter.7}% 48
 \BOOKMARK [1][-]{section.7.2}{Particle filtering}{chapter.7}% 49
@@ -52,9 +52,9 @@
 \BOOKMARK [1][-]{section.8.2}{Performance assessment}{chapter.8}% 52
 \BOOKMARK [0][-]{chapter.9}{Cursor Intentionality Tracking}{}% 53
 \BOOKMARK [1][-]{section.9.1}{Algorithms}{chapter.9}% 54
-\BOOKMARK [2][-]{subsection.9.1.1}{Nearest Neighbour}{section.9.1}% 55
-\BOOKMARK [2][-]{subsection.9.1.2}{Mean-Reverting Diffusion}{section.9.1}% 56
-\BOOKMARK [2][-]{subsection.9.1.3}{Mean Bearing}{section.9.1}% 57
+\BOOKMARK [2][-]{subsection.9.1.1}{Nearest neighbour}{section.9.1}% 55
+\BOOKMARK [2][-]{subsection.9.1.2}{Mean-reverting diffusion}{section.9.1}% 56
+\BOOKMARK [2][-]{subsection.9.1.3}{Mean bearing}{section.9.1}% 57
 \BOOKMARK [2][-]{subsection.9.1.4}{Composite}{section.9.1}% 58
 \BOOKMARK [1][-]{section.9.2}{Results}{chapter.9}% 59
 \BOOKMARK [1][-]{section.9.3}{Future work}{chapter.9}% 60

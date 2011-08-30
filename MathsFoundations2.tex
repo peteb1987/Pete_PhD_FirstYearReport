@@ -1,6 +1,6 @@
 \subsection{The basic filter}
 
-In a few simple cases the filtering set-up permits the derivation of closed form posterior distributions at each time instant. Most notably, the Kalman filter (KF) \cite{Kalman1960} is an analytic filter for models with continuous state and observation variables, in which both transition and observation models are Gaussian distributions with mean values expressed as linear transformations.
+In a few simple cases the filtering set-up permits the derivation of closed form posterior distributions at each time instant. Most notably, the Kalman filter (KF) \cite{Kalman1960} is an analytic filter for models with continuous state and observation variables, in which both transition and observation densities are Gaussian with mean values expressed as linear transformations
 
 \begin{equation}
 P(x_t|x_{t-1}) = \mathcal{N}(x_t|Ax_{t-1}, Q)
@@ -11,28 +11,19 @@ P(y_t|x_t) = \mathcal{N}(y_t|C x_t, R)
 \label{eq:LinearFilterEq2}
 \end{equation}
 
-%\begin{equation}
-%x_t = A x_t + v_t
-%\label{eq:LinearFilterEq1}
-%\end{equation}
-%\begin{equation}
-%y_t = C x_t + w_t
-%\label{eq:LinearFilterEq2}
-%\end{equation}
+where $Q$ and $R$ are covariance matrices. We use lower case variables here to emphasise that these are `nice', continuous vectors. (Later our state variables will be sets or lists).
 
+Kalman's solution for the linear-Gaussian case is given by
 
-where $Q$ and $R$ are covariance matrices. We use lower case variables here to emphasise that these are `nice', continuous vectors. (As we shall see, our state variable will later be sets or lists).
-
-Kalman's solution for the linear-Gaussian case is given by:
-
-\begin{equation}
-P(x_t|y_{1:t}) = \mathcal{N}(x_t|\mu_t, \Sigma_t )
-\label{eq:KF}
-\end{equation}
 \begin{equation}
 P(x_t|y_{1:t-1}) = \mathcal{N}(x_t|\hat{\mu}_t, \hat{\Sigma}_t )
 \label{eq:KFp}
 \end{equation}
+\begin{equation}
+P(x_t|y_{1:t}) = \mathcal{N}(x_t|\mu_t, \Sigma_t )
+\label{eq:KF}
+\end{equation}
+
 where $\mu_t$, $\Sigma_t$, etc. are given by the following recursions.
 
 Time Updates:
@@ -67,11 +58,11 @@ K_t = \hat{\Sigma}_t C^{T} S_t^{-1}
 \label{eq:KFMeas5}
 \end{equation}
 
-The KF is delightful because it not only provides us with a closed-form analytic solution, but the complexity of that solution does not increase as we receive additional measurements. This is a consequence of the fact that the Gaussian distribution is its own conjugate prior. Unfortunately, no other such convenient cases have been discovered \cite{Daum2005}. Analytic solutions to non-linear, non-Gaussian filtering problems generally require unacceptable conditions, such as zero process noise $Q=0$ \cite{Daum2005}.
+The KF is delightful because it not only provides us with a closed-form analytic solution, but the complexity of that solution does not increase as we receive additional measurements. This is a consequence of the fact that the Gaussian distribution is its own conjugate prior. Unfortunately, no other such convenient cases have been discovered \cite{Daum2005}. Analytic solutions to nonlinear, non-Gaussian filtering problems generally require additional constraints, such as zero process noise $Q=0$ \cite{Daum2005}.
 
 \subsection{The extended filter}
 
-Given the efficiency of the KF, our instinct when faced by an intractable non-linear filtering problem is to linearise it. This produces the Extended Kalman Filter (EKF), and is achieved by replacing the $A$ and $C$ matrices in equations~\ref{eq:KFTime1} through~\ref{eq:KFMeas5} above with Jacobians:
+Given the efficiency of the KF, our instinct when faced by an intractable non-linear filtering problem is to linearise it. This produces the Extended Kalman Filter (EKF), and is achieved by replacing the $A$ and $C$ matrices in equations~\ref{eq:KFTime1} through~\ref{eq:KFMeas5} above with Jacobians
 
 \begin{equation}
 A_t = \left . \frac{\partial f}{\partial x_t} \right \vert _{\mu_{t-1}}
@@ -88,7 +79,7 @@ where $f(x_{t-1})$ and $g(x_t)$ are the mean functions of the transition and obs
 
 \subsection{The Kalman smoother}
 
-The KF gives us an optimum estimate of $P(x_t|y_{1:t})$. However, once more data has arrived, we can improve this estimate. For a given set of data, $y_{1:T}$, we can estimate the optimum estimates for all previous state distributions, $P(x_{1:T}| y_{1:T})$ using a Rauch-Tung-Striebel (RTS) smoother, \cite{Rauch1965}. This begins with a normal KF, followed by a backward filtering pass which propagates information to earlier time instances. This backward pass is implement by the following recursions:
+The KF gives us an optimum estimate of $P(x_t|y_{1:t})$. However, once more data has arrived, we can improve this estimate. For a given set of data, $y_{1:T}$, we can estimate the optimum estimates for all previous state distributions, $P(x_{t}| y_{1:T})$ using a Rauch-Tung-Striebel (RTS) smoother, \cite{Rauch1965}. This begins with a normal KF, followed by a backward filtering pass which propagates information to earlier time instances. This backward pass is implemented by the following recursions
 
 \begin{equation}
 \tilde{\mu}_t = \mu_{t} + \Sigma_t A^T \hat{\Sigma}_{t+1}^{-1} (\tilde{\mu}_{t+1} - \hat{\mu}_{t+1})
@@ -102,7 +93,7 @@ The KF gives us an optimum estimate of $P(x_t|y_{1:t})$. However, once more data
 giving us
 
 \begin{equation}
-P(x_t|Y_{1:T}) = \mathcal{N}(x_t|\tilde{\mu}_t, \tilde{\Sigma}_{t})
+P(x_t|Y_{1:T}) = \mathcal{N}(x_t|\tilde{\mu}_t, \tilde{\Sigma}_{t}).
 \end{equation}
 
 For a full derivation, see \cite{Rauch1965}. There exist other ways to implement Kalman smoothing in a fixed-interval sense, such as the forward-backward smoother, and in a fixed-lag sense, but they will not be used in this work.

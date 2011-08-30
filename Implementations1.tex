@@ -1,32 +1,28 @@
-In this section we outline an SISR implementation of the fixed lag particle filter for target tracking. Using the augmented target distribution of equation~\ref{eq:FLTarget} and an auxiliary form of history proposal as in equation~\ref{eq:AuxiliarySamplingProposal}, the importance weights can be written as
+In this section we outline an SISR implementation of the fixed lag particle filter (SISR FLPF) for target tracking. Using the augmented target distribution of equation~\ref{eq:FLTarget} and an auxiliary form of history proposal as in equation~\ref{eq:AuxiliarySamplingProposal}, the importance weights can be written as
 
 \begin{IEEEeqnarray}{rCl}
-W_t^{(m)} & = & \frac{ P(X_{1:t-L}^{(m)}, X_{t-L+1:t}^{'(m)}|Y_{1:t}) \rho(X_{t-L+1:t-1}^{(m)}|X_{1:t-L}^{(m)}, X_{t-L+1:t}^{'(m)}) }{ q(X_{1:t-1}^{(m)}|Y_{1:t-1}) q(X_{t-L+1:t}^{'(m)}|X_{1:t-1}^{(m)}, Y_{t-L+1:t}) } \nonumber \\
+\tilde{W}_t^{(m)} & = & \frac{ P(X_{1:t-L}^{(m)}, X_{t-L+1:t}^{'(m)}|Y_{1:t}) \rho(X_{t-L+1:t-1}^{(m)}|X_{1:t-L}^{(m)}, X_{t-L+1:t}^{'(m)}) }{ q(X_{1:t-1}^{(m)}|Y_{1:t-1}) q(X_{t-L+1:t}^{'(m)}|X_{1:t-1}^{(m)}, Y_{t-L+1:t}) } \nonumber \\
  & \approx & \frac{W_{t-1}^{(m)}}{V_t^{(m)}} \times \frac{ P(X_{1:t-L}^{(m)}, X_{t-L+1:t}^{'(m)}|Y_{1:t}) \rho(X_{t-L+1:t-1}^{(m)}|X_{1:t-L}^{(m)}, X_{t-L+1:t}^{'(m)}) }{ P(X_{1:t-1}^{(m)}|Y_{1:t-1}) q(X_{t-L+1:t}^{'(m)}|X_{1:t-1}^{(m)}, Y_{t-L+1:t}) } \nonumber\\
- & \propto & \frac{W_{t-1}^{(m)}}{V_t^{(m)}} \times \frac{ P(Y_{t-L+1:t}|X_{t-L+1:t}^{'(m)}) P(X_{t-L+1:t}^{'(m)}|X_{t-L}^{(m)}) \rho(X_{t-L+1:t-1}^{(m)}|X_{1:t-L}^{(m)}, X_{t-L+1:t}^{'(m)}) }{ P(Y_{t-L+1:t-1}|X_{t-L+1:t-1}^{(m)}) P(X_{t-L+1:t-1}^{(m)}|X_{t-L}^{(m)}) q(X_{t-L+1:t}^{'(m)}|X_{1:t-1}^{(m)}, Y_{t-L+1:t}) } \IEEEeqnarraynumspace
+ & \propto & \frac{W_{t-1}^{(m)}}{V_t^{(m)}} \times \frac{ P(Y_{t-L+1:t}|X_{t-L+1:t}^{'(m)}) P(X_{t-L+1:t}^{'(m)}|X_{t-L}^{(m)}) \rho(X_{t-L+1:t-1}^{(m)}|X_{1:t-L}^{(m)}, X_{t-L+1:t}^{'(m)}) }{ P(Y_{t-L+1:t-1}|X_{t-L+1:t-1}^{(m)}) P(X_{t-L+1:t-1}^{(m)}|X_{t-L}^{(m)}) q(X_{t-L+1:t}^{'(m)}|X_{1:t-1}^{(m)}, Y_{t-L+1:t}) } \IEEEeqnarraynumspace .
 \end{IEEEeqnarray}
 
 Proposals are made using the method detailed in section~\ref{FixedLag_App}.
 
-The artificial conditional distribution, $\rho(.)$ should be an approximation for the conditional posterior, as discussed in section~\ref{sec:FixedLag2}. This was the objective we had when constructing the proposal distribution, so we use the same approximation. i.e. $\rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) = q(X_{t-L+1:t-1}|X_{t-L}, Y_{t-L+1:t-1})$.
+The artificial conditional distribution, $\rho(.)$, should be an approximation for the conditional posterior, as discussed in section~\ref{sec:FixedLag2}. This was the objective we had when constructing the proposal distribution, so we use the same approximation. i.e. $\rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) = q(X_{t-L+1:t-1}|X_{t-L}, Y_{t-L+1:t-1})$.
 
 
 
 \subsection{Resampling strategies}
-In the basic particle filter, the resampling procedure is equivalent to proposing a set of histories, $X_{1:t-1}$, for the new particle distribution. Histories can only be taken from the previous step, otherwise there would be states missing. In a fixed lag particle filter, we could propose valid histories, $X_{t-L}$ from any of the previous $L$ frames. In certain difficult situations, where the correct path of the target is unclear, such a strategy could improve performance by increasing the diversity of histories which we can propose.
-
-Directly proposing histories from old particle distributions would be difficult to implement in an SISR system (not so for MCMC - see section~\ref{}). Instead, we use a modified resampling scheme to achieve a similar effect. This scheme is based on that of \cite{Godsill2007}. Each particle is copied to form $n^{(m)}$ children:
+The ordinary resampling procedure employed with SISR PFs may be considered an `aggresive' strategy, removing all low-weight particles entirely. Sometimes such an unlikely path may later turn out to be correct, so a more conservative scheme may be appropriate. The scheme used here is based on that of \cite{Godsill2007}. Each particle is copied to form $n^{(m)}$ children
 
 \begin{equation}
 n^{(m)} = \min(1,\left\lceil N W^{(m)} \right\rceil)
-\label{eq:}
 \end{equation}
 
-and intermediate weight is assigned to each:
+and an intermediate weight is assigned to each
 
 \begin{equation}
-\tilde{W}^{(m)} = \frac{W^{(m)}}{n^{(m)}}
-\label{eq:}
+\hat{W}^{(m)} = \frac{W^{(m)}}{n^{(m)}}.
 \end{equation}
 
 Finally, the particle set is systematically downsampled to reduced its size to $N$ again. The effect of this procedure is to keep some low weight particles, improving the diversity of track histories. This `conservative resampling' scheme reduces track loss.
@@ -34,8 +30,7 @@ Finally, the particle set is systematically downsampled to reduced its size to $
 Such a resampling scheme is equivalent to auxiliary particle filtering with systematic resampling and particle proposal weights given by
 
 \begin{equation}
-V_t^{(m)} = \frac{n^{(m)}}{\sum_m n^{(m)}}
-\label{eq:}
+V_t^{(m)} = \frac{n^{(m)}}{\sum_m n^{(m)}}.
 \end{equation}
 
 
@@ -43,8 +38,10 @@ V_t^{(m)} = \frac{n^{(m)}}{\sum_m n^{(m)}}
 \subsection{Coping with dimensionality}
 A particle filter operating on the full joint posterior performs very poorly with more than a few targets. The reason for this is the very high dimensionality of the state space, which would require too many particles to adequately populate. In a particle with good estimates for one target, there may be poor estimates for another, resulting in a low weight. The probability of achieving a good estimate for all targets is very low if we propose them all at once.
 
-The methods of \cite{Vermaak2005} can be used to alleviate the dimensionality problem. In particular, if we relax the constraint that only one observation arises from each target in each frame, as for the IPPF, then the PF can effectively be split into $K_t$ separate filters, one for each target. The posterior for each individual target filter is given by taking the factor corresponding to that target from the observation likelihood, equation~\ref{eq:MTFactorisedLikelihood}, the transition dynamics, equation~\ref{eq:MTFactorisedTransition}, and the association likelihood, equation~\ref{eq:MTFactorisedAssociationLikelihood}. In particular, the factorisation we use here for the association likelihood does not require a clutter weight to be applied across all targets at the end in order to construct the joint posterior, as in \cite{Vermaak2005}.
+The methods of \cite{Vermaak2005} can be used to alleviate the dimensionality problem. In particular, if we relax the constraint that only one target corresponds to each observation in each frame, as for the IPPF, then the PF can effectively be split into $K_t$ separate filters, one for each target. The posterior for each individual target filter is given by taking the factor corresponding to that target from the observation likelihood, equation~\ref{eq:MTFactorisedLikelihood}, the transition dynamics, equation~\ref{eq:MTFactorisedTransition}, and the association likelihood, equation~\ref{eq:MTFactorisedAssociationLikelihood}. In particular, the factorisation we use here for the association likelihood does not require a clutter weight to be applied across all targets at the end in order to construct the joint posterior, as in \cite{Vermaak2005}.
 
-Relaxing the unique association constraint is very mild assumption for well-spaced targets - they are highly likely to be actually independent in the posterior. However, for closely-spaced targets, an assumption of independence is poor, and is likely to lead to multiple estimated tracks following the same target, associated with the same observations, in a similar way to multiple PDAFs approximating a JPDAF. We can construct a hybrid between the full joint target system and the independent-association form. Initially we assume independence between all targets. After each processing frame, a test for `collisions' is carried out. A collision occurs when the sets of observations associated with two targets overlaps. When this occurs, we discard the estimates from the two independent particle filters and run a joint filter on the pair of targets. This clustering is maintained until the targets are well-spaced again, at which point we can revert to independent tracking.
+Relaxing the unique association constraint is very mild assumption for well-spaced targets - they are highly likely to be actually independent in the posterior. However, for closely-spaced targets, an assumption of independence is poor, and is likely to lead to multiple estimated tracks following the same target, associated with the same observations, in a similar way to multiple PDAFs approximating a JPDAF.
+
+We can construct a hybrid between the full joint target system and the independent-association form. Initially we assume independence between all targets. After each processing frame, a test for `collisions' is carried out. A collision occurs when the sets of observations associated with two targets overlaps. When this occurs, we discard the estimates from the two independent particle filters and run a joint filter on the pair of targets. This clustering is maintained until the targets are well-spaced again, at which point we can revert to independent tracking.
 
 Such a collision-detecting algorithm can only work well on problems when targets are reasonably sparse. If many targets pass close to each other in a short time, we will end up tracking them all jointly, and performance will revert to the that of the complete joint tracker. While two (or more) tracks are being jointly tracked the state estimation error is increased and the probability of losing a track increases.

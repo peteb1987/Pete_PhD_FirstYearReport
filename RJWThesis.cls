@@ -291,7 +291,7 @@
       }%
       % Rule
       \put(0,-0.33){%
-        \color{\chaprule@colour}\rule{\paperwidth}{\rulewidth}%
+        \hspace{1in}\hspace{\oddsidemargin}\color{\chaprule@colour}\rule{\textwidth}{\rulewidth}%
       }%
     }%
   }%

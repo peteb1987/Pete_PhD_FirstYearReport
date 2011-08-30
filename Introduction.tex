@@ -2,11 +2,11 @@ In a target tracking problem, the aim is to trace the trajectory of an object ov
 
 Research in target tracking emerged from military applications such as radar and sonar. However, similar problems emerge in many diverse branches of science: the tracking of people, vehicles or animals in video sequences; of molecules or cells in microscopy data; or of notes in a piece of music. Each can be reduced to a similar underlying model.
 
-In this work, a number of new algorithms have been developed for target tracking. These algorithms employ fixed-lag particle filters, which allow previous states to be re-proposed when later observations have been made. Examples have been implemented using both sequential importance sampling with resampling and Markov chain Monte Carlo.
+Here we present a number of particle filtering algorithms for target tracking. Particle filters allow inference to be conducted with nonlinear, non-Gaussian dynamic models by approximating the filtering distribution with a set of discrete samples. The new algorithms employ a fixed-lag formulation, which allows previous states to be re-proposed when later observations have been made. Examples have been implemented using both sequential importance sampling with resampling and Markov chain Monte Carlo.
 
 This report is structured as follows:
 
-In chapter 2 we review the relevant literature on tracking and particle filtering for nonlinear estimation.
+In chapter 2 we review the relevant literature on tracking and particle filtering for sequential nonlinear estimation.
 
 In chapter 3 we review some mathematical basics which underlie the inference methods used later and set out basic notation.
 

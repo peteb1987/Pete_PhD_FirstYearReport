@@ -9,7 +9,7 @@ Datasets have been logged in which a sequence of buttons appear on the screen, a
 
 
 
-\subsection{Nearest Neighbour}
+\subsection{Nearest neighbour}
 The simplest conceivable algorithm for selecting a button is to pick that which is closest to the cursor at the given time instant. This most basic of schemes will be used as a benchmark against which to compare others. Such a scheme has a probabilistic interpretation, that the cursor position is normally distributed with mean at the target button and a fixed variance. This interpretation can be useful for calculating probabilities for each button, rather than just finding a ML or MAP choice.
 
 \begin{equation}P(x_k|b_i) = \mathcal{N}(x_k|b_i, \sigma^2 I)\end{equation}
@@ -25,23 +25,24 @@ We assume a uniform prior over the buttons, although more sophisticated choices 
 
 \subsubsection*{Summary}
 Pick the button which is closest to the cursor (on average).
-Design parameters: Window length, $L$.
+Design parameters: Window length, $L$. Noise variance, $\sigma^2$.
 
 
 
-\subsection{Mean-Reverting Diffusion}
+\subsection{Mean-reverting diffusion}
 The cursor movement can be modelled as an Ornstein-Uhlenbeck process, a diffusion with a mean-reversion term. The cursor velocity is assumed to have two components, one random (Gaussian) and one deterministic which moves it towards the correct button.
 
 \begin{equation}dx_t = \lambda (b_i - x_t)dt + \sigma dw_t\end{equation}
 where $w_t$ is a Wiener process.
 
-This may be solved analytically and discretised to give:
+This may be solved analytically and discretised to give
 
 \begin{equation}P(x_{k+1}|x_{k}, b_i) = \mathcal{N} ( x_{k+1} | \mu_k, \gamma_k I)\end{equation}
-where $x_k$ is the $k^{th}$, measurement made at time $t_k$, and:
+
+where $x_k$ is the $k^{th}$, measurement made at time $t_k$, and
 
 \begin{equation}\mu_k = x_{k} + (b_i - x_k) (1-\exp(-\lambda (t_{k+1} - t_k)))\end{equation}
-\begin{equation}\gamma_k = \sigma^2 \bigg (\frac{1-\exp(-2 \lambda (t_{k+1} - t_k))}{2 \lambda} \bigg )\end{equation}
+\begin{equation}\gamma_k = \sigma^2 \bigg (\frac{1-\exp(-2 \lambda (t_{k+1} - t_k))}{2 \lambda} \bigg ) .\end{equation}
 
 $\sigma$ and $\lambda$ are design parameters.
 
@@ -61,10 +62,10 @@ Design parameters: Window length, $L$. Diffusion noise variance, $\sigma^2$. Dri
 
 
 
-\subsection{Mean Bearing}
+\subsection{Mean bearing}
 We can assume that the bearing moved along by the cursor between each consecutive pair of measurements is a random variable with a mean equal to the bearing of the target button.
 
-\begin{equation}P(x_{k+1}|x_{k}) = \mathcal{N}(B_{x_k}(x_{k+1})|B_{x_k}(b_i), \sigma)\end{equation}
+\begin{equation}P(x_{k+1}|x_{k}) = \mathcal{N}(B_{x_k}(x_{k+1})|B_{x_k}(b_i), \sigma^2)\end{equation}
 where $B_{a}(b)$ is the function which returns the bearing of $b$ from $a$. $\sigma$ is a design parameter.
 
 As before, we can look at a set of measurements in a window as well as just one.
@@ -95,7 +96,7 @@ For the MB algorithm, the optimum choice of window length was $L=0.4s$ for subje
 
 For the Composite (Comp) algorithm, the parameters were set to the optimum values for each of the constituent algorithms. The threshold used was $S_T = 500 \text{pixel}/s$.
 
-\begin{table}[!h]
+\begin{table}[!hbt]
 \centering{\begin{tabular}{|c||c|c|c|c|}
 \hline
  & \multicolumn{4}{|c|}{Proportion Correct by Algorithm (\%)} \\
@@ -119,7 +120,7 @@ The MB algorithm performs very poorly according to the metric used. However, exa
 Figure~\ref{fig:CursorTracking} shows a screenshot of a tracking algorithm in action. The circles represent the grid of phantom buttons. The real button is shown with a red circle. The shading of the circles represents the posterior probability of the button. The blue line is a trace of the cursor movement. The red cross indicates the button selected by the algorithm.
 
 \begin{figure}[hbt]
-\centering \includegraphics[width=0.9\textwidth]{MovieScreenshot.pdf}
+\centering \includegraphics[width=0.9\textwidth]{MovieScreenshot-crop.pdf}
 \caption{A screen shot showing the cursor trace, the grid of phantom buttons and their probabilities. See text for details.}
 \label{fig:CursorTracking}
 \end{figure}

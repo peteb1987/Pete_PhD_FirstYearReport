@@ -1,26 +1,26 @@
 The previous sections have focussed on the traditional, SISR particle filter. Here we examine the MCMC version. The mathematical extensions required are minimal.
 
-MCMC methods allow us to generate an unweighted particle approximation to a target probability distribution. Particles are generated sequentially, each dependent on the last, giving us a Markov chain whose stationary distribution is equal to that which we wish to approximate. For a basic MH step, a proposal distribution is sampled to acquire a new candidate state. With some probability this candidate is accepted as the new state. Otherwise, it is rejected and the old state is kept as the new state. The acceptance probability required to make $P(X)$ the stationary distribution of the Markov chain is given by:
+MCMC methods allow us to generate an unweighted particle approximation to a target probability distribution. Particles are generated sequentially, each dependent on the last, giving us a Markov chain whose stationary distribution is equal to that which we wish to approximate. For a basic MH step, a proposal distribution is sampled to acquire a new candidate state. With some probability this candidate is accepted as the new state. Otherwise, it is rejected and the old state is kept as the new state. The acceptance probability required to make $P(X)$ the stationary distribution of the Markov chain is given by
 
 \begin{equation}
-\alpha = \min \bigg ( 1,  \frac{ P(X_{\text{new}}) q(X_{\text{old}}|X_{\text{new}}) }{ P(X_{\text{old}}) q(X_{\text{new}}|X_{\text{old}}) }  \bigg )
+\alpha = \min \bigg ( 1,  \frac{ P(X_{\text{new}}) q(X_{\text{old}}|X_{\text{new}}) }{ P(X_{\text{old}}) q(X_{\text{new}}|X_{\text{old}}) }  \bigg ).
 \label{eq:MHAcceptance}
 \end{equation}
 
-This will be appear familiar as the ratio of the importance weights the old and candidate states would receive in a SISR scheme. In a MCMC particle filtering scheme we target the usual joint posterior distribution:
+This will be appear familiar as the ratio of the importance weights the old and candidate states would receive in a SISR scheme. In a MCMC particle filtering scheme we target the usual joint posterior distribution
 
 \begin{equation}
-P(X_{1:t}|Y_{1:t}) = \frac{P(Y_t|X_t)P(X_t|X_{t-1})P(X_{1:t-1}|Y_{1:t-1})}{P(Y_t|Y_{1:t-1})}
+P(X_{1:t}|Y_{1:t}) = \frac{P(Y_t|X_t)P(X_t|X_{t-1})P(X_{1:t-1}|Y_{1:t-1})}{P(Y_t|Y_{1:t-1})}.
 \label{eq:MCMCPFTarget}
 \end{equation}
 
-As for the SISR particle filter, the proposal distribution factorises as  $X_{1:t} \sim q(X_{1:t}|Y_{1:t}) = q(X_{t}|Y_{t}, X_{1:t-1}) q(X_{1:t-1}|Y_{1:t})$. We can use a biased history proposal in the flavour of the auxiliary particle filter, as described by equation~\ref{eq:AuxiliarySamplingProposal}.
+As for the SISR particle filter, the proposal distribution factorises as  $X_{1:t} \sim q(X_{1:t}|Y_{1:t}) = q(X_{t}|Y_{t}, X_{1:t-1}) q(X_{1:t-1}|Y_{1:t})$. We can use a biased history proposal in the flavour of the auxiliary particle filter, as in equation~\ref{eq:AuxiliarySamplingProposal}.
 
-We now adopt the following notation: $X$ for the new state of the Markov chain, and $Z$ for the old state, with $V_{X,t}$ and $V_{Z,t}$ respectively for the auxiliary proposal weights. Using these expansions, the acceptance probability is given by:
+We now adopt the following notation: $X$ for the new state of the Markov chain, and $Z$ for the old state, with $V_{X,t}$ and $V_{Z,t}$ respectively for the auxiliary proposal weights. Using these expansions, the acceptance probability is given by
 
 \begin{IEEEeqnarray}{rCl}
 \alpha & = & \min \bigg ( 1,  \frac{ P(X_{1:t}|Y_{1:t}) q(Z_{1:t}|Y_{1:t} }{ P(Z_{1:t}|Y_{1:t}) q(X_{1:t}|Y_{1:t} }  \bigg ) \nonumber \\
- & = & \min \bigg ( 1,  \frac{ P(Y_t|X_t)P(X_t|X_{t-1}) q(Z_t|Y_t, Z_{1:t-1}) V_{Z,t} }{ P(Y_t|Z_t)P(Z_t|Z_{t-1}) q(X_t|Y_t, X_{1:t-1}) V_{X,t} }  \bigg )
+ & = & \min \bigg ( 1,  \frac{ P(Y_t|X_t)P(X_t|X_{t-1}) q(Z_t|Y_t, Z_{1:t-1}) V_{Z,t} }{ P(Y_t|Z_t)P(Z_t|Z_{t-1}) q(X_t|Y_t, X_{1:t-1}) V_{X,t} }  \bigg ).
 \label{eq:MCMCPFAcceptance}
 \end{IEEEeqnarray}
 

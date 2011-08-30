@@ -1,28 +1,28 @@
 We begin with some useful identities. A Gaussian transition density model for a single target is given by
 
 \begin{equation}
-P(x_{t+1}|x_t) = \mathcal{N}(x_{t+1}|A x_t, Q)
+P(x_{t+1}|x_t) = \mathcal{N}(x_{t+1}|A x_t, Q).
 \end{equation}
 
 If the multiple step transition density is written as
 
 \begin{equation}
-P(x_{t+d}|x_t) = \mathcal{N}(x_{t+1}|A_d x_t, Q_d)
+P(x_{t+d}|x_t) = \mathcal{N}(x_{t+d}|A_d x_t, Q_d)
 \end{equation}
 
-then we can write the recursion
+then using standard identities we can write the recursion
 
 \begin{IEEEeqnarray}{rCl}
 P(x_{t+d+1}|x_{t}) & = & \int P(x_{t+d+1}|x_{t+d})P(x_{t+d}|x_t) dx_{t+d} \nonumber \\
  & = & \int \mathcal{N}(x_{t+d+1}|A x_{t+d}, Q) \mathcal{N}(x_{t+d}|A_d x_{t+d}, Q_d) dx_{t+d} \nonumber \\
- & = & \mathcal{N}(x_{t+d+1}|A \times A_d x_t, A Q_d A^T + Q)
+ & = & \mathcal{N}(x_{t+d+1}|A \times A_d x_t, A Q_d A^T + Q).
 \end{IEEEeqnarray}
 
 Hence, by induction, we have
 
 \begin{IEEEeqnarray}{rCl}
 A_d & = & A^d \nonumber \\
-Q_d & = & \sum_{k=0}^{d-1} (A^k) Q (A^k)^T
+Q_d & = & \sum_{k=0}^{d-1} (A^k) Q (A^k)^T.
 \end{IEEEeqnarray}
 
 Also, for $\lambda_t \ne 0$, and using the factorisation of equation~\ref{eq:MTFactorisedLikelihood}
@@ -35,7 +35,7 @@ P(y_{t+d}^{(\lambda_{t+d})}|x_{t}) & \propto & \int \mathcal{N}(y_{t+d}^{(\lambd
 where 
 
 \begin{IEEEeqnarray}{rCl}
-R_d & = & R + C_{t+d} Q_d C_{t+d}^T
+R_d & = & R + C_{t+d} Q_d C_{t+d}^T.
 \end{IEEEeqnarray}
 
 Here we derive an approximation for the `optimal' association proposal for a linear-Gaussian model. For nonlinear models, linear approximations may be used in the style of the EKF. The optimum form for the proposal distribution is given by
@@ -44,74 +44,74 @@ Here we derive an approximation for the `optimal' association proposal for a lin
 q(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) & & \nonumber \\
  & = & P(\lambda_{t-L+1:t}|x_{t-L}, Y_{t-L+1:t}) \nonumber \\
  & \propto & P(Y_{t-L+1:t}|\lambda_{t-L+1:t},x_{t-L}) P(\lambda_{t-L+1:t}|x_{t-L}) \nonumber \\
- & = & \prod_{\substack{k=1:L\\tt=t-L+k}} P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) P(\lambda_{tt})
+ & = & \prod_{\substack{k=1:L\\l=t-L+k}} P(Y_{l}|Y_{l+1:t} \lambda_{l:t}, x_{t-L}) P(\lambda_{l}).
 \label{eq:AssPropSequential}
 \end{IEEEeqnarray}
 
 where the backward-predictive likelihood factors may be expanded as
 
 \begin{equation}
-P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) = \int P(Y_{tt}|x_{tt}, \lambda_{tt}) P(x_{tt}|Y_{tt+1:t}, \lambda_{tt+1:t}, x_{t-L}) dx_{tt}
+P(Y_{l}|Y_{l+1:t} \lambda_{l:t}, x_{t-L}) = \int P(Y_{l}|x_{l}, \lambda_{l}) P(x_{l}|Y_{l+1:t}, \lambda_{l+1:t}, x_{t-L}) dx_{l}.
 \label{eq:AssPropBackPredLike}
 \end{equation}
 
 We use the approximation
 
 \begin{equation}
-P(x_{tt}|Y_{tt+1:t}, \lambda_{tt+1:t}, x_{t-L}) \approx P(x_{tt}|Y_{tt+d}, \lambda_{tt+d}, x_{t-L})
+P(x_{l}|Y_{l+1:t}, \lambda_{l+1:t}, x_{t-L}) \approx P(x_{l}|Y_{l+d}, \lambda_{l+d}, x_{t-L})
 \end{equation}
 
-where $d$ is the minimum positive value such that $\lambda_{tt+d} \ne 0$. This can be expanded as
+where $d$ is the minimum positive value such that $\lambda_{l+d} \ne 0$. This can be expanded as
 
 \begin{IEEEeqnarray}{rCl}
-\IEEEeqnarraymulticol{3}{l}{P(x_{tt}|Y_{tt+d}, \lambda_{tt+d}, x_{t-L})} \nonumber \\
-\qquad \qquad & \propto & \int P(Y_{tt+d}|x_{tt+d}, \lambda_{tt+d}) P(x_{tt+d}|x_{tt}) dx_{tt+d} P(x_{tt}|x_{t-L}) \nonumber \\
- & \propto & \int \mathcal{N}(y_{tt+d}^{(\lambda_{tt+d})}|C x_{tt+d}, R) \mathcal{N}(x_{tt+d}|A_d x_{tt}, Q_d) dx_{tt+d} \mathcal{N}(x_{tt}|A_k x_{t-L}, Q_k) \nonumber \\
- & \propto & \mathcal{N}(y_{tt+d}^{(\lambda_{tt+d})}|C_{tt+d} A_d x_{tt}, R + C_{tt+d} Q_d C_{tt+d}^T) \mathcal{N}(x_{tt}|A_k x_{t-L}, Q_k) \nonumber \\
+\IEEEeqnarraymulticol{3}{l}{P(x_{l}|Y_{l+d}, \lambda_{l+d}, x_{t-L})} \nonumber \\
+\qquad \qquad & \propto & \int P(Y_{l+d}|x_{l+d}, \lambda_{l+d}) P(x_{l+d}|x_{l}) dx_{l+d} P(x_{l}|x_{t-L}) \nonumber \\
+ & \propto & \int \mathcal{N}(y_{l+d}^{(\lambda_{l+d})}|C x_{l+d}, R) \mathcal{N}(x_{l+d}|A_d x_{l}, Q_d) dx_{l+d} \mathcal{N}(x_{l}|A_k x_{t-L}, Q_k) \nonumber \\
+ & \propto & \mathcal{N}(y_{l+d}^{(\lambda_{l+d})}|C_{l+d} A_d x_{l}, R + C_{l+d} Q_d C_{l+d}^T) \mathcal{N}(x_{l}|A_k x_{t-L}, Q_k) \nonumber .
 \label{eq:AssPropStateExpansion}
 \end{IEEEeqnarray}
 
 Substituting equation~\ref{eq:AssPropStateExpansion} into equation~\ref{eq:AssPropBackPredLike}, we have
 
 \begin{IEEEeqnarray}{rCl}
-\IEEEeqnarraymulticol{3}{l}{P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L})} \nonumber \\
-\qquad & \stackrel{\sim}{\propto} & \int \mathcal{N}(y_{tt}^{(\lambda_{tt})}|C_{tt} x_{tt}, R) \mathcal{N}(y_{tt+d}^{(\lambda_{tt+d})}|C_{tt+d} A_d x_{tt}, R + C_{tt+d} Q_d C_{tt+d}^T) \mathcal{N}(x_{tt}|A_k x_{t-L}, Q_k) dx_{tt} \nonumber \\
- & \propto & \int \exp(-\frac{1}{2} \xi) dx_{tt} \nonumber \\
- & \propto & \exp(-\frac{1}{2} \zeta)
+\IEEEeqnarraymulticol{3}{l}{P(Y_{l}|Y_{l+1:t} \lambda_{l:t}, x_{t-L})} \nonumber \\
+\qquad & \stackrel{\sim}{\propto} & \int \mathcal{N}(y_{l}^{(\lambda_{l})}|C_{l} x_{l}, R) \mathcal{N}(y_{l+d}^{(\lambda_{l+d})}|C_{l+d} A_d x_{l}, R + C_{l+d} Q_d C_{l+d}^T) \mathcal{N}(x_{l}|A_k x_{t-L}, Q_k) dx_{l} \nonumber \\
+ & \propto & \int \exp(-\frac{1}{2} \xi) dx_{l} \nonumber \\
+ & \propto & \exp(-\frac{1}{2} \zeta).
 \end{IEEEeqnarray}
 
 The challenge now is to rearrange $\xi$ and hence find $\zeta$. Superscript $\lambda$s are omitted for clarity.
 
 \begin{IEEEeqnarray}{rCl}
-\xi & = & (y_{tt} - C_{tt} x_{tt})^T R^{-1} (y_{tt} - C_{tt} x_{tt}) \nonumber \\
-    &   & + \: (y_{tt+d} - C_{tt+d} x_{tt+d})^T R_d^{-1} (y_{tt+d} - C_{tt+d} x_{tt+d}) \nonumber \\
-    &   & + \: (x_{tt} - A_k x_{t-L})^T Q_k^{-1} (x_{tt} - A_k x_{t-L}) \nonumber \\
-    & = & x_{tt}^T \underbrace{[ C_{tt}^T R^{-1} C_{tt} + A_d^T C_{tt+d}^T R_d^{-1} C_{tt+d} A_d + Q_k^{-1} ]}_{\Sigma_{tt}^{-1}} x_{tt} \nonumber \\
-    &   & - \: 2 \underbrace{[ y_{tt}^T R^{-1} C_{tt} + y_{tt+d}^T R_d^{-1} C_{tt+d} A_d + x_{t-L}^T A_k^T Q_k^{-1} ]}_{\mu_{tt}^T \Sigma_{tt}^{-1}} x_{tt} \nonumber \\
-    &   & + \: \underbrace{[ y_{tt}^T R^{-1} y_{tt} + y_{tt+d}^T R_d^{-1} y_{tt+d} + x_{t-L}^T A_k^T Q_k^{-1} A_k ]}_{C}
+\xi & = & (y_{l} - C_{l} x_{l})^T R^{-1} (y_{l} - C_{l} x_{l}) \nonumber \\
+    &   & + \: (y_{l+d} - C_{l+d} x_{l+d})^T R_d^{-1} (y_{l+d} - C_{l+d} x_{l+d}) \nonumber \\
+    &   & + \: (x_{l} - A_k x_{t-L})^T Q_k^{-1} (x_{l} - A_k x_{t-L}) \nonumber \\
+    & = & x_{l}^T \underbrace{[ C_{l}^T R^{-1} C_{l} + A_d^T C_{l+d}^T R_d^{-1} C_{l+d} A_d + Q_k^{-1} ]}_{\Sigma_{l}^{-1}} x_{l} \nonumber \\
+    &   & - \: 2 \underbrace{[ y_{l}^T R^{-1} C_{l} + y_{l+d}^T R_d^{-1} C_{l+d} A_d + x_{t-L}^T A_k^T Q_k^{-1} ]}_{\mu_{l}^T \Sigma_{l}^{-1}} x_{l} \nonumber \\
+    &   & + \: \underbrace{[ y_{l}^T R^{-1} y_{l} + y_{l+d}^T R_d^{-1} y_{l+d} + x_{t-L}^T A_k^T Q_k^{-1} A_k ]}_{C}
 \end{IEEEeqnarray}
 
-Carrying out the integral, an expression for $\zeta$ is now obtainable. Terms independent of $y_{tt}$ are absorbed into the constant of proportionality, which is unimportant as it will cancel out during normalisation.
+Carrying out the integral, an expression for $\zeta$ is now obtainable. Terms independent of $y_{l}$ are absorbed into the constant of proportionality, which is unimportant as it will cancel out during normalisation.
 
 \begin{IEEEeqnarray}{rCl}
-\zeta & = & C - \mu_{tt}^T \Sigma_{tt} \mu_{tt} \nonumber \\
-      & = & y_{tt}^T \underbrace{[ I - R^{-1} C_{tt} \Sigma C_{tt} R^{-1} ]}_{S_{tt}^{-1}} y_{tt} \nonumber \\
-      &   & - \: 2 \underbrace{[ y_{tt+d}^T R_d^{-1} C_{tt+d} A_d \Sigma_{tt} C_{tt}^T R^{-1} + x_{t-L}^T A_k^T Q_k^{-1} \Sigma_{tt} C_{tt}^T R^{-1} ]}_{m^T S^{-1}} y_{tt} \nonumber \\
+\zeta & = & C - \mu_{l}^T \Sigma_{l} \mu_{l} \nonumber \\
+      & = & y_{l}^T \underbrace{[ I - R^{-1} C_{l} \Sigma C_{l} R^{-1} ]}_{S_{l}^{-1}} y_{l} \nonumber \\
+      &   & - \: 2 \underbrace{[ y_{l+d}^T R_d^{-1} C_{l+d} A_d \Sigma_{l} C_{l}^T R^{-1} + x_{t-L}^T A_k^T Q_k^{-1} \Sigma_{l} C_{l}^T R^{-1} ]}_{m^T S^{-1}} y_{l} \nonumber \\
       &   & + \: \text{terms independent of $\zeta$}
 \end{IEEEeqnarray}
 
 Hence we arrive at the final expression
 
 \begin{equation}
-P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) \propto \mathcal{N}(y_{tt}^{(\lambda_{tt})}|m_t, S_t)
+P(Y_{l}|Y_{l+1:t} \lambda_{l:t}, x_{t-L}) \propto \mathcal{N}(y_{l}^{(\lambda_{l})}|m_t, S_t).
 \end{equation}
 
 where
 
 \begin{IEEEeqnarray}{rCl}
-m_t      & = & S_t R^{-1} C_{tt} \Sigma_{tt} [ A_d^T C_{tt}^T R_d^{-1} y_{tt}^{(\lambda_{tt})} + Q_k^{-1} A_k x_{t-L} ] \nonumber \\
-S_t      & = & [ I - R^{-1} C_{tt} \Sigma_{tt} C_{tt} R^{-1} ] \nonumber \\
-\Sigma_t & = & [ C_{tt}^T R^{-1} C_{tt} + A_d^T C_{tt+d}^T R_d^{-1} C_{tt+d} A_d + Q_k^{-1} ]^{-1}
+m_t      & = & S_t R^{-1} C_{l} \Sigma_{l} [ A_d^T C_{l}^T R_d^{-1} y_{l}^{(\lambda_{l})} + Q_k^{-1} A_k x_{t-L} ] \nonumber \\
+S_t      & = & [ I - R^{-1} C_{l} \Sigma_{l} C_{l} R^{-1} ] \nonumber \\
+\Sigma_t & = & [ C_{l}^T R^{-1} C_{l} + A_d^T C_{l+d}^T R_d^{-1} C_{l+d} A_d + Q_k^{-1} ]^{-1}
 \end{IEEEeqnarray}
 
 and as before
@@ -119,25 +119,25 @@ and as before
 \begin{IEEEeqnarray}{rCl}
 A_d & = & A^d \nonumber \\
 Q_d & = & \sum_{k=0}^{d-1} (A^k) Q (A^k)^T \nonumber \\
-R_d & = & R + C_{tt+d} Q_d C_{tt+d}^T
+R_d & = & R + C_{l+d} Q_d C_{l+d}^T .
 \end{IEEEeqnarray}
 
-We need a different expression for the case when $\lambda_{tt+d} = 0$ for all $d = 1:t-tt$. In this case, the future observations tell us nothing about the current state. Now the expression for the backward state prediction becomes
+We need a different expression for the case when $\lambda_{l+d} = 0$ for all $d = 1:t-l$. In this case, the future observations tell us nothing about the current state. Now the expression for the backward state prediction becomes
 
 \begin{equation}
-P(x_{tt}|Y_{tt+1:t}, \lambda_{tt+1:t}, x_{t-L}) = P(x_{tt}| x_{t-L})
+P(x_{l}|Y_{l+1:t}, \lambda_{l+1:t}, x_{t-L}) = P(x_{l}| x_{t-L})
 \end{equation}
 
 Proceeding as before, we have
 
 \begin{IEEEeqnarray}{rCl}
-P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) &  & \nonumber \\
- & \propto & \int \mathcal{N}(y_{tt}^{(\lambda_{tt})}|C_{tt} x_{tt}, R) \mathcal{N}(x_{tt}|A_k x_{t-L}, Q_k) dx_{tt} \nonumber \\
- & = & \mathcal{N}(y_{tt}^{(\lambda_{tt})}|C_{tt} A_k x_{t-L}, R_k)
+P(Y_{l}|Y_{l+1:t} \lambda_{l:t}, x_{t-L}) &  & \nonumber \\
+ & \propto & \int \mathcal{N}(y_{l}^{(\lambda_{l})}|C_{l} x_{l}, R) \mathcal{N}(x_{l}|A_k x_{t-L}, Q_k) dx_{l} \nonumber \\
+ & = & \mathcal{N}(y_{l}^{(\lambda_{l})}|C_{l} A_k x_{t-L}, R_k).
 \end{IEEEeqnarray}
 
-Finally, in the special case where $\lambda_{tt} = 0$,
+Finally, in the special case where $\lambda_{l} = 0$,
 
 \begin{equation}
-P(Y_{tt}|Y_{tt+1:t} \lambda_{tt:t}, x_{t-L}) \propto V^{-1}
+P(Y_{l}|Y_{l+1:t} \lambda_{l:t}, x_{t-L}) \propto V^{-1}.
 \end{equation}

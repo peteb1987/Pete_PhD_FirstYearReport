@@ -1,31 +1,31 @@
-If the dynamics of our tracking problem are linear-Gaussian, then using a particle filter for the state estimation is like using a sledgehammer to crack a nut. Similarly, if part of the state is linear-Gaussian \emph{conditional} on the rest, then the Rao-Blackwellisation method may be used. A marginalised PF (MPF) is used for estimating the nonlinear state partition, and a Kalman filter is used for the rest. Target tracking problems are ideally suited to MPFs. The association variables are estimated with a PF, after which the kinematic state is estimated by a Kalman filter. If the target dynamics are only mildly nonlinear, then the combination of an EKF and a MPF may well outperform a simple PF, on account of the reduced dimensionality of the particle distribution.
+If the dynamics of our tracking problem are linear-Gaussian, then using a particle filter for the state estimation is like using a sledgehammer to crack a nut. In this case the Rao-Blackwellisation method may be used. A marginalised PF (MPF) is used for estimating the association variables, and a set of Kalman filters is used for the target states. If the target dynamics are only mildly nonlinear, then the combination of an EKF and a MPF may well outperform a simple PF, on account of the reduced dimensionality of the particle distribution.
 
 The task of our MPF is to estimate the posterior of the associations, independent of the states, i.e. $P(\Lambda_{1:t}|Y_{1:t})$. A Kalman filter is then used to estimate the state distribution of each target conditional on the associations. The joint posterior is then constructed as
 
 \begin{equation}
-P(X_{1:t}, \Lambda_{1:t}|Y_{1:t}) = P(\Lambda_{1:t}|Y_{1:t}) \prod_{j=1}^{K_t} P(x_{j,1:t}|\Lambda_{1:t}, Y_{1:t})
+P(X_{1:t}, \Lambda_{1:t}|Y_{1:t}) = P(\Lambda_{1:t}|Y_{1:t}) \prod_{j=1}^{K_t} P(x_{j,1:t}|\Lambda_{1:t}, Y_{1:t}).
 \end{equation}
 
-The only change to the particle filter is the use of the marginal posterior, which expands as:
+The only change to the particle filter is the use of the marginal posterior, which expands as
 
 \begin{equation}
-P(\Lambda_{1:t}|Y_{1:t}) = \frac{ P(Y_{t-L+1:t}|\Lambda_{1:t}, Y_{1:t-L}) P(\lambda_{t-L+1:t}) P(\Lambda_{1:t-L}|Y_{1:t-L}) }{ P(Y_{t-L+1:t}|Y_{1:t-L}) }
+P(\Lambda_{1:t}|Y_{1:t}) = \frac{ P(Y_{t-L+1:t}|\Lambda_{1:t}, Y_{1:t-L}) P(\lambda_{t-L+1:t}) P(\Lambda_{1:t-L}|Y_{1:t-L}) }{ P(Y_{t-L+1:t}|Y_{1:t-L}) }.
 \end{equation}
 
-The predictive likelihood terms is given by:
+The predictive likelihood term is given by
 
 \begin{IEEEeqnarray}{rCl}
 P(Y_{t-L+1:t}|\Lambda_{1:t}, Y_{1:t-L}) & = & \prod_{k=t-L+1}^{t} P(Y_k|Y_{1:k-1}, \Lambda_{1:k}) \nonumber \\
- & \propto & \prod_{k=t-L+1}^{t} \prod_{j=1}^{K_k} P(y_k^{(\lambda_{j,k})}|\Lambda_{1:k-1}, Y_{1:k-1})
+ & \propto & \prod_{k=t-L+1}^{t} \prod_{j=1}^{K_k} P(y_k^{(\lambda_{j,k})}|\Lambda_{1:k-1}, Y_{1:k-1}).
 \end{IEEEeqnarray}
 
 The factors may be calculated using our assumption of Gaussian target dynamics. Provided $\lambda_{j,k} \ne 0$,
 
 \begin{equation}
-P(y_k^{(\lambda_{j,k})}|\Lambda_{1:k-1}, Y_{1:k-1}) = \int P(y_k^{(\lambda_{j,k})}|x_{j,k}, \Lambda_{1:k-1}, Y_{1:k-1}) P(x_{j,k}|\Lambda_{1:k-1}, Y_{1:k-1}) dx_{j,k}
+P(y_k^{(\lambda_{j,k})}|\Lambda_{1:k-1}, Y_{1:k-1}) = \int P(y_k^{(\lambda_{j,k})}|x_{j,k}, \Lambda_{1:k-1}, Y_{1:k-1}) P(x_{j,k}|\Lambda_{1:k-1}, Y_{1:k-1}) dx_{j,k}.
 \end{equation}
 
-The term $P(x_{j,k}|\Lambda_{1:k-1}, Y_{1:k-1})$ is familiar as the Kalman filter prediction of the target state. Hence we have:
+The term $P(x_{j,k}|\Lambda_{1:k-1}, Y_{1:k-1})$ is familiar as the Kalman filter prediction of the target state. Hence we have
 
 \begin{equation}
 P(y_k^{(\lambda_{j,k})}|\Lambda_{1:k-1}, Y_{1:k-1}) = \begin{cases}

@@ -1,46 +1,44 @@
-Here we consider the mathematical framework for fixed-lag estimation, as presented by \cite{Doucet2006} and \cite{Briers2006}.
+Here we examine the mathematical framework for fixed-lag estimation, as presented by \cite{Doucet2006} and \cite{Briers2006}.
 
-As before, the target posterior distribution in which we are interested is the familiar $P(X_{1:t}|Y_{1:t})$. However, the proposal mechanism now becomes more complex, because we will be replacing states in an existing particle. We first propose a particle from which to take the state ``history'', that is $X_{1:t-L}$. However, if we take this from the particle distribution from the previous step we get more of the path than we need, because each particle is a set of states $X_{1:t-1}$. The final $L-1$ states will be replaced when by a new ``present'', $X'_{t-L+1:t}$, drawn from an importance distribution. The complete proposal is thus
+As before, the target posterior distribution in which we are interested is the familiar $P(X_{1:t}|Y_{1:t})$. However, the proposal mechanism now becomes more complex, because we will be replacing states in an existing particle. We first propose a particle from which to take the state `history', that is $X_{1:t-L}$. However, if we take this from the particle distribution from the previous step we get more of the path than we need, because each particle is a set of states $X_{1:t-1}$. The final $L-1$ states will be replaced when by a new `present', $X'_{t-L+1:t}$, drawn from an importance distribution. The complete proposal is thus
 
 \begin{equation}
-\{X_{1:t-L}, X'_{t-L+1:t}\} \sim \int q(X_{1:t-1}|Y_{1:t-1}) q(X'_{t-L+1}|X_{1:t-1}, Y_{t-L+1:t}) dX_{t-L+1:t-1}
+\{X_{1:t-L}, X'_{t-L+1:t}\} \sim \int q(X_{1:t-1}|Y_{1:t-1}) q(X'_{t-L+1:t}|X_{1:t-1}, Y_{t-L+1:t}) dX_{t-L+1:t-1}
 \label{eq:DumbFLProposal1}
 \end{equation}
 
-where $q(X_{1:t-1}|Y_{1:t-1})$ is a proposal distribution using the arbitrarily-weighted particles from $\hat{P}(X_{1:t-1}|Y_{1:t-1})$, in the auxiliary sampling sense. This integral is required for calculation of importance weights of acceptance probabilities, but in general it will be intractable. If we were to restrict our proposals to depend only on the history, i.e. use $q(X_{t-L+1:t}|X_{1:t-L}, Y_{t-L+1:t})$, then the proposal would become
+where $q(X_{1:t-1}|Y_{1:t-1})$ is a proposal distribution using some weighted set of the particles from $\hat{P}(X_{1:t-1}|Y_{1:t-1})$, in the auxiliary sampling style. This integral is required for calculation of importance weights of acceptance probabilities, but in general it will be intractable. If we were to restrict our proposals to depend only on the history, i.e. use $q(X_{t-L+1:t}|X_{1:t-L}, Y_{t-L+1:t})$, then the proposal would become
 
 \begin{equation}
-\{X_{1:t-L}, X'_{t-L+1:t}\} \sim \hat{P}(X_{1:t-L}|Y_{1:t-1}) q(X'_{t-L+1}|X_{1:t-1}, Y_{t-L+1:t})
+\{X_{1:t-L}, X'_{t-L+1:t}\} \sim \hat{P}(X_{1:t-L}|Y_{1:t-1}) q(X'_{t-L+1}|X_{1:t-1}, Y_{t-L+1:t}).
 \label{eq:DumbFLProposal2}
 \end{equation}
 
-However, with this proposal, in order to evaluate importance weights or acceptance probabilities we still need to calculate
+However, in order to evaluate importance weights or acceptance probabilities we still need to calculate
 
 \begin{equation}
-P(X_{1:t-L}|Y_{1:t-1}) = \frac{P(Y_{t-L+1:t-1}|X_{t-L}^{(m)}) P(X_{1:t-L}|Y_{1:t-L} }{P(Y_{t-L+1:t-1}|Y_{1:t-L})}
-\label{eq:}
+P(X_{1:t-L}|Y_{1:t-1}) = \frac{P(Y_{t-L+1:t-1}|X_{t-L}^{(m)}) P(X_{1:t-L}|Y_{1:t-L} }{P(Y_{t-L+1:t-1}|Y_{1:t-L})}.
 \end{equation}
 
-The problematic term is:
+The problematic term is
 
 \begin{equation}
-P(Y_{t-L+1:t}|X^{(m)}_{t-L}) = \int P(Y_{t-L+1:t}|X^{(m)}_{t-L}, X_{t-L+1:t}) P(X_{t-L+1:t}|X^{(m)}_{t-L}) dX_{t-L+1:t}
-\label{eq:}
+P(Y_{t-L+1:t-1}|X^{(m)}_{t-L}) = \int P(Y_{t-L+1:t-1}|X^{(m)}_{t-L}, X_{t-L+1:t-1}) P(X_{t-L+1:t-1}|X^{(m)}_{t-L}) dX_{t-L+1:t-1}.
 \end{equation}
 
-This is intractable. The solution to this problem proposed in \cite{Doucet2006} is to augment the dimension of the target distribution to include the discarded tracks. The new target is:
+This is intractable. The solution to this problem proposed in \cite{Doucet2006} is to augment the dimension of the target distribution to include the discarded tracks. The new target is
 
 \begin{equation}
-P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t})
+P(X_{1:t-L}, X'_{t-L+1:t}|Y_{1:t}) \rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}).
 \label{eq:FLTarget}
 \end{equation}
 
-Once a particle approximation has been generated for this target the required posterior distribution may be obtained by marginalisation. As we are simply going to discard the old track sections $X_{t-L+1:t-1}$, the choice of $\rho(.)$ does not alter the distribution of the posterior. However, the quality of the particle approximation may be affected.
+Once a particle approximation has been generated for this target the required posterior distribution may be obtained by marginalisation. As we are simply going to discard the old track sections $X_{t-L+1:t-1}$, the choice of $\rho(.)$ does not alter the distribution of the posterior. However, the quality of the particle approximation may be affected (e.g. ESS may be low with a poor choice of $\rho(.)$).
 
-With an expanded space for the target distribution there is no need to marginalise the previous states. The proposal distribution now becomes:
+With an expanded space for the target distribution there is no need to marginalise the previous states during the proposal. This distribution thus becomes
 
 \begin{equation}
-\{X_{1:t-1}, X'_{t-L+1:t}\} \sim q(X_{1:t-1}|Y_{1:t-1}) q(X'_{t-L+1:t}|X_{1:t-1}, Y_{t-L+1:t})
+\{X_{1:t-1}, X'_{t-L+1:t}\} \sim q(X_{1:t-1}|Y_{1:t-1}) q(X'_{t-L+1:t}|X_{1:t-1}, Y_{t-L+1:t}).
 \label{eq:ExtendedFLProposal}
 \end{equation}
 
@@ -50,14 +48,12 @@ Histories are proposed from the $t-1$ frame in the normal manner, see equation~\
 
 \begin{equation}
 \rho(X_{t-L+1:t-1}|X_{1:t-L}, X'_{t-L+1:t}) = P(X_{t-L+1:t-1}|X_{t-L}, Y_{t-L+1:t-1})
-\label{eq:}
 \end{equation}
 
 with the current proposal distribution set to
 
 \begin{equation}
-q(X'_{t-L+1:t}|X_{1:t-s}, Y_{t-L+1:t}) = P(X'_{t-L+1:t}|X_{t-L}, Y_{t-L+1:t})
-\label{eq:}
+q(X'_{t-L+1:t}|X_{1:t-1}, Y_{t-L+1:t}) = P(X'_{t-L+1:t}|X_{t-L}, Y_{t-L+1:t}).
 \end{equation}
 
 Thus both artificial conditional and proposal distribution should equal to the conditional posterior. This is neither samplable nor calculable, and approximations will be required.

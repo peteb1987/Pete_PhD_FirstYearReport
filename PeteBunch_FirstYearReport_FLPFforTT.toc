@@ -20,64 +20,64 @@
 \contentsline {subsection}{\numberline {2.2.2}Data association hypothesis methods}{19}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Full particle filters}{20}{subsection.2.2.3}
 \contentsline {subsection}{\numberline {2.2.4}Probability hypothesis density methods}{21}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Bringing it all together}{21}{subsection.2.2.5}
-\contentsline {chapter}{\numberline {3}Mathematical foundations}{23}{chapter.3}
-\contentsline {section}{\numberline {3.1}Bayes of our lives - A short introduction to filtering}{23}{section.3.1}
+\contentsline {subsection}{\numberline {2.2.5}Summary}{22}{subsection.2.2.5}
+\contentsline {chapter}{\numberline {3}Mathematical Foundations}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Bayes of our lives - a short introduction to filtering}{23}{section.3.1}
 \contentsline {section}{\numberline {3.2}Keep Kalman carry on - the Kalman filter and its extensions}{24}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}The basic filter}{24}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}The extended filter}{25}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}The Kalman smoother}{26}{subsection.3.2.3}
 \contentsline {section}{\numberline {3.3}Tough as old bootstraps - the basic particle filter}{26}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}The basics}{28}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.1}The basics}{27}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Auxiliary sampling}{29}{subsection.3.3.2}
 \contentsline {subsection}{\numberline {3.3.3}Degeneracy and resampling}{30}{subsection.3.3.3}
 \contentsline {subsection}{\numberline {3.3.4}Importance distributions}{31}{subsection.3.3.4}
 \contentsline {section}{\numberline {3.4}MCMC in da house - Markov chains for particle filtering}{32}{section.3.4}
-\contentsline {chapter}{\numberline {4}The tracking model}{35}{chapter.4}
-\contentsline {section}{\numberline {4.1}Observation Likelihood}{37}{section.4.1}
-\contentsline {section}{\numberline {4.2}Transition Dynamics}{37}{section.4.2}
-\contentsline {section}{\numberline {4.3}Association Likelihood}{38}{section.4.3}
+\contentsline {chapter}{\numberline {4}The Tracking Model}{35}{chapter.4}
+\contentsline {section}{\numberline {4.1}Observation likelihood}{37}{section.4.1}
+\contentsline {section}{\numberline {4.2}Transition dynamics}{37}{section.4.2}
+\contentsline {section}{\numberline {4.3}Association likelihood}{38}{section.4.3}
 \contentsline {section}{\numberline {4.4}Assumptions}{38}{section.4.4}
 \contentsline {section}{\numberline {4.5}Specific models}{39}{section.4.5}
 \contentsline {subsection}{\numberline {4.5.1}State transitions}{39}{subsection.4.5.1}
 \contentsline {subsection}{\numberline {4.5.2}Observations}{40}{subsection.4.5.2}
 \contentsline {chapter}{\numberline {5}Fixed Lag Estimation for Tracking}{43}{chapter.5}
-\contentsline {section}{\numberline {5.1}The benefits of delaying}{43}{section.5.1}
+\contentsline {section}{\numberline {5.1}The advantage of waiting}{43}{section.5.1}
 \contentsline {section}{\numberline {5.2}A mathematical framework for fixed lag estimation}{44}{section.5.2}
 \contentsline {section}{\numberline {5.3}Application to tracking}{46}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}Importance distributions}{46}{subsection.5.3.1}
 \contentsline {subsubsection}{Association proposals}{47}{section*.11}
 \contentsline {subsubsection}{State proposals}{50}{section*.12}
 \contentsline {chapter}{\numberline {6}Fixed Lag Particle Filters}{53}{chapter.6}
-\contentsline {section}{\numberline {6.1}Sequential Importance Sampling and Resampling Implementation}{53}{section.6.1}
+\contentsline {section}{\numberline {6.1}Sequential importance sampling with resampling implementation}{53}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}Resampling strategies}{54}{subsection.6.1.1}
 \contentsline {subsection}{\numberline {6.1.2}Coping with dimensionality}{54}{subsection.6.1.2}
-\contentsline {section}{\numberline {6.2}Markov Chain Monte Carlo}{55}{section.6.2}
+\contentsline {section}{\numberline {6.2}Markov chain Monte Carlo implementation}{55}{section.6.2}
 \contentsline {subsection}{\numberline {6.2.1}Proposing older histories}{57}{subsection.6.2.1}
-\contentsline {section}{\numberline {6.3}Marginalised Particle Filters}{58}{section.6.3}
+\contentsline {section}{\numberline {6.3}Marginalised particle filters}{58}{section.6.3}
 \contentsline {chapter}{\numberline {7}Particle Filtering for Target Detection}{61}{chapter.7}
 \contentsline {section}{\numberline {7.1}Changes to the model}{61}{section.7.1}
 \contentsline {section}{\numberline {7.2}Particle filtering}{63}{section.7.2}
 \contentsline {chapter}{\numberline {8}Results}{65}{chapter.8}
 \contentsline {section}{\numberline {8.1}Testing methods}{65}{section.8.1}
-\contentsline {section}{\numberline {8.2}Performance assessment}{68}{section.8.2}
-\contentsline {chapter}{\numberline {9}Cursor Intentionality Tracking}{77}{chapter.9}
-\contentsline {section}{\numberline {9.1}Algorithms}{77}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Nearest Neighbour}{77}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}Mean-Reverting Diffusion}{78}{subsection.9.1.2}
-\contentsline {subsection}{\numberline {9.1.3}Mean Bearing}{79}{subsection.9.1.3}
-\contentsline {subsection}{\numberline {9.1.4}Composite}{80}{subsection.9.1.4}
-\contentsline {section}{\numberline {9.2}Results}{80}{section.9.2}
-\contentsline {section}{\numberline {9.3}Future work}{81}{section.9.3}
-\contentsline {chapter}{\numberline {10}Plan Of Future Research}{83}{chapter.10}
-\contentsline {section}{\numberline {10.1}Ideas for improved particle filters}{83}{section.10.1}
-\contentsline {subsection}{\numberline {10.1.1}Mixed exact-flow filter}{83}{subsection.10.1.1}
-\contentsline {subsection}{\numberline {10.1.2}SISR proposals for MCMC}{84}{subsection.10.1.2}
-\contentsline {subsection}{\numberline {10.1.3}MCMC importance sampling}{85}{subsection.10.1.3}
-\contentsline {section}{\numberline {10.2}Additional tracking problems}{86}{section.10.2}
-\contentsline {subsection}{\numberline {10.2.1}Additions to the algorithms}{86}{subsection.10.2.1}
-\contentsline {subsection}{\numberline {10.2.2}Target correspondence}{87}{subsection.10.2.2}
-\contentsline {subsection}{\numberline {10.2.3}Other applications}{87}{subsection.10.2.3}
-\contentsline {section}{\numberline {10.3}Fixed lag particle filtering}{87}{section.10.3}
-\contentsline {section}{\numberline {10.4}A plan for future research}{88}{section.10.4}
-\contentsline {chapter}{\numberline {A}Association proposals}{89}{appendix.A}
+\contentsline {section}{\numberline {8.2}Performance assessment}{67}{section.8.2}
+\contentsline {chapter}{\numberline {9}Cursor Intentionality Tracking}{75}{chapter.9}
+\contentsline {section}{\numberline {9.1}Algorithms}{75}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Nearest neighbour}{75}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Mean-reverting diffusion}{76}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Mean bearing}{77}{subsection.9.1.3}
+\contentsline {subsection}{\numberline {9.1.4}Composite}{78}{subsection.9.1.4}
+\contentsline {section}{\numberline {9.2}Results}{78}{section.9.2}
+\contentsline {section}{\numberline {9.3}Future work}{80}{section.9.3}
+\contentsline {chapter}{\numberline {10}Plan Of Future Research}{81}{chapter.10}
+\contentsline {section}{\numberline {10.1}Ideas for improved particle filters}{81}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}Mixed exact-flow filter}{81}{subsection.10.1.1}
+\contentsline {subsection}{\numberline {10.1.2}SISR proposals for MCMC}{82}{subsection.10.1.2}
+\contentsline {subsection}{\numberline {10.1.3}MCMC importance sampling}{83}{subsection.10.1.3}
+\contentsline {section}{\numberline {10.2}Additional tracking problems}{84}{section.10.2}
+\contentsline {subsection}{\numberline {10.2.1}Additions to the algorithms}{84}{subsection.10.2.1}
+\contentsline {subsection}{\numberline {10.2.2}Target correspondence}{85}{subsection.10.2.2}
+\contentsline {subsection}{\numberline {10.2.3}Other applications}{85}{subsection.10.2.3}
+\contentsline {section}{\numberline {10.3}Fixed lag particle filtering}{85}{section.10.3}
+\contentsline {section}{\numberline {10.4}A plan for future research}{86}{section.10.4}
+\contentsline {chapter}{\numberline {A}Association proposals}{87}{appendix.A}
